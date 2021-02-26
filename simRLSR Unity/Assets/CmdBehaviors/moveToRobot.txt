@@ -1,0 +1,34 @@
+#Command
+#    ActivateLeft = 1,
+#    ActivateRight = 2,
+#    DeactivateLeft = 3,
+#    DeactivateRight = 4,
+#    HeadReset = 5,
+#    LeaveLeft = 6,
+#    LeaveRight = 7,
+#    LookAt = 8,
+#    LookFor = 9,
+#    Move = 10,
+#    Rotate = 11,
+#    SmellLeft = 12,
+#    SmellRight = 13,
+#    Speech = 14,
+#    TakeLeft = 15,
+#    TakeRight = 16,
+#    TasteLeft = 17,
+#    TasteRight = 18,
+#    Turn = 19,
+#    CancelCommands = 20,
+#    Animate = 21
+#
+#Parameter Type
+#    WithId = 1,
+#    WithPos = 2,
+#    WithAngle = 3,
+#    WithString = 4,
+#    WithoutParameter = 5,
+#	 WithAnimate = 6
+
+moveToRobot01;10;4;Robot
+
+

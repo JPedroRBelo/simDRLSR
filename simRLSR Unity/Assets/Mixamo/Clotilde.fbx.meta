@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: bbf0625a2fbb2f14f9f3e9f5718c4e5f
+ModelImporter:
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bodymat
+    second: {fileID: 2100000, guid: 8eecc806f72a6394d950343c97a9af6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottommat
+    second: {fileID: 2100000, guid: 8225b21a8984eda429e163575d920219, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hairmat
+    second: {fileID: 2100000, guid: 6ae965ea6572f6f46b10e4d006881bfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoesmat
+    second: {fileID: 2100000, guid: 0d720ccd133129b4eaac029b2b697c31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Topmat
+    second: {fileID: 2100000, guid: 45d07a4b9d4787746a8d19ebdc12a563, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Body_Diffuse
+    second: {fileID: 2800000, guid: 98d46461e116d154485df10bbc8f0a60, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Body_Gloss
+    second: {fileID: 2800000, guid: b012e97bc7055cb4386326480308002e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Body_Normal
+    second: {fileID: 2800000, guid: bc0e0deba656c77438148c0a2b402cc6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Body_Opacity
+    second: {fileID: 2800000, guid: fff63dbdd85b0a54b8e6ebaa76aced40, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Body_Specular
+    second: {fileID: 2800000, guid: 73f7bc529d6d1d043a8603b63dde278b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Bottom_Diffuse
+    second: {fileID: 2800000, guid: af24deab6925abc43a3d2a012e3d4937, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Bottom_Gloss
+    second: {fileID: 2800000, guid: 2b4ff40950540af44921cbe75a196dec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Bottom_Normal
+    second: {fileID: 2800000, guid: f0bf7051d3090324dbf96e4f6c24f6cc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Bottom_Opacity
+    second: {fileID: 2800000, guid: f21f45988d9d52b4ab23b7218b7b8a7f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Bottom_Specular
+    second: {fileID: 2800000, guid: 592e9ded7ea316842ab339c7db0b42a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Hair_Diffuse
+    second: {fileID: 2800000, guid: 2ace1fae38ec18346badec057f3bc3e1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Hair_Gloss
+    second: {fileID: 2800000, guid: 2eadc36990f00304da869ff99e235eb0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Hair_Normal
+    second: {fileID: 2800000, guid: 34774dcbe5a634545a7a827edeb2845a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Hair_Opacity
+    second: {fileID: 2800000, guid: e71a65cbba372d949959afa0a0db9800, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Hair_Specular
+    second: {fileID: 2800000, guid: de46b255d20e12b4bad9c8e2623c4264, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Shoes_Diffuse
+    second: {fileID: 2800000, guid: ecad97c6da09f7446bd4f0c0aa979a8f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Shoes_Gloss
+    second: {fileID: 2800000, guid: d73d849406888a74cb46c2d8baaf9042, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Shoes_Normal
+    second: {fileID: 2800000, guid: d2c4ce96a3102b74abcdbf50c8f01f77, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Shoes_Opacity
+    second: {fileID: 2800000, guid: dc47dfb2d442d0a49ae7c12f46fa2863, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Shoes_Specular
+    second: {fileID: 2800000, guid: d883e6a814e18d74ab4b245bcd15ed94, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Top_Diffuse
+    second: {fileID: 2800000, guid: e1d849c3f698c724d89a06f733d40329, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Top_Gloss
+    second: {fileID: 2800000, guid: 401a793cfe4f7d747b9881d5b2ff2efc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Top_Normal
+    second: {fileID: 2800000, guid: 6631ab055d69db14ea12fd2cb802e57a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Top_Opacity
+    second: {fileID: 2800000, guid: a2e009b1baf9d814c8ff23b41b56bc89, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clotilde_Top_Specular
+    second: {fileID: 2800000, guid: 2aae909a478e37149a82985cb9139631, type: 3}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
