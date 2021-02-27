@@ -2,5 +2,5 @@
 *.debug
 UnityPlayer.so
 *.x86_64
-*dataset/RGB/*
+*dataset/RGB/
 *dataset/Depht/*
