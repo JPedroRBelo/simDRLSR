@@ -163,6 +163,11 @@ using System;
 
         }
 
+        public AgentAction getAction()
+        {
+            return dataAction;
+        } 
+
         
 
         void SendAction(AgentAction action, int step)

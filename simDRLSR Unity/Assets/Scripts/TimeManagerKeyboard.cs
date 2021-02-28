@@ -40,7 +40,7 @@ public class TimeManagerKeyboard : MonoBehaviour {
     public void pauseSimulation()
     {
         timeStateAt = TimeStates.Paused;
-        Time.timeScale = 0.25f;
+        Time.timeScale = 0;
     }
 
     public void setTime(float timeValue)
