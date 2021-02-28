@@ -174,8 +174,8 @@ function nql:load_data()
 			end
 			print("K")
 			print(k)
-			if(k>bufferSize) then
-				k = bufferSize
+			if(k>self.bufferSize) then
+				k = self.bufferSize
 			end	
 		
 			local images=torch.Tensor(k,self.hist_len,self.state_dim,self.state_dim)
