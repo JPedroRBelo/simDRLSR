@@ -25,7 +25,7 @@ def setValue(filename,value):
 
 
 
-command = './simRLSR.x86_64'
+command = './simDRLSR.x86_64'
 filename = 'simMDQN/flag_simulator.txt'
 
 
