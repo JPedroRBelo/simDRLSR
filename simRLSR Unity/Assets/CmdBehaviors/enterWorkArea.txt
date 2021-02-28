@@ -1,0 +1,43 @@
+#Command
+#    ActivateLeft = 1,
+#    ActivateRight = 2,
+#    DeactivateLeft = 3,
+#    DeactivateRight = 4,
+#    HeadReset = 5,
+#    LeaveLeft = 6,
+#    LeaveRight = 7,
+#    LookAt = 8,
+#    LookFor = 9,
+#    Move = 10,
+#    Rotate = 11,
+#    SmellLeft = 12,
+#    SmellRight = 13,
+#    Speech = 14,
+#    TakeLeft = 15,
+#    TakeRight = 16,
+#    TasteLeft = 17,
+#    TasteRight = 18,
+#    Turn = 19,
+#    CancelCommands = 20,
+#    Animate = 21
+#
+#Parameter Type
+#    WithId = 1,
+#    WithPos = 2,
+#    WithAngle = 3,
+#    WithString = 4,
+#    WithoutParameter = 5,
+#	 WithAnimate = 6
+
+#ID;Move;WithString;"Exit1"
+enterWork00;10;4;MiddleHallSideDoor
+enterWork01;8;4;WorkArea
+#enterWork02;10;4;SideDoorLib
+#enterWork03;2;4;SideDoorLib
+enterWork04;5;5
+enterWork05;10;4;WorkAreaEntrance
+#enterWork06;19;4;SideDoorLib
+#enterWork07;8;4;SideDoorLib
+#enterWork08;21;6;Wait;500
+#enterWork09;4;4;SideDoorLib
+enterWork10;10;4;WorkArea
