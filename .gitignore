@@ -4,6 +4,7 @@ UnityPlayer.so
 *.x86_64
 */dataset/RGB/ep*
 */dataset/Depht/ep*
+simMDQN/dataset/*
 dataset.*
 analysis.lua
 
