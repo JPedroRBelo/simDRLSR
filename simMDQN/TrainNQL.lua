@@ -50,7 +50,7 @@ function nql:__init(args)
      -- Size of the transition table.
     --self.replay_memory  = 14000--10000
     --self.replay_memory  = self.t_eps*self.t_steps
-    self.replay_memory  = 28672
+    self.replay_memory  = 28000
     
 
     self.hist_len       = 8
@@ -173,7 +173,10 @@ function nql:load_data()
 				k=k-1
 			end
 			print("K")
-	
+			print(k)
+			if(k>bufferSize) then
+				k = bufferSize
+			end	
 		
 			local images=torch.Tensor(k,self.hist_len,self.state_dim,self.state_dim)
 			local depths=torch.Tensor(k,self.hist_len,self.state_dim,self.state_dim)	
