@@ -20,14 +20,14 @@ function nql:__init(args)
     self.n_actions  = #self.actions
 
     self.t_steps= args.tsteps
-  	self.t_eps = 14
+  	self.t_eps = 30
     
     --- epsilon annealing
     self.ep_start   = 1
     self.ep         = self.ep_start -- Exploration probability.
     self.ep_end     = 0.1
     --self.ep_endt    = self.t_eps*self.t_steps--30000
-    self.ep_endt    = 28000
+    self.ep_endt    = 60000
 
     ---- learning rate annealing
     self.lr_start       = 0.00025 --Learning rate.
@@ -50,7 +50,7 @@ function nql:__init(args)
      -- Size of the transition table.
     --self.replay_memory  = 14000--10000
     --self.replay_memory  = self.t_eps*self.t_steps
-    self.replay_memory  = 28000
+    self.replay_memory  = 60000
     
 
     self.hist_len       = 8

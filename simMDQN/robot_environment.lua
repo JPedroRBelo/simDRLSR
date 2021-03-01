@@ -19,7 +19,8 @@ function Environment:new()
 	self.frame_per_sec=1
 	self.socket = require("socket")
 	local port = 12375         --- The port address on which 'robot_listen.py' is listenting
-	local host='192.168.0.11' --- The IP address on which 'robot_listen.py' is listenting
+	--local host='192.168.0.11' --- The IP address on which 'robot_listen.py' is listenting
+	local host='10.62.6.208' --- The IP address on which 'robot_listen.py' is listenting
 	self.client =self.socket.connect(host, port)
 	while(self.client==nil) do 
 		print("Can't connect with robot! Trying again...")

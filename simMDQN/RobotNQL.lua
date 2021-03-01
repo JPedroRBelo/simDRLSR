@@ -16,7 +16,7 @@ function nql:__init(args)
     self.ep_start   = 1.0
     self.ep         = self.ep_start -- Exploration probability.
     self.ep_end     = 0.1
-    self.ep_endt    = 28000
+    self.ep_endt    = 60000
 	 self.learn_start= 0
      
     --self.bufferSize =  2000

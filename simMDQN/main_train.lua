@@ -10,7 +10,7 @@ function sleep(sec)
     socket.select(nil, nil, sec)
 end
 
-local t_episodes=14
+local t_episodes=30
 local generate_phase = "datageneration_ql.lua"
 local train_phase = "train_ql.lua"
 local file_phase = 'files/phase.txt'
@@ -21,7 +21,7 @@ local episode=torch.load('files/episode.dat')
 
 local phase = torch.load(file_phase,'ascii')
 local i = episode
---for i  = episode,t_episodes do
+for i  = episode,t_episodes do
 	collectgarbage();
 	local handle = io.popen('sync')
 	handle:close()
@@ -75,7 +75,7 @@ local i = episode
 	handle = io.popen('sync')
 	handle:close()
 
---end
+end
 
 print("Model trained...")
 
