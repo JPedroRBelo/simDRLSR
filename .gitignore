@@ -8,6 +8,7 @@ simMDQN/dataset/*
 dataset.*
 analysis.lua
 analysis.py
+Dockerfile
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
