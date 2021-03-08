@@ -18,6 +18,13 @@ public class CameraDrag:MonoBehaviour {
         public Transform robot;
         public List<Transform> agents;
 
+        private float zoomFactor = 1f;
+        private float yaxisFactor = 2.0f;
+        private float xaxisFactor = 0f;
+
+        private float original_zoomFactor = 1.5f;
+        private float original_yaxisFactor = 2.0f;
+        private float original_xaxisFactor = 0f;
 
         void Update() {
             if (Input.GetKeyDown(KeyCode.C))
@@ -102,8 +109,35 @@ public class CameraDrag:MonoBehaviour {
      // Follow Two Transforms with a Fixed-Orientation Camera
     public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
     {
+
+        if (Input.GetKey (KeyCode.W)){
+            yaxisFactor += 0.1f;
+        }
+        if (Input.GetKey (KeyCode.S)){
+            yaxisFactor -= 0.1f;
+        }
+        if (Input.GetKey (KeyCode.A)){
+            zoomFactor += 0.01f;
+        }
+        if (Input.GetKey (KeyCode.D)){
+            zoomFactor -= 0.01f;
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f){
+            zoomFactor -= 0.02f;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f){
+            zoomFactor += 0.02f;
+        }
+        if (Input.GetMouseButtonDown(2)){
+            yaxisFactor = original_yaxisFactor;
+            xaxisFactor = original_xaxisFactor;
+            zoomFactor = original_zoomFactor;
+        }
+           
+
         // How many units should we keep from the players
-        float zoomFactor = 1.0f;
+        //float zoomFactor = 0.8f;
         float followTimeDelta = 0.8f;
     
         // Midpoint we're after
@@ -114,6 +148,8 @@ public class CameraDrag:MonoBehaviour {
     
         // Move camera a certain distance
         Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
+        Vector3 cameraOffSet = new Vector3(0,yaxisFactor,xaxisFactor);
+        cameraDestination+=cameraOffSet;
     
         // Adjust ortho size if we're using one of those
         if (cam.orthographic)
@@ -121,6 +157,9 @@ public class CameraDrag:MonoBehaviour {
             // The camera's forward vector is irrelevant, only this size will matter
             cam.orthographicSize = distance;
         }
+
+        
+
         // You specified to use MoveTowards instead of Slerp
         cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
             

@@ -1,6 +1,6 @@
 ﻿<Configure>
   <simulation_quality>Medium</simulation_quality>
-  <ip_address>172.17.0.2</ip_address>
+  <ip_address>127.0.0.1</ip_address>
   <port>12375</port>
   <path_prob_folder>Config/</path_prob_folder>
   <path_work_dir>simDRLSR/simMDQN/</path_work_dir>
