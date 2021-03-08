@@ -2,9 +2,9 @@
 *.debug
 UnityPlayer.so
 *.x86_64
-*/dataset/RGB/ep*
-*/dataset/Depht/ep*
-simMDQN/dataset/*
+simMDQN/dataset/RGB/ep*
+simMDQN/dataset/Depth/ep*
+#simMDQN/dataset/*
 dataset.*
 analysis.lua
 analysis.py
