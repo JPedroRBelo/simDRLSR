@@ -1,8 +1,12 @@
 ﻿<Configure>
   <simulation_quality>Medium</simulation_quality>
-  <ip_address>127.0.0.1</ip_address>
+  <fps>60</fps>
+  <width>1024</width>
+  <height>768</height>
+  <fullscreen>false</fullscreen>
+  <ip_address>172.17.0.3</ip_address>
   <port>12375</port>
-  <path_prob_folder>Config/</path_prob_folder>
-  <path_work_dir>simDRLSR/simMDQN/</path_work_dir>
-  <total_steps>3000</total_steps>
+  <path_prob_folder>Config</path_prob_folder>
+  <path_work_dir>simMDQN/DataGeneration-Phase/</path_work_dir>
+  <total_steps>2050</total_steps>
 </Configure>

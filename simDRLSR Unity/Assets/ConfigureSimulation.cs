@@ -9,9 +9,17 @@ using System.IO;
 
 [XmlRoot]
 public class Configure
-{
+{   
     [XmlElement]
     public string simulation_quality { get; set; }
+    [XmlElement]
+    public int fps { get; set; }
+    [XmlElement]
+    public int width { get; set; }
+    [XmlElement]
+    public int height { get; set; }
+    [XmlElement]
+    public bool fullscreen { get; set; }
     [XmlElement]
     public string ip_address { get; set; }
     [XmlElement] 
@@ -28,20 +36,25 @@ public class Configure
 
 public class ConfigureSimulation : MonoBehaviour
 {
+    
+    public string fileName = "config.xml";
 
-    public string file_name = "config.xml";
-
-    public string simulation_quality = "Medium";
+    [Header("Video Settings")]
+    public string simulationQuality = "Medium";
+    public int fps = 60;
+    public int width = 1024;
+    public int height = 768;
+    public bool fullscreen = false;
 
     [Header("Socker Communication")]
-    public string ip_address = "172.17.0.3";
+    public string ipAddress = "172.17.0.3";
     public int port = 12375;
 
     [Header("HRI Probabilities")]
 
     
-    public string path_prob_folder = "Config";
-    private string xml_path_prob_folder;
+    public string pathProbFolder = "Config";
+    private string xmlPathProbFolder;
     /*
     public string file_prob_engaged = "engaged_hri_probabilities";
     public string file_prob_human_notengd = "human_notengd_hri_probabilities";
@@ -49,10 +62,10 @@ public class ConfigureSimulation : MonoBehaviour
     */
 
     [Header("Work Folder")]
-    public string path_work_dir = "simMDQN/DataGeneration-Phase/";
+    public string pathWorkDir = "simMDQN/DataGeneration-Phase/";
 
     [Header("RL Configuration")]
-    public int total_steps = 2001; 
+    public int totalSteps = 2050; 
 
     public bool saveToXML = false;
     
@@ -69,19 +82,28 @@ public class ConfigureSimulation : MonoBehaviour
 
     void Awake()
     {
-        string aux_quality = simulation_quality;
-        if(!File.Exists(file_name)){
-           xmlConfigure =  saveConfig(inspectorConfiguration(),file_name); 
+        string auxQuality = simulationQuality;
+        int auxFPS = fps;
+        int auxWidth = width;
+        int auxHeight = height;
+        bool auxFullscreen = fullscreen;
+        if(!File.Exists(fileName)){
+           xmlConfigure =  saveConfig(inspectorConfiguration(),fileName); 
         }else
         {
-            xmlConfigure = loadConfig(file_name);
-            aux_quality = xmlConfigure.simulation_quality;
+            xmlConfigure = loadConfig(fileName);
+            auxQuality = xmlConfigure.simulation_quality;
+            auxFPS = xmlConfigure.fps;
+            auxWidth = xmlConfigure.width;
+            auxHeight = xmlConfigure.height;
+            auxFullscreen = xmlConfigure.fullscreen;
         }
+        Screen.SetResolution(auxWidth, auxHeight, auxFullscreen, auxFPS);
         //print(xmlConfigure.path_work_dir);
         string[] names = QualitySettings.names;
         for (int i = 0; i < names.Length; i++)
         {
-            if (names[i].Equals(aux_quality))
+            if (names[i].Equals(auxQuality))
             {
                 QualitySettings.SetQualityLevel(i, true);
             }
@@ -91,7 +113,7 @@ public class ConfigureSimulation : MonoBehaviour
     void Update(){
         if(saveToXML)
         {               
-            xmlConfigure = saveConfig(inspectorConfiguration(),file_name); 
+            xmlConfigure = saveConfig(inspectorConfiguration(),fileName); 
             Debug.Log("XML Saved");
             saveToXML = false;
         }
@@ -99,7 +121,7 @@ public class ConfigureSimulation : MonoBehaviour
 
     private Configure inspectorConfiguration()
     {
-        return new Configure {simulation_quality=simulation_quality, ip_address= ip_address,port=port,path_prob_folder = path_prob_folder, path_work_dir = path_work_dir ,total_steps=total_steps};
+        return new Configure {fps=fps,width=width,height=height,fullscreen=fullscreen,simulation_quality=simulationQuality, ip_address= ipAddress,port=port,path_prob_folder = pathProbFolder, path_work_dir = pathWorkDir ,total_steps=totalSteps};
     }
 
     public string getIPAdress(){
