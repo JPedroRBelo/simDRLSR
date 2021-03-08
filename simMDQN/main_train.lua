@@ -10,7 +10,7 @@ function sleep(sec)
     socket.select(nil, nil, sec)
 end
 
-local t_episodes=30
+local t_episodes=14
 local generate_phase = "datageneration_ql.lua"
 local train_phase = "train_ql.lua"
 local file_phase = 'files/phase.txt'
