@@ -7,6 +7,6 @@
   <ip_address>172.17.0.3</ip_address>
   <port>12375</port>
   <path_prob_folder>Config</path_prob_folder>
-  <path_work_dir>simMDQN/</path_work_dir>
+  <path_work_dir>simDMDQN/</path_work_dir>
   <total_steps>2050</total_steps>
 </Configure>
