@@ -38,6 +38,9 @@ public class ImageSynthesis : MonoBehaviour
 
     private bool capturing;
 
+    private Texture2D newTex;
+    private Texture2D tex;
+
     // pass configuration
     private CapturePass[] capturePasses = new CapturePass[] {
         new CapturePass() { name = "_img" },
@@ -303,7 +306,7 @@ public class ImageSynthesis : MonoBehaviour
             RenderTexture.GetTemporary(width, height, depth, format, readWrite, antiAliasing);
         var renderRT = (!needsRescale) ? finalRT :
             RenderTexture.GetTemporary(mainCamera.pixelWidth, mainCamera.pixelHeight, depth, format, readWrite, antiAliasing);
-        var tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+        tex = new Texture2D(width, height, TextureFormat.RGB24, false);
 
         var prevActiveRT = RenderTexture.active;
         var prevCameraRT = cam.targetTexture;
@@ -344,12 +347,14 @@ public class ImageSynthesis : MonoBehaviour
 
     private  Texture2D ChangeFormat( Texture2D oldTexture, TextureFormat newFormat)
     {
+        
         //Create new empty Texture
-        Texture2D newTex = new Texture2D(oldTexture.width, oldTexture.height, newFormat, false);
+        newTex = new Texture2D(oldTexture.width, oldTexture.height, newFormat, false);
         //Copy old texture pixels into new one
         newTex.SetPixels(oldTexture.GetPixels());
         //Apply
         newTex.Apply();
+        Object.Destroy(oldTexture);
 
         return newTex;
     }
