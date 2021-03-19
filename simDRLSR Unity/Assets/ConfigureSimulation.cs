@@ -39,6 +39,8 @@ public class ConfigureSimulation : MonoBehaviour
     
     public string fileName = "config.xml";
 
+    private string dir_fileName;
+    
     [Header("Video Settings")]
     public string simulationQuality = "Medium";
     public int fps = 60;
@@ -73,8 +75,8 @@ public class ConfigureSimulation : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {      
+       
         
     }
 
@@ -82,16 +84,19 @@ public class ConfigureSimulation : MonoBehaviour
 
     void Awake()
     {
+        dir_fileName = Path.Combine(Application.dataPath,"..",fileName);
+
+
         string auxQuality = simulationQuality;
         int auxFPS = fps;
         int auxWidth = width;
         int auxHeight = height;
         bool auxFullscreen = fullscreen;
-        if(!File.Exists(fileName)){
-           xmlConfigure =  saveConfig(inspectorConfiguration(),fileName); 
+        if(!File.Exists(dir_fileName)){
+           xmlConfigure =  saveConfig(inspectorConfiguration(),dir_fileName); 
         }else
         {
-            xmlConfigure = loadConfig(fileName);
+            xmlConfigure = loadConfig(dir_fileName);
             auxQuality = xmlConfigure.simulation_quality;
             auxFPS = xmlConfigure.fps;
             auxWidth = xmlConfigure.width;
@@ -113,7 +118,7 @@ public class ConfigureSimulation : MonoBehaviour
     void Update(){
         if(saveToXML)
         {               
-            xmlConfigure = saveConfig(inspectorConfiguration(),fileName); 
+            xmlConfigure = saveConfig(inspectorConfiguration(),dir_fileName); 
             Debug.Log("XML Saved");
             saveToXML = false;
         }
@@ -164,12 +169,12 @@ public class ConfigureSimulation : MonoBehaviour
 
     public string getPathConfig()
     {
-        return xmlConfigure.path_prob_folder;
+        return Path.Combine(Application.dataPath,"..",xmlConfigure.path_prob_folder);
     }
 
     public string getWorkDir()
     {
-        return xmlConfigure.path_work_dir;
+        return Path.Combine(xmlConfigure.path_work_dir);
     }
 
     public int getTotalSteps()
