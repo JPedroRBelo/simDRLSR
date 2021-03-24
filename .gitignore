@@ -2,8 +2,8 @@
 *.debug
 UnityPlayer.so
 *.x86_64
-simMDQN/dataset/RGB/ep*
-simMDQN/dataset/Depth/ep*
+*/dataset/RGB/ep*
+*/dataset/Depth/ep*
 #simMDQN/dataset/*
 dataset.*
 analysis.lua
