@@ -351,13 +351,28 @@ public class RobotInteraction : MonoBehaviour
         
     }
         
-    public AgentAction getActualAction(){
+    public (int step, AgentAction action) getActualAction(){
         //Verifica se o Handshake foi finalizado ou não
+        int auxStep = step;
+        AgentAction atAction = rAction;
         if((rAction==AgentAction.HandShake)&&(!animator.GetCurrentAnimatorStateInfo(0).IsName(CONST_TRYHANDSHAKE )))
         {
-            return AgentAction.Look;
+            atAction =  AgentAction.Look;
         }
-        return rAction;        
+        return (auxStep,atAction);        
+    }
+
+
+    public (int step, AgentAction action) getLastAction(){
+        
+        int lastStep = step-1;
+        AgentAction lastAction =  AgentAction.DoNothing;
+        if(dictStepActions.ContainsKey(lastStep))
+        {
+            lastAction = dictStepActions[lastStep];
+        }
+        
+        return (lastStep,lastAction);        
     }
 
     public void touchRobotHand()

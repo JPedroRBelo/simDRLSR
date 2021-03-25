@@ -93,6 +93,8 @@ public class AvatarBehaviors : MonoBehaviour
     private AgentAction lastRobotAction;
     private HumanActionType lastHumanAction;
 
+    private ((int step,AgentAction action) robotLast, HumanActionType humanAction) lastHumanRobotActions;
+
     //public CommandType command;   
 
 
@@ -113,8 +115,7 @@ public class AvatarBehaviors : MonoBehaviour
         pausedCommands = new List<Command>();
         runningCommands = new List<Command>();
         hriCommands = new List<Command>();
-        lastRobotAction = AgentAction.None;
-        lastHumanAction = HumanActionType.None;
+        lastHumanRobotActions = ((-1,AgentAction.None),HumanActionType.None);
         //Flag if human ignored robot in that interaction. Resets when he/she completed one task
         //ignoreFlag = false;
         //ignoredDistance = 0f;
@@ -173,20 +174,18 @@ public class AvatarBehaviors : MonoBehaviour
 
     private void Update()
     {
+        (int robotStep,AgentAction action) robotAction = robotHRI.getActualAction();
         //Verifica se humano está de frente ao robô (se robô é visível)
         HumanActionType hriType = HumanActionType.Ignore;
         if((hriCommands.Count() == 0))
         {       
             GameObject robotAttention = robotHRI.getPersonFocusedByRobot();
-            Command hriCommand = null;
-            
+            Command hriCommand = null;         
 
             
             //Verifica foco de atenção do robô
             if((robotAttention==gameObject)||(isHumanEngaged)){
-            //if(robotAttention==gameObject){
-
-            
+            //if(robotAttention==gameObject){            
 
                 
                 
@@ -201,58 +200,30 @@ public class AvatarBehaviors : MonoBehaviour
                         probTab = robot_notEngdProbTab;
                     }
                     //print(transform.name+">>> robot attention: "+robotAttention);
-                    AgentAction robotAction = robotHRI.getActualAction();    
-                    if((robotAction==AgentAction.DoNothing)||(robotAction==AgentAction.None)){
-                        robotAction = AgentAction.Wait;                        
+
+                   
+                    if((robotAction.action==AgentAction.DoNothing)||(robotAction.action==AgentAction.None)){
+                        robotAction.action = AgentAction.Wait;                        
                     }
                     //print(transform.name+">>> robot action: "+robotAction);
                     float distance = Vector3.Distance(robot.transform.position,gameObject.transform.position);
-
-
-                    /*
-                    //Verifica se humano decidiu igonorar o robô na última interação. 
-
-                    if(((lastHumanAction==HumanActionType.Ignore)&&(robotAction==lastRobotAction))&&(!ignoreFlag)){
-                        ignoreFlag = true;
-                        ignoredDistance = distance;
-                        //print(transform.name+" decidiu ignorar");
-                    }
-
-                
-                    //Verifica se continua ignorando robô dada a distância
-                    if(ignoreFlag){
-                        if(distance<ignoredDistance){
-                            if((distance<=closeDistance)&&(ignoredDistance>closeDistance))
-                            {
-                                ignoreFlag = false;   
-                            }else if((distance<=farDistance)&&(ignoredDistance>farDistance))
-                            {                            
-                                ignoreFlag = false; 
-                            }else
-                            {
-                                ignoreFlag = true;
-                            } 
-                        }
-                    }
-                         
-
-                    if(ignoreFlag)
-                    {   
-                        //print(transform.name+" ignorou");
-                        hriType = HumanActionType.Ignore;
-                    }else */
                     
-                    if((lastHumanAction==HumanActionType.Wait)&&(robotAction==lastRobotAction))
+                    if((lastHumanRobotActions.humanAction==HumanActionType.Wait)&&(robotAction.action==lastHumanRobotActions.robotLast.action))
                     {
                          //Humano espera até que robô faça algo diferente
                     //caso a ação anterior seja 'Wait' e o robô esteja executando a mesma ação
                         hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
+                    }
+                    else if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore))
+                    {
+                        hriType = HumanActionType.Ignore;
+                    
                     }else
                     {
                         //Verifica a distância da interação
                         
                         //print(transform.name+ " Distance: "+distance);
-                        switch (robotAction)
+                        switch (robotAction.action)
                         {
                             
                             case AgentAction.Wait:
@@ -298,20 +269,10 @@ public class AvatarBehaviors : MonoBehaviour
                                 hriType = HumanActionType.Ignore;
                                 break;                    
                         }
-                        /*
-                        if(hriType == HumanActionType.Ignore){
-                            print(transform.name + " ignorou por probabilidade");
-                        }else{
-                            print(transform.name+" decidiu interagir "+hriType);
-                        }
-                        */
-
-
-                        if((robotAction!=AgentAction.None)&&(robotAction!=AgentAction.DoNothing)){
-                            lastRobotAction = robotAction;
-                        }
-                        //if(!isHumanEngaged)
-
+                       
+                        //if((robotAction.action!=AgentAction.None)&&(robotAction.action!=AgentAction.DoNothing)){
+                        lastHumanRobotActions = (robotAction,hriType);
+                        //}
                         //Verifica se humano não ignorou o robô. Caso positivo, ele está engajado na interação
                         isHumanEngaged = !(hriType==HumanActionType.Ignore); 
                         //print(transform.name+" "+hriType);
@@ -319,14 +280,13 @@ public class AvatarBehaviors : MonoBehaviour
                         {
                             scm.sendCommand("HRIHeadReset", Action.HeadReset);
                         }
-                    }
-                   
+                    }                  
                     
                 }
             }
             
         }
-        lastHumanAction = hriType;
+        
         if(hriType!=HumanActionType.Ignore)       
         {            
             if (runningCommands.Count() != 0)
@@ -358,7 +318,7 @@ public class AvatarBehaviors : MonoBehaviour
                 case HumanActionType.Handshake:
                     //hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 1000));
                     hriCommands.Add(scm.sendCommand(generateCommandId(), Action.HeadFocus, robotHead));
-                    if(robotHRI.getActualAction()==AgentAction.HandShake)
+                    if(robotHRI.getActualAction().action==AgentAction.HandShake)
                     {  
                         robotHRI.touchRobotHand();
                         hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Handshake","", 500));
@@ -386,7 +346,7 @@ public class AvatarBehaviors : MonoBehaviour
                 if (runningCommands.Count() == 0)
                 {
                     //ignoreFlag = false;
-                    lastHumanAction = HumanActionType.None;
+                    lastHumanRobotActions.humanAction = HumanActionType.None;
                     processCommand(strCommands[count]);
                     count++;
                 }
