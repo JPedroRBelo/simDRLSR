@@ -92,5 +92,5 @@ wave: makes the gesture of waving while looking at the nearest human;
 handshake: performs the handshake gesture to greet the human.
 
 
-[![Watch the video](https://youtu.be/e4C8hK4q8Ug)](https://youtu.be/e4C8hK4q8Ug)
+[![Watch the video](doc/preview.png)](https://youtu.be/e4C8hK4q8Ug)
 
