@@ -1,4 +1,4 @@
-# simDRLSR: a Deep Reinforcement Learning Simulator for Social Robotics
+# simDRLSR: Deep Reinforcement Learning Simulator for Social Robotics
 
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
