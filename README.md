@@ -80,7 +80,7 @@
 
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
 
-The first version of the simulator is based on the MDQN algorithm available at:
+A primeira versão do simulador tem como base o algoritmo MDQN como módulo de aprendizador por reforço, disponível em:
 
 https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction
 
