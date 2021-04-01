@@ -88,7 +88,7 @@ handshake: performs the handshake gesture to greet the human.
 [stars-url]: https://github.com/JPedroRBelo/simDRLSR/stargazers
 [issues-shield]: https://img.shields.io/github/issues/JPedroRBelo/simDRLSR.svg?style=for-the-badge
 [issues-url]: https://github.com/JPedroRBelo/simDRLSR/issues
-[license-shield]: https://img.shields.io/github/license/JPedroRBelo/simDRLSR.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/badge/license-GNU%20GPU%20-brightgreen
 [license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/development/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [scholar-url]: https://scholar.google.com.br/citations?user=0nh0sDMAAAAJ&hl
