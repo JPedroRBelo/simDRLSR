@@ -15,15 +15,15 @@
     <img src="doc/logo2.png" alt="Logo" width="228" height="80">
   </a>
 
-  <h3 align="center">simDRLSR</h3>
+  <!-- <h3 align="center">simDRLSR</h3> -->
 
   <p align="center">
     Simulator for Deep Reinforcement Learning and Social Robotics
+    
+     <!-- <br /><a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://youtu.be/e4C8hK4q8Ug">View Video</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
     ·
