@@ -18,8 +18,7 @@
   <!-- <h3 align="center">simDRLSR</h3> -->
 
   <p align="center">
-    Simulator for Deep Reinforcement Learning and Social Robotics
-    
+    Simulator for Deep Reinforcement Learning and Social Robotics   
      <!-- <br /><a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
