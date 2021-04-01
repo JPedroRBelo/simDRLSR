@@ -4,7 +4,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![GNU License][license-shield]][license-url]
 [![Scholar][scholar-shield]][scholar-url]
 
 
@@ -15,10 +15,10 @@
     <img src="doc/logo2.png" alt="Logo" width="228" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">simDRLSR</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Simulator for Deep Reinforcement Learning and Social Robotics
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -88,6 +88,6 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
 [issues-url]: https://github.com/JPedroRBelo/simDRLSR/issues
 [license-shield]: https://img.shields.io/badge/license-GNU%20GPU%203.0-brightgreen?style=for-the-badge
 [license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/development/LICENSE
-[sholar-shield]: https://img.shields.io/badge/-Google%20Scholar-9cf.svg?style=for-the-badge&logo=google-scholar
+[scholar-shield]: https://img.shields.io/badge/-Google%20Scholar-black.svg?style=for-the-badge&logo=google-scholar&colorB=555
 [scholar-url]: https://scholar.google.com.br/citations?user=0nh0sDMAAAAJ&hl
 
