@@ -59,20 +59,18 @@
   </ol>
 </details>
 
-# simDRLSR: a Deep Reinforcement Learning Simulator for Social Robotics
-
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
 
-A primeira versão do simulador tem como base o algoritmo MDQN como módulo de aprendizador por reforço, disponível em:
+The first version of the simulator is based on the MDQN algorithm as a reinforcement learning module, available at:
 
 https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
 
-wait: wait, while looking at a random direction of the environment;
-look: looks at the nearest human, if he is in the robot's field of view;
-wave: makes the gesture of waving while looking at the nearest human;
-handshake: performs the handshake gesture to greet the human.
+ - wait: wait, while looking at a random direction of the environment;
+ - look: looks at the nearest human, if he is in the robot's field of view;
+ - wave: makes the gesture of waving while looking at the nearest human;
+ - handshake: performs the handshake gesture to greet the human.
 
 
 [![Watch the video](doc/preview.png)](https://youtu.be/e4C8hK4q8Ug)
@@ -90,6 +88,6 @@ handshake: performs the handshake gesture to greet the human.
 [issues-url]: https://github.com/JPedroRBelo/simDRLSR/issues
 [license-shield]: https://img.shields.io/badge/license-GNU%20GPU%203.0-brightgreen?style=for-the-badge
 [license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/development/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[sholar-shield]: https://img.shields.io/badge/-Google%20Scholar-9cf.svg?style=for-the-badge&logo=google-scholar
 [scholar-url]: https://scholar.google.com.br/citations?user=0nh0sDMAAAAJ&hl
 
