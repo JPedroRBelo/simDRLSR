@@ -58,6 +58,8 @@
   </ol>
 </details>
 
+## About the Project
+
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
 
 The first version of the simulator is based on the MDQN algorithm as a reinforcement learning module, available at:
@@ -66,10 +68,10 @@ https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Inte
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
 
- - wait: wait, while looking at a random direction of the environment;
- - look: looks at the nearest human, if he is in the robot's field of view;
- - wave: makes the gesture of waving while looking at the nearest human;
- - handshake: performs the handshake gesture to greet the human.
+ - Wait: wait, while looking at a random direction of the environment;
+ - Look: looks at the nearest human, if he is in the robot's field of view;
+ - Wave: makes the gesture of waving while looking at the nearest human;
+ - Handshake: performs the handshake gesture to greet the human.
 
 
 [![Watch the video](doc/preview.png)](https://youtu.be/e4C8hK4q8Ug)
@@ -80,11 +82,11 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
 
 ### Prerequisites
 
-Simulation requisites:
+Simulator requirements:
 - ![Unity 2020.2.6](https://unity3d.com/pt/unity/whats-new/2020.2.6)
 - Unity Linux Build Support (IL2CPP)
 
-MDQN requisities. It is recommended to install the following packages/frameworks using ![nvidia-docker](https://github.com/NVIDIA/nvidia-docker):
+MDQN requirements. It is recommended to install the following packages/frameworks using ![nvidia-docker](https://github.com/NVIDIA/nvidia-docker):
 - Ubuntu  16.04  LTS  
 - LUA  5.2  
 - Torch7
