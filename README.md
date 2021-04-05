@@ -117,9 +117,10 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
   - In Editor go to `File>Open Scene>`
     - Choose "Scenes/Library.unity"
   - Verify if NavMesh is configured:
-    - Select "Libray" on Hierarchy
+    
     - Go to `Window>AI>Navigation`
-    - In `Bake` tab, click on "Bake" button   
+    - Select "Libray" on Hierarchy
+    - In `Navigation/Bake` tab, click on "Bake" button   
   
      ![Bake Image](doc/bake.png)
     
@@ -136,10 +137,30 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
 
     ![Build Image](doc/build.png)
 
- 
      
 
 ## SimDRLSR Configuration
+
+The `config.xml` file stores the settings for the simulation. The configuration options are:
+- Simulation Quality:
+  - Very Low
+  - Low
+  - Medium
+  - High
+  - Very High
+  
+  The default value is "Medium".
+- Frames Per Second (FPS): 60
+- Screen Width: 1024
+- Screen height: 768
+- Fullscreen: True or False (default)
+- IP Address: stores the IP of MDQN module. Default is 172.17.0.3. If are running the MDQN on a docker container, you need to set the container's IP.If you are running MDQN on the same system as the simulator, localhost IP 127.0.0.1 will probably solve the problem.
+- Port: port that the MDQN module uses for socket communication. Default is 12375.
+- Path Prob Folder: folder with human avatar probabilities files.
+- Patk WorkDir: directory with MDQN files. Default is `simDRLSR/simMDQN/`. Change to `simDRLSR/pyMDQN`if you need to use pyMDQN.
+- Total Steps: defines the number of interactions that robot performs at each data collection.
+
+The IP Adress,most likely, will be the only value you should change.
 
 
 
