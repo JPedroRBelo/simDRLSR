@@ -75,6 +75,60 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
 [![Watch the video](doc/preview.png)](https://youtu.be/e4C8hK4q8Ug)
 
 
+
+## Getting Started
+
+### Prerequisites
+
+Simulation requisites:
+- ![Unity 2020.2.6](https://unity3d.com/pt/unity/whats-new/2020.2.6)
+- Unity Linux Build Support (IL2CPP)
+
+MDQN requisities. It is recommended to install the following packages/frameworks using ![nvidia-docker](https://github.com/NVIDIA/nvidia-docker):
+- Ubuntu  16.04  LTS  
+- LUA  5.2  
+- Torch7
+- CUDA  10.1.
+
+Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
+- Python 3.8 
+- Pytorch (version 1.7.1 is recommended)
+- (Optionally) Conda 3 
+
+### Installation
+
+1. Cloning repository
+ 
+   Clone the repo without pyMDQN (MDQN with lua, only):
+   ```sh
+   git clone git@github.com:JPedroRBelo/simDRLSR.git simDRLSR
+   ```
+   Alternatively, you can clone the repo with python implementation (pyMDQN) of MDQN (also clone Lua version):
+   
+   ```sh
+   git clone --recursive git@github.com:JPedroRBelo/simDRLSR.git simDRLSR
+   ```
+2. Compiling simDRLSR:
+
+  - Open the simDRLSR Unity folder with Unity Editor
+  - In Editor go to File>Build Settings...
+    - Scenes in Build, check:
+      - Scenes/Libray
+      - Scenes/Empty
+    - Platform: PC, Mac & Linux Standalone
+      - Target Platform: Linux
+      - Architecture: x86_64 
+    - Click Build button:
+      - set executable name to simDRLSR.x86_64
+      - save inside simDRLSR repo folder
+  
+  ```sh
+   cd simDRLSR/simDRLSR\ Unity
+   
+   ```
+  
+
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/JPedroRBelo/simDRLSR.svg?style=for-the-badge
