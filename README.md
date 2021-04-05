@@ -49,6 +49,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#simconfigure">SimDRLSR Configuration</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -110,24 +111,38 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
    ```sh
    git clone --recursive git@github.com:JPedroRBelo/simDRLSR.git simDRLSR
    ```
-2. Compiling simDRLSR:
+2. Building simDRLSR:
 
   - Open the simDRLSR Unity folder with Unity Editor
-  - In Editor go to File>Build Settings...
-    - Scenes in Build, check:
-      - Scenes/Libray
-      - Scenes/Empty
+  - In Editor go to `File>Open Scene>`
+    - Choose "Scenes/Library.unity"
+  - In Editor go to `File>Build Settings...`
+    - Scenes in `Build`, check:
+      - [x] "Scenes/Libray"
+      - [x] "Scenes/Empty"
     - Platform: PC, Mac & Linux Standalone
       - Target Platform: Linux
       - Architecture: x86_64 
     - Click Build button:
       - set executable name to simDRLSR.x86_64
       - save inside simDRLSR repo folder
+
+    ![Build Image](doc/build.png)
+
+  - Resolving Known Issues: agents navigation 
+ 
+    - Sometimes, the Unity NavMesh is disfigured after a git clone. 
+    - To fix this, just select the "Library" object in the hierarchy, go to the 'Navigation' window> 'Bake' tab>click on 'Bake', as shown in the image below: 
+    
+      ![Bake Image](doc/bake.png)
+      
+     - After baking NavMesh, you need to compile again with above instructions.
+
+## SimDRLSR Configuration
+
+
+
   
-  ```sh
-   cd simDRLSR/simDRLSR\ Unity
-   
-   ```
   
 
 
