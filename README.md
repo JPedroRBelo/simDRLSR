@@ -116,8 +116,15 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
   - Open the simDRLSR Unity folder with Unity Editor
   - In Editor go to `File>Open Scene>`
     - Choose "Scenes/Library.unity"
-  - In Editor go to `File>Build Settings...`
-    - Scenes in `Build`, check:
+  - Verify if NavMesh is configured:
+    - Select "Libray" on Hierarchy
+    - Go to `Window>AI>Navigation`
+    - In `Bake` tab, click on "Bake" button   
+  
+     ![Bake Image](doc/bake.png)
+    
+  - In Editor go to `File>Build Settings...`:
+    - Scenes in Build, check:
       - [x] "Scenes/Libray"
       - [x] "Scenes/Empty"
     - Platform: PC, Mac & Linux Standalone
@@ -129,14 +136,8 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
 
     ![Build Image](doc/build.png)
 
-  - Resolving Known Issues: agents navigation 
  
-    - Sometimes, the Unity NavMesh is disfigured after a git clone. 
-    - To fix this, just select the "Library" object in the hierarchy, go to the 'Navigation' window> 'Bake' tab>click on 'Bake', as shown in the image below: 
-    
-      ![Bake Image](doc/bake.png)
-      
-     - After baking NavMesh, you need to compile again with above instructions.
+     
 
 ## SimDRLSR Configuration
 
