@@ -22,11 +22,11 @@
      <!-- <br /><a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
-    <a href="https://youtu.be/e4C8hK4q8Ug">View Video</a>
+    <a href="https://youtu.be/e4C8hK4q8Ug" target="_blank">View Video</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/JPedroRBelo/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/JPedroRBelo/issues">Request Feature</a>
   </p>
 </p>
 
