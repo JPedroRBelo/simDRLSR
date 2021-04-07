@@ -138,7 +138,7 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
 
      
 
-## SimDRLSR Configuration
+### SimDRLSR Configuration
 
 The `config.xml` file stores the settings for the simulation. The configuration options are:
 - **Simulation Quality**:
@@ -164,14 +164,69 @@ Labels:
 
 The IP Adress,most likely, will be the only value you should change.
 
-## MDQN configuration
+### MDQN configuration
 
-The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1).
+The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1). We made minor changes to the original code and made it available in the folder called "simMDQN". 
 
-We made minor changes to the original code and made it available in the folder called "simMDQN".
+#### simMDQN
 
+To run simMDQN it's necessary set the host IP address:
+
+  - Edit `robot_environment.lua`
+  - Change the local variable `host` to the IP address were simDRLSR is running. If you are running in same system, enter the address localhost `127.0.0.1`. If you are using a docker container, you need to check the IP of the host SO.
+
+(Optional) If you prefer to use CPU instead of GPU, you need to configure the following files:
+
+  - Edit `train_ql.lua`and set `local gpu = 0` to use CPU, or `local gpu = 1` to use GPU;
+  - Edit `TrainNQL.lua`and set `self.gpu = 0` to use CPU, or 1 to use GPU.
+
+The minimum VRAM is approximately 6GiB.
 
 ‼️ This code uses unsupported frameworks and libraries for newer systems. Therefore, it is recommended to use a docker container to run simMDQN.
+‼️ Even using Docker, you will have to make several configurations in the system and ensure that the container has access to the simMDQN directory, in addition to configuring write and read permissions.
+
+As the configuration of MDQN with lua has some problems we are developing a version in Python 3. This version is a submodule available in this repository available in pyMDQN.
+
+#### (Optional) pyMDQN
+
+The pyMDQN folder available in this repository belongs to the ![pyMDQN/simDRLSv01](https://github.com/JPedroRBelo/pyMDQN/tree/simDRLSRv01) branch, adhering to the parameters used in version 0.1 of simDRLSR.
+
+To configure pyMDQN:
+
+- If you cloned the simDRLSR without pyMDQN (MDQN with lua, only), you need to clone pyMDQN manualy:
+
+```sh
+cd simDRLSR
+git clone git@github.com:JPedroRBelo/pyMDQN.git pyMDQN
+cd pyMDQN
+git checkout simDRLSRv01
+```
+- ⚠️ To use pyMDQN it is not necessary to use a docker container, however, we encourage the use of Conda to install modules, such as pytorch, pip, numpy, etc.
+- The IP address is seted to localhost IP `127.0.0.1`. You can change this in `environment.py` pyMDQN script.
+
+### Running simulator with MDQN pre-treined model
+
+At v0.1 of simDRLS, we treined the simMDQN over 28000 interactions (14 eps., 2000 steps each ep.). To test the simulator with pretreined MDQM, folow this steps: 
+
+1. To run the simulator, you need to execute:
+
+  ```sh
+  cd simDRLSR
+  ./simDRLSR.x86_64
+  ```
+2. To run simMDQN:
+  - Open a new terminal, or enter on a docker container
+  - Execute:
+  ```sh
+  cd simDRLSR/simMDQN
+  th validate.lua
+  ```
+The simulator is a socket server, and MDQN is a client. Thus, it is necessary to run the simulator first.
+The robot will execut 2000 steps, trying to interact with human throught the four legal actions _wait_, _look_, _wave_ and _handshake_.
+
+
+
+
 
 
 ## References
