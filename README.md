@@ -180,9 +180,10 @@ To run simMDQN it's necessary set the host IP address:
   - Edit `train_ql.lua`and set `local gpu = 0` to use CPU, or `local gpu = 1` to use GPU;
   - Edit `TrainNQL.lua`and set `self.gpu = 0` to use CPU, or 1 to use GPU.
 
-The minimum VRAM is approximately 6GiB.
+⚠️ The minimum VRAM is approximately 6GiB.
 
 ‼️ This code uses unsupported frameworks and libraries for newer systems. Therefore, it is recommended to use a docker container to run simMDQN.
+
 ‼️ Even using Docker, you will have to make several configurations in the system and ensure that the container has access to the simMDQN directory, in addition to configuring write and read permissions.
 
 As the configuration of MDQN with lua has some problems we are developing a version in Python 3. This version is a submodule available in this repository available in pyMDQN.
@@ -224,6 +225,25 @@ At v0.1 of simDRLS, we treined the simMDQN over 28000 interactions (14 eps., 200
 The simulator is a socket server, and MDQN is a client. Thus, it is necessary to run the simulator first.
 The robot will execut 2000 steps, trying to interact with human throught the four legal actions _wait_, _look_, _wave_ and _handshake_.
 
+At this point, we validate the simDRLSR only with simMDQN.Therefore, we do not provide a model for pyMDQN.
+
+### Training a new model
+
+1. Run the simulator, as described above: 
+
+  ```sh
+  cd simDRLSR
+  ./simDRLSR.x86_64
+  ```
+2. On a new terminal, or docker container:
+
+ ```
+ cd simDRLSR/simMDQN
+ rm -rf dataset/RGB/ep*
+ rm -rf dataset/Depth/ep*
+ th makefiles.lua
+ th init_model.lua
+  
 
 
 
