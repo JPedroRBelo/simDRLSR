@@ -142,14 +142,12 @@ Alternatively, you can use pyMDQN, a Python 3 version of MDQN:
 ## SimDRLSR Configuration
 
 The `config.xml` file stores the settings for the simulation. The configuration options are:
-
 - **Simulation Quality**:
   - Very Low
   - Low
   - Medium
   - High
-  - Very High
-  
+  - Very High  
   The default value is "Medium".
 - **Frames Per Second (FPS)**: 60
 - **Screen Width**: 1024
@@ -162,12 +160,28 @@ The `config.xml` file stores the settings for the simulation. The configuration 
 - ⚠️ **Total Steps**: defines the number of interactions that robot performs at each data collection. Note: set a higher value than set in the MDQN.
 
 Labels:
-
 - ‼️ : fundamental importance, needs to be configured;
 - ⚠️ : needs to be configured if the MDQN parameters are modified;
 
 The IP Adress,most likely, will be the only value you should change.
 
+## MDQN configuration
+
+The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1).
+
+We made minor changes to the original code and made it available in the folder called "simMDQN".
+
+
+‼️ This code uses unsupported frameworks and libraries for newer systems. Therefore, it is recommended to use a docker container to run simMDQN.
+
+
+## References
+
+<a id="1">[1]</a> 
+Ahmed Hussain Qureshi, Yutaka Nakamura, Yuichiro Yoshikawa and Hiroshi Ishiguro 
+"Robot gains social intelligence through Multimodal Deep Reinforcement Learning" 
+Proceedings of IEEE-RAS International Conference on Humanoid Robots (Humanoids) 
+pp. 745-751, Cancun, Mexico 2016.
 
 
   
