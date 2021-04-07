@@ -24,9 +24,9 @@
     <br />
     <a href="https://youtu.be/e4C8hK4q8Ug" target="_blank">View Video</a>
     ·
-    <a href="https://github.com/JPedroRBelo/issues">Report Bug</a>
+    <a href="https://github.com/JPedroRBelo/simDRLSR/issues">Report Bug</a>
     ·
-    <a href="https://github.com/JPedroRBelo/issues">Request Feature</a>
+    <a href="https://github.com/JPedroRBelo/simDRLSR/issues">Request Feature</a>
   </p>
 </p>
 
