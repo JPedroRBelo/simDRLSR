@@ -69,14 +69,13 @@ https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Inte
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
 
- - Wait: wait, while looking at a random direction of the environment;
- - Look: looks at the nearest human, if he is in the robot's field of view;
- - Wave: makes the gesture of waving while looking at the nearest human;
- - Handshake: performs the handshake gesture to greet the human.
+ - **Wait**: wait, while looking at a random direction of the environment;
+ - **Look**: looks at the nearest human, if he is in the robot's field of view;
+ - **Wave**: makes the gesture of waving while looking at the nearest human;
+ - **Handshake**: performs the handshake gesture to greet the human.
 
 
-[![Watch the video](doc/preview.png)](https://youtu.be/e4C8hK4q8Ug)
-
+[![Watch the video](doc/preview2.png)](https://youtu.be/e4C8hK4q8Ug)
 
 
 ## Getting Started
