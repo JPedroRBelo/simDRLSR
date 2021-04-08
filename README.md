@@ -55,8 +55,6 @@
         <li><a href="#training-with-pymdqn-instead-of-simmdqn">Training with pyMDQN instead of simMDQN</a></li> 
       </ul>
     </li>
-    <li><a href="#simconfigure">SimDRLSR Configuration</a></li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#references">References</a></li>
   </ol>
