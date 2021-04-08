@@ -236,20 +236,63 @@ At this point, we validate the simDRLSR only with simMDQN.Therefore, we do not p
   ./simDRLSR.x86_64
   ```
 2. On a new terminal, or docker container:
-
- ```
+ 
+ ⚠️ Make sure to back up your trained models before performing the next actions..
+ 
+ - Erasing old train files and images: 
+ 
+ ```sh
  cd simDRLSR/simMDQN
  rm -rf dataset/RGB/ep*
  rm -rf dataset/Depth/ep*
+ ``` 
+ 
+ - Initializing files and models:
+ 
+ ```sh
  th makefiles.lua
  th init_model.lua
  ```
+ 
+ - Run the main script:
+ ```sh
+ th main_train.lua
+ ```
   
-
-
-
-
-
+ The `main_train.lua` script will call the `datageneration_ql.lua` followed by `train_ql.lua` over N eps (N = 14 in original configuration).
+ This is all you need to do to run the simulator together with MDQN!
+ 
+ ### Training with pyMDQN instead of simMDQN
+ 
+  ⚠️ Make sure to back up your trained models before performing the next steps.
+  
+  ⚠️ Remmember to config. WorkDir of simDRLSR with pyMDQN directory!
+ 
+ - Erasing old train files and images: 
+ 
+ ```sh
+ cd simDRLSR/pyMDQN
+ rm -rf dataset/RGB/ep*
+ rm -rf dataset/Depth/ep*
+ ``` 
+ - If you are using Conda environment:
+ ```sh
+ conda activate pytorch_env
+ ```
+ - Initializing files and models:
+ 
+ ```sh
+ python3 makefiles.py
+ python3 init_model.py
+ ```
+ 
+ - Run the main script:
+ ```sh
+ python mdqn.py
+ ```
+ 
+ 
+ 
 ## References
 
 <a id="1">[1]</a> 
