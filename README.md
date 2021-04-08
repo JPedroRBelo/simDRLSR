@@ -51,6 +51,8 @@
            <li><a href="pymdqn">pyMDQN</a></li>
         </ul>
         <li><a href="#running-simulator-with-MDQN-pre-treined-model">Running simulator with MDQN pre-treined model</a></li> 
+        <li><a href="#training-a-new-model">Training a new model</a></li> 
+        <li><a href="#training-with-pymdqn-instead-of-simmdqn">Training with pyMDQN instead of simMDQN</a></li> 
       </ul>
     </li>
     <li><a href="#simconfigure">SimDRLSR Configuration</a></li>
