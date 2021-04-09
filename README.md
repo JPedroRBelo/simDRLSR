@@ -88,6 +88,11 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
 The robot captures two types of images to model the state of the environment: grayscale images; and depth images. 
 For each of these channels, 8 image sequences are captured. These images help the agent to model the state in the reinforcement learning paradigm.
 
+The images are captured using this package:
+
+- https://github.com/immersive-limit/Unity-ComputerVisionSim
+- https://www.immersivelimit.com/tutorials/unity-depth-camera-simulation
+
 ### Reward
 
 In this version of the simulator, the robot only receives a positive reward if it successfully executes the _handshake_ action. A negative reward is given if no human touches the robot's hand when this action is performed. For the other three actions, a neutral reward is returned.
