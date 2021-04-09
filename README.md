@@ -362,7 +362,7 @@ IEEE, p. 1-6, Curtiba, Brazil 2017.
 BELO, José Pedro R.; ROMERO, Roseli AF; AZEVEDO, Helio. 
 "Enhancements in a Social Robotic Simulator for Indoor Environments." 
 2018 Latin American Robotic Symposium, 2018 Brazilian Symposium on Robotics (SBR). 
-IEEE, João Pessoa, Brazil 2019.
+IEEE, João Pessoa, Brazil 2018.
 
 <a id="3">[3]</a> 
 Ahmed Hussain Qureshi, Yutaka Nakamura, Yuichiro Yoshikawa and Hiroshi Ishiguro 
