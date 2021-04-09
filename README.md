@@ -72,6 +72,8 @@ https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Inte
 
 The simulation environment is an implementation derived from the Robot House Simulator (RHS) [[1]](#1) [2]](#2), into the Laboratory of Robot Learning (LAR) of the ICMC/USP ( Brazil). The architecture called Multimodal Deep-Q-Network (MDQN), proposed in [[3]](#3),  is used to validate the proposed environment.
 
+
+
 ### Robot Actions
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
@@ -88,10 +90,17 @@ For each of these channels, 8 image sequences are captured. These images help th
 
 ### Reward
 
+In this version of the simulator, the robot only receives a positive reward if it successfully executes the _handshake_ action. A negative reward is given if no human touches the robot's hand when this action is performed. For the other three actions, a neutral reward is returned.
 
+In MDQN, the real robot wears a glove capable of feeling the pressure of the human touch, a value that varies between 0 and 100. In simDRLSR we standardize the touch with the values 50, indicating whether there was a human touch or not.
 
-## MDQN 
+Summarizing the possible rewards:
 
+- Successful hanshake: 50 (positive reward. MDQN converts to 1.0 in training phase);
+- Fail hanshake: -0.1 (negative reward);
+- Others actions: 0 (neutral reward).
+
+### MDQN 
 
 The MDQN model aims to contribute so that social robots can correctly interpret human behaviors to act appropriately with them. In this model, two DQN networks are used for the characteristic automatic extraction to estimate the action-value function, one for grayscale images and another for depth images. The robot captures these images in a real environment in which it aims to interact with people.
 
@@ -100,10 +109,15 @@ MDQN has two phases of processing:
 1. **Data Generation Phase**: the agent interacts with the environment using the Q-network, observing the current scene and acting on the environment using the greedy approach. The grayscale and depth images make up the agent's observations. After the execution of each action, the system returns a reward. In this way, the repetition memory stores the $N$ experiences of interactions.
 2. **Training Phase**: uses the repetion memory for training.
 
-The simDRLSR simulator assists in the data collection phase, replacing the real robot.
+The **simDRLSR** simulator assists in the data collection phase, replacing the real robot.
 
+
+### Validation
 
 [![Watch the video](doc/preview2.png)](https://youtu.be/e4C8hK4q8Ug)
+
+
+
 
 
 ## Getting Started
