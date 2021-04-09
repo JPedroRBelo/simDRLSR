@@ -64,9 +64,15 @@
 
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
 
+The objective is to provide an environment for the development of automatic learning techniques for human interactive behaviors and, from there, to react naturally and appropriately to these behaviors aiming at the application in social robots. The simulator aims to provide a tool to assist in the stages of development, testing, and configuration of parameters of learning systems for social robotics.
+
 The first version of the simulator is based on the MDQN algorithm as a reinforcement learning module, available at:
 
 https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction
+
+The simulation environment is an implementation derived from the Robot House Simulator (RHS) [[1]](#1) [2]](#2), into the Laboratory of Robot Learning (LAR) of the ICMC/USP ( Brazil). The architecture called Multimodal Deep-Q-Network (MDQN), proposed in [[3]](#3),  is used to validate the proposed environment.
+
+### Robot Actions
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
 
@@ -74,6 +80,27 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
  - **Look**: looks at the nearest human, if he is in the robot's field of view;
  - **Wave**: makes the gesture of waving while looking at the nearest human;
  - **Handshake**: performs the handshake gesture to greet the human.
+
+### States
+
+The robot captures two types of images to model the state of the environment: grayscale images; and depth images. 
+For each of these channels, 8 image sequences are captured. These images help the agent to model the state in the reinforcement learning paradigm.
+
+### Reward
+
+
+
+## MDQN 
+
+
+The MDQN model aims to contribute so that social robots can correctly interpret human behaviors to act appropriately with them. In this model, two DQN networks are used for the characteristic automatic extraction to estimate the action-value function, one for grayscale images and another for depth images. The robot captures these images in a real environment in which it aims to interact with people.
+
+MDQN has two phases of processing:
+
+1. **Data Generation Phase**: the agent interacts with the environment using the Q-network, observing the current scene and acting on the environment using the greedy approach. The grayscale and depth images make up the agent's observations. After the execution of each action, the system returns a reward. In this way, the repetition memory stores the $N$ experiences of interactions.
+2. **Training Phase**: uses the repetion memory for training.
+
+The simDRLSR simulator assists in the data collection phase, replacing the real robot.
 
 
 [![Watch the video](doc/preview2.png)](https://youtu.be/e4C8hK4q8Ug)
@@ -167,7 +194,7 @@ The IP Adress,most likely, will be the only value you should change.
 
 ### MDQN configuration
 
-The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1). We made minor changes to the original code and made it available in the folder called "simMDQN". 
+The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[3]](#3). We made minor changes to the original code and made it available in the folder called "simMDQN". 
 
 #### simMDQN
 
@@ -306,8 +333,19 @@ Distributed under the MGNU GPL 3.0. See `LICENSE` for more information.
  
  
 ## References
-
 <a id="1">[1]</a> 
+BELO, José Pedro R.; ROMERO, Roseli AF; AZEVEDO, Helio. 
+"Rhs simulator for robotic cognitive systems". 
+2017 Latin American Robotics Symposium (LARS) and 2017 Brazilian Symposium on Robotics (SBR). 
+IEEE, p. 1-6, Curtiba, Brazil 2017.
+
+<a id="2">[2]</a> 
+BELO, José Pedro R.; ROMERO, Roseli AF; AZEVEDO, Helio. 
+"Enhancements in a Social Robotic Simulator for Indoor Environments." 
+2018 Latin American Robotic Symposium, 2018 Brazilian Symposium on Robotics (SBR). 
+IEEE, João Pessoa, Brazil 2019.
+
+<a id="3">[3]</a> 
 Ahmed Hussain Qureshi, Yutaka Nakamura, Yuichiro Yoshikawa and Hiroshi Ishiguro 
 "Robot gains social intelligence through Multimodal Deep Reinforcement Learning" 
 Proceedings of IEEE-RAS International Conference on Humanoid Robots (Humanoids) 
