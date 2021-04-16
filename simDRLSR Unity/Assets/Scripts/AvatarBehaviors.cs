@@ -181,17 +181,17 @@ public class AvatarBehaviors : MonoBehaviour
         {       
             GameObject robotAttention = robotHRI.getPersonFocusedByRobot();
             Command hriCommand = null;         
-
-            
+            //Debug.Log("Human Action>>> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Human Action>>> robot attention: "+robotAttention);
             //Verifica foco de atenção do robô
             if((robotAttention==gameObject)||(isHumanEngaged)){
             //if(robotAttention==gameObject){            
 
                 
-                
                 float angle = getAngle(transform,robot.transform.position);
+                //Debug.Log("Human Action>>> robot angle: "+angle);
                 if(angle<=visionAngle){                    
-                                    
+                    //Debug.Log("Human Action>>> human is engaged?: "+isHumanEngaged);
                     List<List<Items<HumanActionType>>> probTab = engagedProbTab;
                     if(!isHumanEngaged){
                         probTab = human_notEngdProbTab;
@@ -199,26 +199,44 @@ public class AvatarBehaviors : MonoBehaviour
                     {
                         probTab = robot_notEngdProbTab;
                     }
+                    
                     //print(transform.name+">>> robot attention: "+robotAttention);
 
                    
                     if((robotAction.action==AgentAction.DoNothing)||(robotAction.action==AgentAction.None)){
-                        robotAction.action = AgentAction.Wait;                        
+                        robotAction.action = AgentAction.Wait;  
+                       // Debug.Log("Human Action>>> Robot doing nothing/none");                      
                     }
                     //print(transform.name+">>> robot action: "+robotAction);
                     float distance = Vector3.Distance(robot.transform.position,gameObject.transform.position);
-                    
-                    if((lastHumanRobotActions.humanAction==HumanActionType.Wait)&&(robotAction.action==lastHumanRobotActions.robotLast.action))
+                    /*
+                    Debug.Log("Human Action>>> distance: "+distance);
+                    if(distance<=closeDistance){                                          
+                        Debug.Log("Human Action>>> distancia perto");
+                    }else if(distance<= farDistance){                            
+                       Debug.Log("Human Action>>> distancia meio");
+                    }else{
+                        Debug.Log("Human Action>>> distancia longe");                                   
+                    }   
+                    */        
+                    if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Wait))
                     {
-                         //Humano espera até que robô faça algo diferente
-                    //caso a ação anterior seja 'Wait' e o robô esteja executando a mesma ação
+                        //Humano espera até que robô faça algo diferente
+                        //caso a ação anterior seja 'Wait' e o robô esteja executando a mesma ação
                         hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
+                        //Debug.Log("Human Action>>> esperando novamente"); 
                     }
                     else if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore))
                     {
                         hriType = HumanActionType.Ignore;
+                        //Debug.Log("Human Action>>> ignorando novamente"); 
+                    }
+                    else if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Look))
+                    {
+                        hriType = HumanActionType.Look;
+                        //Debug.Log("Human Action>>> olhando novamente"); 
                     
-                    }else
+                    }else 
                     {
                         //Verifica a distância da interação
                         
@@ -269,7 +287,7 @@ public class AvatarBehaviors : MonoBehaviour
                                 hriType = HumanActionType.Ignore;
                                 break;                    
                         }
-                       
+                        //Debug.Log("Human Action>>> ação selecionada: "+hriType);
                         //if((robotAction.action!=AgentAction.None)&&(robotAction.action!=AgentAction.DoNothing)){
                         lastHumanRobotActions = (robotAction,hriType);
                         //}
@@ -278,6 +296,7 @@ public class AvatarBehaviors : MonoBehaviour
                         //print(transform.name+" "+hriType);
                         if(!isHumanEngaged)
                         {
+                            //Debug.Log("Human Action>>> humano nao engajado, resetando posicao cabeca");
                             scm.sendCommand("HRIHeadReset", Action.HeadReset);
                         }
                     }                  
@@ -347,6 +366,7 @@ public class AvatarBehaviors : MonoBehaviour
                 {
                     //ignoreFlag = false;
                     lastHumanRobotActions.humanAction = HumanActionType.None;
+                    lastHumanRobotActions.robotLast.action = AgentAction.None;
                     processCommand(strCommands[count]);
                     count++;
                 }

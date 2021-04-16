@@ -65,9 +65,7 @@ using System;
         }
 
         void Start()
-        {
-
-            
+        {            
 
             hri = gameObject.GetComponent<RobotInteraction>();
             hri.handshakeReward = handshakeReward;

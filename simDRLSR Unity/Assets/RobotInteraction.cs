@@ -257,7 +257,7 @@ public class RobotInteraction : MonoBehaviour
                     if (timeNow - actionTimeStart >= timeToWait * 1000)
                     {                    
                         if(detectEndOfAction()){
-                            resetPersonFocused();
+                            
                             actionStage = ActionStages.WaitReward;
                         }                                        
                     }                
@@ -277,7 +277,7 @@ public class RobotInteraction : MonoBehaviour
                     
                     break;
                 case ActionStages.End:
-                    //rAction = AgentAction.DoNothing;d
+                    //rAction = AgentAction.DoNothing;
                     resetHandTouch();
                     if(actionFromRL){
                         print(rAction+" executed!");
@@ -328,6 +328,7 @@ public class RobotInteraction : MonoBehaviour
 
     public void setAction(AgentAction action,int step)
     {
+        resetPersonFocused();
         queueAction = action;
         queueStep = step;
         dictStepRewards[step] = NULL_REWARD;
@@ -386,6 +387,7 @@ public class RobotInteraction : MonoBehaviour
 
     private void ActionWait()
     {
+        
         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
         //Vector3 randomPosition = transform.forward;
         if (timeNow - timeStart >= randomTime * 1000)
