@@ -60,6 +60,10 @@
   </ol>
 </details>
 
+## Note
+
+Attention: the simulator is currently under development and is undergoing tests and scientific review. This is not the final version. It is also necessary to refine the behavior of the simulated avatars. Thank you for understanding.
+
 ## About the Project
 
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
