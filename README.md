@@ -352,7 +352,7 @@ At this point, we validate the simDRLSR only with simMDQN.Therefore, we do not p
      ```
 ## License
 
-Distributed under the MGNU GPL 3.0. See `LICENSE` for more information.
+Distributed under the GNU GPL 3.0. See `LICENSE` for more information.
  
  
 ## References
