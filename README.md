@@ -390,7 +390,7 @@ pp. 745-751, Cancun, Mexico 2016.
 [issues-shield]: https://img.shields.io/github/issues/JPedroRBelo/simDRLSR.svg?style=for-the-badge
 [issues-url]: https://github.com/JPedroRBelo/simDRLSR/issues
 [license-shield]: https://img.shields.io/badge/license-GNU%20GPU%203.0-brightgreen?style=for-the-badge
-[license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/development/LICENSE
+[license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/master/LICENSE
 [scholar-shield]: https://img.shields.io/badge/-Google%20Scholar-black.svg?style=for-the-badge&logo=google-scholar&colorB=555
 [scholar-url]: https://scholar.google.com.br/citations?user=0nh0sDMAAAAJ&hl
 
