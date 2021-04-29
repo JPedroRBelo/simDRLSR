@@ -46,7 +46,7 @@ function generate_data(episode)
 	local ep_rewards=torch.load('files/ep_rewards.dat')
 
 	local aset = {'1','2','3','4'}
-	local testing = false
+	local testing = 0.00001
 
 	local arg_test = arg[1]	
 	if arg_test ~= nil then
@@ -68,8 +68,9 @@ function generate_data(episode)
 
 	if testing then
 		--aset = {'1','1','1','1'}
-		aset = {'4','4','4','4'}
+		--aset = {'4','4','4','4'}
 		init_step = 0
+		print(testing)
 
 	end
 
