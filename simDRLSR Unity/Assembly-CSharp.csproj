@@ -175,11 +175,11 @@
      <Compile Include="Assets\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\Scripts\FaceBehave.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotPerceptionEvent.cs" />
+     <Compile Include="Assets\NeckTest.cs" />
      <None Include="Assets\CmdBehaviors\enterWorkArea.txt" />
      <None Include="Assets\ImageSynthesis\LICENSE.txt" />
      <None Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\ReadMe.txt" />
      <None Include="Assets\ImageSynthesis\Shaders\Greyscale.shader" />
-     <None Include="Assets\config.xml" />
      <None Include="Assets\CmdBehaviors\livro.txt" />
      <None Include="Assets\CmdBehaviors\magazine.txt" />
      <None Include="Assets\CmdBehaviors\ihr1.txt" />

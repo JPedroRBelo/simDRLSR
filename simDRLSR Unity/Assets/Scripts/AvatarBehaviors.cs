@@ -121,28 +121,33 @@ public class AvatarBehaviors : MonoBehaviour
         //ignoredDistance = 0f;
         strCommands = new List<String>();
         vision = transform.GetComponent<HumanVisionManager>();
-        foreach(TextAsset file in behaviorFiles)
+        if(behaviorFiles!=null)
         {
-            string fs = file.text;
-            string[] fLines = fs.Split("\n"[0]);
-            foreach(string line in fLines)
+            foreach(TextAsset file in behaviorFiles)
             {
-                int index = line.IndexOf("#");
-                string cmdText = ""; 
-                if (index > 0)
+                string fs = file.text;
+
+                string[] fLines = fs.Split("\n"[0]);
+                foreach(string line in fLines)
                 {
-                    cmdText = line.Substring(0, index);
-                }
-                else if(index < 0)
-                {
-                    cmdText = line;
-                }
-                if (!cmdText.Equals(""))
-                {                    
-                    strCommands.Add(cmdText.Replace("\n", "").Replace("\r", ""));
-                }
-            }            
+                    int index = line.IndexOf("#");
+                    string cmdText = ""; 
+                    if (index > 0)
+                    {
+                        cmdText = line.Substring(0, index);
+                    }
+                    else if(index < 0)
+                    {
+                        cmdText = line;
+                    }
+                    if (!cmdText.Equals(""))
+                    {                    
+                        strCommands.Add(cmdText.Replace("\n", "").Replace("\r", ""));
+                    }
+                }            
+            }
         }
+        
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         string path_config = "Config";
         if(simulatorManager == null){
