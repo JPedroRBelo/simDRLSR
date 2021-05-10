@@ -138,7 +138,33 @@ public class SocketCommunication : MonoBehaviour
                             }catch{
                                 sendDataClient("1");
                                 print("Data error: step");
-                            }                                                        
+                            }
+                        }else if(data.ToString().Contains("episode")){
+                            
+                            string data_string = data.Replace("episode","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                string episode = data_string;
+                                agent.setEpisode(episode);
+                                print("Episode folder: "+episode);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: episode");   
+                            }                                                       
+                            
+                        }else if(data.ToString().Contains("workdir")){
+                            
+                            string data_string = data.Replace("workdir","");
+                            try{
+                                string workDir = data_string;
+                                agent.setWorkDir(workDir);
+                                print("Workdir folder: "+workDir);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: episode");   
+                            }                                                       
                             
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");

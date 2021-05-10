@@ -38,7 +38,7 @@ using System;
 
         [Header("RL Configuration")]
         public int totalSteps = 1000;
-        private string workDir = "simMDQN/DataGeneration-Phase/";
+        private string workDir;
 
         private RobotInteraction hri;
         [Header("Temporary Variables")]
@@ -52,6 +52,7 @@ using System;
         private ConfigureSaveImage imageSaver;
 
         private int stepAt;
+        private string episode;
         private RLStages rlStage;
         private AgentAction dataAction;
         private bool flagNewActionData;
@@ -64,9 +65,18 @@ using System;
             stepAt = initStep;
         }
 
+        public void setEpisode(string episode){
+            this.episode = episode;
+        }
+
+        public void setWorkDir(string workDir){
+            this.workDir = workDir;
+        }
+
         void Start()
         {            
-
+            workDir = "";
+            episode = "";
             hri = gameObject.GetComponent<RobotInteraction>();
             hri.handshakeReward = handshakeReward;
             hri.neutralReward = neutralReward;
@@ -82,7 +92,7 @@ using System;
             rlStage = RLStages.WaitStart;
             dataAction = AgentAction.DoNothing;
             flagNewActionData = false;
-
+            
             GameObject simulatorManager = GameObject.Find("/SimulatorManager");
             if(simulatorManager == null){
                 Debug.Log("Simulator Manager not found...");
@@ -92,7 +102,9 @@ using System;
                     Debug.Log("Script Configure Simulation not found...");
                 }else
                 {
-                    workDir = cs.getWorkDir();
+                    if((workDir=="")||(workDir==null)){
+                        workDir = cs.getWorkDir();
+                    }
                     totalSteps = cs.getTotalSteps();
                 }
             }
@@ -221,14 +233,17 @@ using System;
                 //string dir = Path.Combine(Application.dataPath,("/../../"+workDir) );
                 string dir = Path.Combine(Application.dataPath, "..", "..");
                 dir = Path.Combine(dir,workDir);
-                StreamReader reader = new StreamReader(dir+"files/episode.txt");
-                //string ep = reader.ReadToEnd();
-                string ep = "";
-                while (!reader.EndOfStream){
-                    ep = reader.ReadLine();
-                    //print("Episode: "+ep);
+                string ep = episode;
+                if((ep=="")||(ep==null)){                
+                    StreamReader reader = new StreamReader(dir+"files/episode.txt");
+                    //string ep = reader.ReadToEnd();
+                    
+                    while (!reader.EndOfStream){
+                        ep = reader.ReadLine();
+                        //print("Episode: "+ep);
+                    }
+                    reader.Close();
                 }
-                reader.Close();
 
                 string save_path1 = Path.Combine(dir, "dataset");
                 save_path1 = Path.Combine(save_path1, "RGB");
