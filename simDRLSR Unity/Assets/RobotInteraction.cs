@@ -17,8 +17,7 @@ public class Vector3Wrapper
 [RequireComponent(typeof(Animator))]
 public class RobotInteraction : MonoBehaviour
 {
-    public bool view = true;
-    public GameObject persona;
+    
     [HideInInspector] 
     public float handshakeReward = 50f;
     [HideInInspector] 
@@ -316,9 +315,7 @@ public class RobotInteraction : MonoBehaviour
         {
              touchRobotHand();
         }   
-
-
-        testHeadRotation();           
+       
     }
 
     private float calcReward(AgentAction action,int step)
@@ -558,52 +555,6 @@ public class RobotInteraction : MonoBehaviour
         return getPersonPosition(person, out hit);
     }
 
-    private void testHeadRotation(){
-        //ActionLook();
-        if(view){
-            Transform person_head = persona.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
-            
-                /*
-                Vector3 relativePos = person_head.position - robotNeck.transform.position;
-                Quaternion rotation = Quaternion.LookRotation(relativePos);
-                //print(WrapAngle(rotation.eulerAngles.x)+ " "+WrapAngle(rotation.eulerAngles.y));
-                robotNeck.transform.rotation = Quaternion.Lerp(robotNeck.transform.rotation, 
-                                                rotation, Time.deltaTime * 1f); 
-                Vector3 orginalNeckRotation = neckOriginalTransform.transform.rotation.eulerAngles;
-                
-                float vertical = -WrapAngle(rotation.eulerAngles.x)+WrapAngle(orginalNeckRotation.x);
-                float horizontal = rotation.eulerAngles.y;//-WrapAngle(rotation.eulerAngles.y)+WrapAngle(orginalNeckRotation.y);
-                print(vertical+" "+horizontal);
-                Vector3 forward = robotNeck.transform.TransformDirection(Vector3.forward) * 10;
-                Vector3 forward2 = neckOriginalTransform.transform.TransformDirection(Vector3.forward) * 10;
-                Debug.DrawRay(robotNeck.transform.position, forward, Color.green);
-                Debug.DrawRay(robotNeck.transform.position, forward2, Color.blue);
-                */
-
-                var targetDirection = person_head.position - neckOriginalTransform.transform.position;
-                targetDirection = neckOriginalTransform.transform.InverseTransformDirection(targetDirection);
-                var angleOnY = Mathf.Atan2( targetDirection.z, targetDirection.x ) * Mathf.Rad2Deg;
-                var angleOnX = Mathf.Atan2( targetDirection.y, targetDirection.z ) * Mathf.Rad2Deg;  
-                //print("Angleonx:"+ (-angleOnX-WrapAngle(neckOriginalTransform.transform.localEulerAngles.x)));
-                Vector3 robot_angle = new Vector3(angleOnX,angleOnY,0);
-
-                targetDirection = person_head.position - robotNeck.transform.position;
-                targetDirection = robotNeck.transform.InverseTransformDirection(targetDirection);
-                angleOnY = Mathf.Atan2( targetDirection.z, targetDirection.x ) * Mathf.Rad2Deg;
-                angleOnX = Mathf.Atan2( targetDirection.y, targetDirection.z ) * Mathf.Rad2Deg;
-
-                Vector3 camera_angle = new Vector3(angleOnX,angleOnY,0);  
-
-
-
-
-                
-        
-        }else{
-            
-                        
-        }
-    }
 
      private float WrapAngle(float angle)
         {

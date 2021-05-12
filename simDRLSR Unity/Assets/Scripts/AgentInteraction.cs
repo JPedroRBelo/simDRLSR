@@ -875,7 +875,7 @@ public class AgentInteraction : MonoBehaviour {
     public bool sendCommand(Command command)
     {
         agentHands[(int)command.getActHand()].setCommand(command);
-        Debug.Log("Command>>> "+this.name+ " received command " + command.getStringCommand());
+        if(debug)Debug.Log("Command>>> "+this.name+ " received command " + command.getStringCommand());
         return true;
     } 
 

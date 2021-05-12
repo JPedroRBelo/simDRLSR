@@ -186,7 +186,7 @@ public class SocketCommunication : MonoBehaviour
                     if(reward != agent.NULL_REWARD)
                     {
                         sendReward(reward.ToString());
-                        print(this+"Reward sended at step "+stepAt);
+                        //print(this+"Reward sended at step "+stepAt);
                         stepAt = -1;                                            
                     }
                 }              
@@ -303,7 +303,7 @@ public class SocketCommunication : MonoBehaviour
             StreamWriter writer = new StreamWriter(client.tcp.GetStream());
             writer.WriteLine(stringData);
             writer.Flush();     
-            print("Reward sended!");      
+            //print("Reward sended!");      
         }
         catch (Exception e)
         {
