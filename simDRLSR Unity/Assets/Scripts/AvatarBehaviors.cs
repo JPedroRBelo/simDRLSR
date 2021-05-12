@@ -179,7 +179,7 @@ public class AvatarBehaviors : MonoBehaviour
 
     private void Update()
     {
-        (int robotStep,AgentAction action) robotAction = robotHRI.getActualAction();
+        (int step,AgentAction action) robotAction = robotHRI.getActualAction();
         //Verifica se humano está de frente ao robô (se robô é visível)
         HumanActionType hriType = HumanActionType.Ignore;
         if((hriCommands.Count() == 0))
@@ -231,18 +231,27 @@ public class AvatarBehaviors : MonoBehaviour
                         hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
                         //Debug.Log("Human Action>>> esperando novamente"); 
                     }
-                    else if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore))
+                    else if((robotAction.step==lastHumanRobotActions.robotLast.step)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore))
                     {
                         hriType = HumanActionType.Ignore;
                         //Debug.Log("Human Action>>> ignorando novamente"); 
                     }
-                    else if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Look))
+                    else if((robotAction.step==lastHumanRobotActions.robotLast.step)&&(lastHumanRobotActions.humanAction==HumanActionType.Look))                    
                     {
+                        
                         hriType = HumanActionType.Look;
+
                         //Debug.Log("Human Action>>> olhando novamente"); 
                     
                     }else 
                     {
+                         if(distance<=closeDistance){                                          
+                                print("Human: close");
+                                }else if(distance<= farDistance){                            
+                                        print("Human: middle");
+                                }else{
+                                      print("Human: far");                                
+                                } 
                         //Verifica a distância da interação
                         
                         //print(transform.name+ " Distance: "+distance);
@@ -299,6 +308,7 @@ public class AvatarBehaviors : MonoBehaviour
                         //Verifica se humano não ignorou o robô. Caso positivo, ele está engajado na interação
                         isHumanEngaged = !(hriType==HumanActionType.Ignore); 
                         //print(transform.name+" "+hriType);
+                        print("Command: "+hriType);
                         if(!isHumanEngaged)
                         {
                             //Debug.Log("Human Action>>> humano nao engajado, resetando posicao cabeca");
