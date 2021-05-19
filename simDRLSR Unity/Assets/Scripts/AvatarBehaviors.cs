@@ -56,7 +56,16 @@ public class AvatarBehaviors : MonoBehaviour
     private List<List<Items<HumanActionType>>> human_notEngdProbTab;
     private List<List<Items<HumanActionType>>> robot_notEngdProbTab;
 
+
     private bool isHumanEngaged;
+
+    private bool  repeatedBehavior;
+
+    public long maxToleranceTime = 10000;
+    private long startToleranceTime;
+
+    public float toleranceTimeMultiplier = 1;
+    
     //private bool ignoreFlag;
 
     //private float ignoredDistance;
@@ -107,6 +116,7 @@ public class AvatarBehaviors : MonoBehaviour
 
     private void Start()
     {
+        startToleranceTime = 0;
         robot = GameObject.FindGameObjectsWithTag("Robot")[0];
         robotHRI = robot.GetComponent<RobotInteraction>();
         //probabilities = getProbabilities();
@@ -223,35 +233,48 @@ public class AvatarBehaviors : MonoBehaviour
                     }else{
                         Debug.Log("Human Action>>> distancia longe");                                   
                     }   
-                    */        
-                    if((robotAction.action==lastHumanRobotActions.robotLast.action)&&(lastHumanRobotActions.humanAction==HumanActionType.Wait))
-                    {
+                    */  
+                    bool auxSelectedCommandFlag = false;
+                    
+                    if((robotAction.step==lastHumanRobotActions.robotLast.step)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore)){
+                        hriType = HumanActionType.Ignore;
+                        auxSelectedCommandFlag = true;
+                        //Debug.Log("Human Action>>> ignorando novamente"); 
+                    }else if((robotAction.action==lastHumanRobotActions.robotLast.action))                    {
+
                         //Humano espera até que robô faça algo diferente
                         //caso a ação anterior seja 'Wait' e o robô esteja executando a mesma ação
-                        hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
-                        //Debug.Log("Human Action>>> esperando novamente"); 
+                        if(!repeatBehaviors){
+                            startToleranceTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+                            repeatBehaviors = true;
+                        }
+                        long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+                    
+                        if(repeatBehaviors&& ((timeNow-startToleranceTime)<maxToleranceTime/toleranceTimeMultiplier)){
+                            
+                            if(lastHumanRobotActions.humanAction==HumanActionType.Wait){
+                                //hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
+                                hriType = HumanActionType.Wait;
+                                auxSelectedCommandFlag = true;
+
+                            }else if(lastHumanRobotActions.humanAction==HumanActionType.Look){
+                            
+                                hriType = HumanActionType.Look;
+                                auxSelectedCommandFlag = true;
+                            }
+                        }else{
+                            hriType = HumanActionType.Ignore;
+                            auxSelectedCommandFlag = true;
+                            repeatBehaviors = false;
+                        }
+                        //Debug.Log("Human Action>>> olhando novamente");                     
+                    }else{
+                        repeatBehaviors = false;
                     }
-                    else if((robotAction.step==lastHumanRobotActions.robotLast.step)&&(lastHumanRobotActions.humanAction==HumanActionType.Ignore))
-                    {
-                        hriType = HumanActionType.Ignore;
-                        //Debug.Log("Human Action>>> ignorando novamente"); 
-                    }
-                    else if((robotAction.step==lastHumanRobotActions.robotLast.step)&&(lastHumanRobotActions.humanAction==HumanActionType.Look))                    
+                       
+                    if(!auxSelectedCommandFlag) 
                     {
                         
-                        hriType = HumanActionType.Look;
-
-                        //Debug.Log("Human Action>>> olhando novamente"); 
-                    
-                    }else 
-                    {
-                         if(distance<=closeDistance){                                          
-                                print("Human: close");
-                                }else if(distance<= farDistance){                            
-                                        print("Human: middle");
-                                }else{
-                                      print("Human: far");                                
-                                } 
                         //Verifica a distância da interação
                         
                         //print(transform.name+ " Distance: "+distance);
@@ -358,15 +381,14 @@ public class AvatarBehaviors : MonoBehaviour
                         hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Handshake","", 500));
                         hriCommands.Add(scm.sendCommand(generateCommandId(), Hands.Right, Action.Activate, robotHand));
                         
-                        hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 2000));
+                        hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 500));
                         scm.sendCommand("HRIHeadReset", Action.HeadReset);
                         isHumanEngaged = false;
                     }                    
                     break;                
                 default:
                     break;
-            }
-            
+            }            
                         
         }
 
@@ -394,10 +416,7 @@ public class AvatarBehaviors : MonoBehaviour
             
         }
         removeExecutedCommands(runningCommands);
-        removeExecutedCommands(hriCommands); 
-
-
-        
+        removeExecutedCommands(hriCommands);     
              
     }
 
