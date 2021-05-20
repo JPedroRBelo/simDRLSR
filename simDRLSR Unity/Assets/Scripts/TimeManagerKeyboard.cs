@@ -52,4 +52,9 @@ public class TimeManagerKeyboard : MonoBehaviour {
             Time.timeScale = timeValue;
         }
     }
+
+    public float getTime()
+    {
+       return timeValue;
+    }
 }

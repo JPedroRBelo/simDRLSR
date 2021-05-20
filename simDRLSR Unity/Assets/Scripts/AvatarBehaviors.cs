@@ -59,12 +59,11 @@ public class AvatarBehaviors : MonoBehaviour
 
     private bool isHumanEngaged;
 
-    private bool  repeatedBehavior;
+    private bool  stagnantBehavior;
 
     public long maxToleranceTime = 10000;
     private long startToleranceTime;
 
-    public float toleranceTimeMultiplier = 1;
     
     //private bool ignoreFlag;
 
@@ -244,13 +243,17 @@ public class AvatarBehaviors : MonoBehaviour
 
                         //Humano espera até que robô faça algo diferente
                         //caso a ação anterior seja 'Wait' e o robô esteja executando a mesma ação
-                        if(!repeatBehaviors){
+                        if(!stagnantBehavior){
                             startToleranceTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                            repeatBehaviors = true;
+                            stagnantBehavior = true;
                         }
                         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                    
-                        if(repeatBehaviors&& ((timeNow-startToleranceTime)<maxToleranceTime/toleranceTimeMultiplier)){
+                        float timeSpeed = 1f;
+                        GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+                        if(simManager != null){
+                            timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+                        }                    
+                        if(stagnantBehavior&& ((timeNow-startToleranceTime)<maxToleranceTime/timeSpeed)){
                             
                             if(lastHumanRobotActions.humanAction==HumanActionType.Wait){
                                 //hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
@@ -265,11 +268,11 @@ public class AvatarBehaviors : MonoBehaviour
                         }else{
                             hriType = HumanActionType.Ignore;
                             auxSelectedCommandFlag = true;
-                            repeatBehaviors = false;
+                            stagnantBehavior = false;
                         }
                         //Debug.Log("Human Action>>> olhando novamente");                     
                     }else{
-                        repeatBehaviors = false;
+                        stagnantBehavior = false;
                     }
                        
                     if(!auxSelectedCommandFlag) 

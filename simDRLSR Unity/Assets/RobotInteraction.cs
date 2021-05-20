@@ -269,8 +269,13 @@ public class RobotInteraction : MonoBehaviour
                             break;
                         
                     }
+                    float timeSpeed = 1f;
+                    GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+                    if(simManager != null){
+                        timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+                    }                    
                     long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                    if (timeNow - actionTimeStart >= timeToWait * 1000)
+                    if (timeNow - actionTimeStart >= timeToWait/timeSpeed * 1000)
                     {                    
                         if(detectEndOfAction()){
                             

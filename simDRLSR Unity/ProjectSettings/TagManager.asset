@@ -17,6 +17,7 @@ TagManager:
   - SideDoor
   - Person
   - Hand
+  - SimulatorManager
   layers:
   - Default
   - TransparentFX

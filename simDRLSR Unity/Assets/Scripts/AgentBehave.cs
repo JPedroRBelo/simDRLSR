@@ -65,8 +65,12 @@ public class AgentBehave : MonoBehaviour
                             long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                             animation = command.getAnimation();
 
-
-                            if (timeNow - timeStart >= command.getTime())
+                            float timeSpeed = 1f;
+                            GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+                            if(simManager != null){
+                                timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+                            }
+                            if (timeNow - timeStart >= (command.getTime()/timeSpeed))
                             {
                                 
                                 if (command.getAnimation() != "Wait")
