@@ -255,15 +255,17 @@ public class AvatarBehaviors : MonoBehaviour
                         }                    
                         if(stagnantBehavior&& ((timeNow-startToleranceTime)<maxToleranceTime/timeSpeed)){
                             
-                            if(lastHumanRobotActions.humanAction==HumanActionType.Wait){
+                            if((lastHumanRobotActions.humanAction==HumanActionType.Wait)&&
+                                (robotAction.step==lastHumanRobotActions.robotLast.step)){
                                 //hriType = getHumanActionByProb(probTab,InteractionType.WaitClose);
                                 hriType = HumanActionType.Wait;
                                 auxSelectedCommandFlag = true;
-
-                            }else if(lastHumanRobotActions.humanAction==HumanActionType.Look){
-                            
+                            }else if((lastHumanRobotActions.humanAction==HumanActionType.Look)&&
+                                (robotAction.step==lastHumanRobotActions.robotLast.step)){
                                 hriType = HumanActionType.Look;
                                 auxSelectedCommandFlag = true;
+                        
+                                    
                             }else if(lastHumanRobotActions.humanAction==HumanActionType.Handshake){
                             
                                 hriType = HumanActionType.Ignore;
