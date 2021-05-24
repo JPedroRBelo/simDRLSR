@@ -264,6 +264,11 @@ public class AvatarBehaviors : MonoBehaviour
                             
                                 hriType = HumanActionType.Look;
                                 auxSelectedCommandFlag = true;
+                            }else if(lastHumanRobotActions.humanAction==HumanActionType.Handshake){
+                            
+                                hriType = HumanActionType.Ignore;
+                                auxSelectedCommandFlag = true;
+                                stagnantBehavior = false;
                             }
                         }else{
                             hriType = HumanActionType.Ignore;
@@ -340,7 +345,8 @@ public class AvatarBehaviors : MonoBehaviour
                             //Debug.Log("Human Action>>> humano nao engajado, resetando posicao cabeca");
                             scm.sendCommand("HRIHeadReset", Action.HeadReset);
                         }
-                    }                  
+                    }
+                    isHumanEngaged = !(hriType==HumanActionType.Ignore);                  
                     
                 }
             }
