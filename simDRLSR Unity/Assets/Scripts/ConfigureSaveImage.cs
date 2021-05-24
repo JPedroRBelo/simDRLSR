@@ -21,8 +21,13 @@ public class ConfigureSaveImage : MonoBehaviour
     private int interator;
     void Start()
     {
+    	float timeSpeed = 1f;
+        GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+        if(simManager != null){
+		timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+	}    
         interator = numberOfPictures;
-        nextUpdate = timeBeweenCapturures;
+        nextUpdate = timeBeweenCapturures/timeSpeed;
         imSynthesis = GetComponent<ImageSynthesis>();
         imgProp = new List<ImageToSaveProperties>();
         stateCaptured = new Dictionary<int, bool>();

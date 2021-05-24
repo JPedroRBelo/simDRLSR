@@ -409,10 +409,15 @@ public class RobotInteraction : MonoBehaviour
 
     private void ActionWait()
     {
+    	float timeSpeed = 1f;
+	GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+	if(simManager != null){
+		timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+	}    
         
         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
         //Vector3 randomPosition = transform.forward;
-        if (timeNow - timeStart >= randomTime * 1000)
+        if (timeNow - timeStart >= (randomTime * 1000)/timeSpeed)
         {
             neckRotation = randomAnglesToLook(waitHorizontalLookAngle, waitVerticalLookAngle);
             //randomTime = UnityEngine.Random.Range(minRandomLookTime, maxRandomLookTime);
