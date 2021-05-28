@@ -379,9 +379,9 @@ public class AvatarBehaviors : MonoBehaviour
                     hriCommands.Add(scm.sendCommand(generateCommandId(), Action.HeadFocus, robotHead));
                     hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 1000));
                     hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Move, "Robot"));
-                    hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 500));
+                    hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 300));
                     hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Turn, robot.transform));
-                    hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 2000));
+                    hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 1000));
                     break;
                 case HumanActionType.Handshake:
                     //hriCommands.Add(scm.sendCommand(generateCommandId(), Action.Animate, "Wait","", 1000));

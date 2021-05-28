@@ -36,7 +36,7 @@ public class ConfigureSaveImage : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Time.time >= nextUpdate)
         {           
