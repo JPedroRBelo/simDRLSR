@@ -22,6 +22,10 @@ public class RobotInteraction : MonoBehaviour
     public float handshakeReward = 50f;
     [HideInInspector] 
     public float failHandshakeReward = -0.1f;
+    [HideInInspector]
+    public float  successEyeGazeReward = 50f;
+    [HideInInspector]
+    public float failEyeGazeReward = -0.1f;
     [HideInInspector] 
     public float neutralReward = 0f;
     [HideInInspector] 
@@ -331,6 +335,14 @@ public class RobotInteraction : MonoBehaviour
                 return handshakeReward;
             }else{
                 return failHandshakeReward;
+            }
+                
+        }else if(action == AgentAction.Wave)
+        {
+            if(eventDetector.detectEyeGaze(step)){
+                return successEyeGazeReward;
+            }else{
+                return failEyeGazeReward;
             }
                 
         }else

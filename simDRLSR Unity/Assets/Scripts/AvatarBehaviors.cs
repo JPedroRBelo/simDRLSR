@@ -908,5 +908,8 @@ public class AvatarBehaviors : MonoBehaviour
         return result;
     }
     
+    public bool isHumanEngagedWithRobot(){
+        return isHumanEngaged;
+    }
     
 }

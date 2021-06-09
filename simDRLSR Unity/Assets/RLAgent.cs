@@ -33,7 +33,11 @@ using System;
         [Header("Rewards")]
         public float failHandshakeReward = -0.1f;
         public float handshakeReward = 50f;
-        public float neutralReward = 0f;        
+        public float neutralReward = 0f;    
+
+        public float failEyeGazeReward = -0.1f;
+        public float successEyeGazeReward = 50f;
+
         public  float NULL_REWARD = -Mathf.Infinity;
 
         [Header("RL Configuration")]
@@ -82,6 +86,8 @@ using System;
             hri.neutralReward = neutralReward;
             hri.failHandshakeReward = failHandshakeReward;
             hri.NULL_REWARD = NULL_REWARD;
+            hri.successEyeGazeReward = successEyeGazeReward;
+            hri.failEyeGazeReward = failEyeGazeReward;
             tempReward = NULL_REWARD;
             reward =  NULL_REWARD;
             if (cameraGameObject)
