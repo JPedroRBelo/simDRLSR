@@ -178,7 +178,21 @@ public class SocketCommunication : MonoBehaviour
                                 sendDataClient("1");
                                 print("Data error: time");   
                             }                                                       
+                         }else if(data.ToString().Contains("fov")){
                             
+                            string data_string = data.Replace("fov","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                float fov =  float.Parse(data_string);
+                                
+                                print("Robot camera Fov: "+fov);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: time");   
+                            }                                                       
+                            
+                                
                             
                         }else if(data.ToString().Contains("workdir")){
                             

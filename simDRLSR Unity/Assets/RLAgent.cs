@@ -270,6 +270,9 @@ using System;
             //}
         }
 
+        public void setFov(float fov){
+            cameraGameObject.GetComponent<Camera>().fieldOfView = fov;
+        }
 
     }
 

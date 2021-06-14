@@ -14,8 +14,12 @@ public class FaceBehave : MonoBehaviour
 {
 	public RandomEyes3D randomEyes; // Public reference to RandomEyes3D
 	public float value = 2.5f;
+	public float blinkTime = 0.15f;
 	public bool smile = false;
+	public bool blink = false;
 	//private bool flag = false;
+
+	private 
 
 	void Start()
 	{
@@ -39,16 +43,35 @@ public class FaceBehave : MonoBehaviour
 	
 	void Update()
     {
-        
+
+		float timeSpeed = 1f;
+		GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+		if(simManager != null){
+			timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+		} 
+
 		
 		if (smile)
 		{
 			randomEyes.SetGroup("smile", true); // Activate/deactivate multi-BlendShape smile
-			randomEyes.SetGroup("smile", value); // Activate multi-BlendShape smile for 1.5 seconds
+			randomEyes.SetGroup("smile", value/timeSpeed); // Activate multi-BlendShape smile for 1.5 seconds
 			smile = false;
+		}
+
+		if (blink)
+		{
+			randomEyes.SetGroup("blink", true); // Activate/deactivate multi-BlendShape smile
+			randomEyes.SetGroup("blink", value/timeSpeed); // Activate multi-BlendShape smile for 1.5 seconds
+			blink = false;
 		}
 		
 		
+	}
+
+	float NextFloat(float min, float max){
+		System.Random random = new System.Random();
+		double val = (random.NextDouble() * (max - min) + min);
+		return (float)val;
 	}
 
 
