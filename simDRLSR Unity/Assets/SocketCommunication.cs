@@ -184,7 +184,7 @@ public class SocketCommunication : MonoBehaviour
                             data_string = data_string.Replace(" ","");
                             try{
                                 float fov =  float.Parse(data_string);
-                                
+                                agent.setFov(fov);
                                 print("Robot camera Fov: "+fov);
                                 sendDataClient("0");
                             }catch{
