@@ -177,7 +177,11 @@ public class ConfigureAvatar : MonoBehaviour
         }
         else
         {
-            GetComponent<VisionManager>().enabled = false;
+            VisionManager vision = GetComponent<VisionManager>();
+            if(vision !=null){
+                vision.enabled = false;
+            }
+            
         }
 
         if (configCenterFocus)

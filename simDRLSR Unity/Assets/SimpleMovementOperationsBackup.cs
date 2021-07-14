@@ -10,7 +10,7 @@ public class SimpleMovementOperationsBackup : MonoBehaviour
 {
 	[SerializeField] float movingTurnSpeed = 360;
 	[SerializeField] float stationaryTurnSpeed = 180;
-	[SerializeField] float jumpPower = 12f;
+	//[SerializeField] float jumpPower = 12f;
 	[Range(1f, 4f)] [SerializeField] float gravityMultiplier = 2f;
 	[SerializeField] float runCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
 	[SerializeField] float moveSpeedMultiplier = 1f;

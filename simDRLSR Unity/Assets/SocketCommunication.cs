@@ -189,7 +189,7 @@ public class SocketCommunication : MonoBehaviour
                                 sendDataClient("0");
                             }catch{
                                 sendDataClient("1");
-                                print("Data error: time");   
+                                print("Data error: fov");   
                             }                                                       
                             
                                 

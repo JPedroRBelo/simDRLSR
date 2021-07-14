@@ -24,7 +24,7 @@ public class IKControl : MonoBehaviour
     private bool isRHReach = false;
     private bool isLHReach = false;
 
-    private int actualState;
+    //private int actualState;
     private int inputEvent;
 
     private bool isVisible = false;
@@ -46,7 +46,7 @@ public class IKControl : MonoBehaviour
     private bool isMoved = false;
 
     private int[] actions;
-    private int iAction;
+    //private int iAction;
     private Transform posToMove;
     private Transform objToMove;
 
@@ -70,7 +70,7 @@ public class IKControl : MonoBehaviour
 
     void Start()
     {
-        actualState = (int)States.S0;
+        //actualState = (int)States.S0;
         inputEvent = (int)Events.None;
 
         animator = GetComponent<Animator>();
@@ -87,7 +87,7 @@ public class IKControl : MonoBehaviour
         leftHandPos = RightHandPos;
                 
         actions = new int[] {1,2,3};
-        iAction = 0;
+        //iAction = 0;
     }
 
     void focusObject(Transform obj)
