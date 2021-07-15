@@ -36,16 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cleaner\Editor\ClassReferenceCollection.cs" />
-     <Compile Include="Assets\Cleaner\Editor\CollectionData.cs" />
-     <Compile Include="Assets\Cleaner\Editor\ShaderReferenceCollection.cs" />
      <Compile Include="Assets\Editor\DebugMenu.cs" />
-     <Compile Include="Assets\Cleaner\Editor\FindUnusedAssetsWindow.cs" />
-     <Compile Include="Assets\Cleaner\Editor\AssetCollector.cs" />
      <Compile Include="Assets\Editor\EditorBlendShapes.cs" />
      <Compile Include="Assets\Editor\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\Editor\SmellPropertiesEditor.cs" />
-     <Compile Include="Assets\Cleaner\Editor\AssetReferenceCollection.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/mnt/Arquivos/Unity/2020.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -37,11 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ImageSaver.cs" />
-     <Compile Include="Assets\SimpleMovementOperationsBackup.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\CaptureTouch.cs" />
      <Compile Include="Assets\Scripts\AvatarBehaviors.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <Compile Include="Assets\Scripts\ConfigureSaveImage.cs" />
      <Compile Include="Assets\Scripts\TPCameraControl.cs" />
      <Compile Include="Assets\Scripts\OntSense\OlfactoryAttribute.cs" />
@@ -51,13 +48,10 @@
      <Compile Include="Assets\Scripts\SinkManager.cs" />
      <Compile Include="Assets\Scripts\SensesManager.cs" />
      <Compile Include="Assets\Scripts\Classes\Hand.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\Joystick.cs" />
      <Compile Include="Assets\Scripts\MoveSphere.cs" />
      <Compile Include="Assets\Scripts\CaptureSmell.cs" />
      <Compile Include="Assets\Scripts\ClickToMove.cs" />
      <Compile Include="Assets\Scripts\OntSense\Thing.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
      <Compile Include="Assets\Scripts\Extensions\Tuple.cs" />
      <Compile Include="Assets\Scripts\CameraPanelManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotSmell.cs" />
@@ -75,10 +69,8 @@
      <Compile Include="Assets\Scripts\TasteManager.cs" />
      <Compile Include="Assets\Scripts\TouchManager.cs" />
      <Compile Include="Assets\Scripts\SocketCommands.cs" />
-     <Compile Include="Assets\CaptureGray.cs" />
      <Compile Include="Assets\ConfigureSimulation.cs" />
      <Compile Include="Assets\Scripts\TimeManager.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
      <Compile Include="Assets\SocketCommunication.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotVision.cs" />
      <Compile Include="Assets\NeckTest.cs" />
@@ -125,17 +117,14 @@
      <Compile Include="Assets\Scripts\ObjectsProperties\VisionProperties.cs" />
      <Compile Include="Assets\Scripts\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\TasteProperties.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonUserControl.cs" />
      <Compile Include="Assets\Scripts\EventDetector.cs" />
      <Compile Include="Assets\SimpleMovementOperations.cs" />
      <Compile Include="Assets\Scripts\OntSense\Robot.cs" />
      <Compile Include="Assets\Scripts\ChairManager.cs" />
      <Compile Include="Assets\ConsoleToGUI.cs" />
      <Compile Include="Assets\Scripts\AgentMovement.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
      <Compile Include="Assets\Scripts\AvatarControl.cs" />
      <Compile Include="Assets\Scripts\OntSense\EmotionalState.cs" />
-     <Compile Include="Assets\MyTestEditor.cs" />
      <Compile Include="Assets\Scripts\AgentBehave.cs" />
      <Compile Include="Assets\Scripts\Classes\ImageToSaveProperties.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotTouch.cs" />
@@ -150,18 +139,14 @@
      <Compile Include="Assets\Scripts\Classes\SmellPerception.cs" />
      <Compile Include="Assets\Scripts\LocomotionSimpleAgent.cs" />
      <Compile Include="Assets\Scripts\OntSense\SparqlAccess.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\HearingProperties.cs" />
      <Compile Include="Assets\Scripts\UserCanvasManager.cs" />
      <Compile Include="Assets\Scripts\UniqueId.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotTaste.cs" />
      <Compile Include="Assets\Scripts\MovementOperations.cs" />
      <Compile Include="Assets\Scripts\GodModeControl.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\MobileControlRig.cs" />
      <Compile Include="Assets\Scripts\DriverCanvasManager.cs" />
      <Compile Include="Assets\Scripts\ConfigureObjects.cs" />
-     <Compile Include="Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Scripts\VisionManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotPerceptionEvent.cs" />
      <None Include="Assets\CmdBehaviors\enterWorkArea.txt" />
