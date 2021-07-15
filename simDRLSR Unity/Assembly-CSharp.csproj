@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ImageSaver.cs" />
      <Compile Include="Assets\SimpleMovementOperationsBackup.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RandomEyesBroadcastEventTester.cs" />
      <Compile Include="Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\CaptureTouch.cs" />
      <Compile Include="Assets\Scripts\AvatarBehaviors.cs" />
@@ -62,12 +63,17 @@
      <Compile Include="Assets\Scripts\CameraPanelManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotSmell.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_GameManager.cs" />
      <Compile Include="Assets\Scripts\AgentInteraction.cs" />
      <Compile Include="Assets\Scripts\DrawerManager.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\TouchProperties.cs" />
      <Compile Include="Assets\UIManager.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_SalsaWaypoints.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RuntimeSetupExample.cs" />
      <Compile Include="Assets\Scripts\OntSense\CartesianPos.cs" />
      <Compile Include="Assets\Scripts\Extensions\ToggleExtension.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_Salsa3D_Functions.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RandomEyes3D_Functions.cs" />
      <Compile Include="Assets\Scripts\SmellManager.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\SmellProperties.cs" />
      <Compile Include="Assets\Scripts\GameObjectsManager.cs" />
@@ -76,6 +82,7 @@
      <Compile Include="Assets\Scripts\TouchManager.cs" />
      <Compile Include="Assets\Scripts\SocketCommands.cs" />
      <Compile Include="Assets\CaptureGray.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_Salsa2D_Functions.cs" />
      <Compile Include="Assets\ConfigureSimulation.cs" />
      <Compile Include="Assets\Scripts\TimeManager.cs" />
      <Compile Include="Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
@@ -84,6 +91,8 @@
      <Compile Include="Assets\NeckTest.cs" />
      <Compile Include="Assets\ImageSynthesis\Scripts\ImageSynthesis.cs" />
      <Compile Include="Assets\Scripts\Extensions\StringExtensions.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RandomEyesTriggerTracking.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_SalsaBroadcastEventTester.cs" />
      <Compile Include="Assets\Scripts\OntSense\PhysicalState.cs" />
      <Compile Include="Assets\Scripts\UniqueIdDistributor.cs" />
      <Compile Include="Assets\Scripts\OntSense\Human.cs" />
@@ -93,6 +102,7 @@
      <Compile Include="Assets\CameraDrag.cs" />
      <Compile Include="Assets\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\Scripts\FaceBehave.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RandomEyes2D_Functions.cs" />
      <Compile Include="Assets\Scripts\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\SimulatorCommandsManager.cs" />
      <Compile Include="Assets\Scripts\HearingManager.cs" />
@@ -106,12 +116,14 @@
      <Compile Include="Assets\Scripts\AvatarColliderManager.cs" />
      <Compile Include="Assets\Scripts\CameraCullingMask.cs" />
      <Compile Include="Assets\Scripts\GodModCanvasManager.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_Waypoints.cs" />
      <Compile Include="Assets\Scripts\LookAt.cs" />
      <Compile Include="Assets\RobotInteraction.cs" />
      <Compile Include="Assets\TestScripts\TestSaveImage.cs" />
      <Compile Include="Assets\Scripts\MoveChar.cs" />
      <Compile Include="Assets\Scripts\Extensions\RendererExtensions.cs" />
      <Compile Include="Assets\Scripts\EmotionStatus.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_RandomEyesCustomShapeIterator.cs" />
      <Compile Include="Assets\ImageSynthesis\Scripts\ColorEncoding.cs" />
      <Compile Include="Assets\Scripts\Status.cs" />
      <Compile Include="Assets\Scripts\CaptureTaste.cs" />
@@ -123,6 +135,7 @@
      <Compile Include="Assets\Scripts\LookHeadController.cs" />
      <Compile Include="Assets\Scripts\DoorManager.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\VisionProperties.cs" />
+     <Compile Include="Assets\Scripts\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\TasteProperties.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonUserControl.cs" />
      <Compile Include="Assets\Scripts\EventDetector.cs" />
@@ -162,9 +175,12 @@
      <Compile Include="Assets\Scripts\ConfigureObjects.cs" />
      <Compile Include="Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Scripts\VisionManager.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_Ethan_Demo.cs" />
+     <Compile Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\Examples\Scripts\CSharp\CM_DialogSystem.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotPerceptionEvent.cs" />
      <None Include="Assets\CmdBehaviors\enterWorkArea.txt" />
      <None Include="Assets\ImageSynthesis\LICENSE.txt" />
+     <None Include="Assets\Crazy Minnow Studio\SALSA with RandomEyes\ReadMe.txt" />
      <None Include="Assets\ImageSynthesis\Shaders\Greyscale.shader" />
      <None Include="Assets\CmdBehaviors\livro.txt" />
      <None Include="Assets\CmdBehaviors\magazine.txt" />
@@ -410,6 +426,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.analytics@3.5.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="SALSA">
+        <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Assets/Crazy Minnow Studio/SALSA with RandomEyes/Plugins/SALSA.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
