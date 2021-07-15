@@ -280,9 +280,6 @@
     <Reference Include="log4netPlastic">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="SALSA">
-        <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Assets/Crazy Minnow Studio/SALSA with RandomEyes/Plugins/SALSA.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -294,9 +291,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.analytics@3.5.3/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="SALSAEditor">
-        <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Assets/Crazy Minnow Studio/SALSA with RandomEyes/Editor/SALSAEditor.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>

@@ -12,7 +12,7 @@
   <TypeDate>
     <guid>5e58cb40f0d65dae493e8b0abea070f0</guid>
     <fileName>Assets/CaptureGray.cs</fileName>
-    <timeStamp>2021-05-28T15:04:12-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>CaptureGray</string>
     </typeFullName>
@@ -21,7 +21,7 @@
   <TypeDate>
     <guid>b3c7f115cf1cefb2aa9ca451507eb3c7</guid>
     <fileName>Assets/ConfigBlendShapes.cs</fileName>
-    <timeStamp>2021-07-02T15:27:52-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>ConfigBlendShapes</string>
       <string>FaceEmotion</string>
@@ -32,7 +32,7 @@
   <TypeDate>
     <guid>7b5c400b082bf32868040f8cab8d3697</guid>
     <fileName>Assets/ConfigureSimulation.cs</fileName>
-    <timeStamp>2021-06-08T11:07:51-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>Configure</string>
       <string>ConfigureSimulation</string>
@@ -51,13 +51,13 @@
   <TypeDate>
     <guid>2ef29c576d8c0e14c90cadca5a7fc7b3</guid>
     <fileName>Assets/MyTestEditor.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName />
   </TypeDate>
   <TypeDate>
     <guid>e7b889b999e26107c9f6af53f0175b1c</guid>
     <fileName>Assets/NeckTest.cs</fileName>
-    <timeStamp>2021-05-06T14:15:59-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>NeckTest</string>
     </typeFullName>
@@ -66,7 +66,7 @@
   <TypeDate>
     <guid>0c4a66d8d67cb494cbbe003fbe16aadb</guid>
     <fileName>Assets/RLAgent.cs</fileName>
-    <timeStamp>2021-07-13T14:59:13-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>AgentAction</string>
       <string>RLStages</string>
@@ -77,7 +77,7 @@
   <TypeDate>
     <guid>f95252fe5f6d4a64a89d0782fcac0aa3</guid>
     <fileName>Assets/RobotInteraction.cs</fileName>
-    <timeStamp>2021-06-14T17:07:23-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>Vector3Wrapper</string>
       <string>RobotInteraction</string>
@@ -105,7 +105,7 @@
   <TypeDate>
     <guid>3541d26be65541946836bdec65007c6d</guid>
     <fileName>Assets/SimpleMovementOperationsBackup.cs</fileName>
-    <timeStamp>2021-06-29T16:55:57-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>SimpleMovementOperationsBackup</string>
     </typeFullName>
@@ -114,7 +114,7 @@
   <TypeDate>
     <guid>5d911005ae9be005497e0ede5ba2c825</guid>
     <fileName>Assets/SocketCommunication.cs</fileName>
-    <timeStamp>2021-06-16T16:46:12-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>SocketCommunication</string>
       <string>TcpServerClient</string>
@@ -187,9 +187,144 @@
     <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
   </TypeDate>
   <TypeDate>
+    <guid>6797421cc6779a24a94db9777490d982</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_DialogSystem.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaTypeAndObject</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaTypeAndObject+SalsaTypeOf</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_PlayerResponse</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_NPCDialog</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_DialogSystem</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>233eaf4cdd6ff7143acb857183af7a32</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Ethan_Demo.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Ethan_Demo</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9a920ab807e06214796190cc7753d566</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_GameManager.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_GameManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b157614d02d148445814285db4e06333</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyes2D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyes2D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>65b8eab5e46561d41bae26f2f664082c</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyes3D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyes3D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b538479d243970241a310f6b9a58bbdb</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesBroadcastEventTester.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesBroadcastEventTester</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c36d99c82c2c269459c80ab941b766ab</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesCustomShapeIterator.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesCustomShapeIterator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>388afb09eebe71f43846b7dceef558ec</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesTriggerTracking.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesTriggerTracking</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f5360d6ab4f18594b87777c28227754a</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RuntimeSetupExample.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.CM_RuntimeSetupExample</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>25a76b351b0c40844b57724f9fdb6cb7</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Salsa2D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Salsa2D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>707e7b368da35e749ba9908c0f89db1d</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Salsa3D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Salsa3D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3eae2f204cd451f4a9945440fd35824a</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_SalsaBroadcastEventTester.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaBroadcastEventTester</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2cd6f9d675c400b42af88c804aa31499</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_SalsaWaypoints.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypointTriggers</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypointTriggers+Trigger</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypoints</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d405c877ebaf0a94d9efd760eb336b48</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Waypoints.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_WaypointItems</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_WaypointItems+Direction</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_Waypoints</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_Waypoints+AnimationType</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
     <guid>9ab98b66288df7b4fa182075f2f12bd6</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/AxisTouchButton.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.AxisTouchButton</string>
     </typeFullName>
@@ -198,7 +333,7 @@
   <TypeDate>
     <guid>85bf3be603548374ca46f521a3aa7fda</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/ButtonHandler.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.ButtonHandler</string>
     </typeFullName>
@@ -207,7 +342,7 @@
   <TypeDate>
     <guid>6ac1ce5a5adfd9f46adbf5b6f752a47c</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager</string>
       <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager+ActiveInputMethod</string>
@@ -219,7 +354,7 @@
   <TypeDate>
     <guid>7d3269566d48b8447bb48d2259e28f8b</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/InputAxisScrollbar.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar</string>
     </typeFullName>
@@ -228,7 +363,7 @@
   <TypeDate>
     <guid>00c3c865782347f41b6358d9fba14b48</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/Joystick.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.Joystick</string>
       <string>UnityStandardAssets.CrossPlatformInput.Joystick+AxisOption</string>
@@ -238,7 +373,7 @@
   <TypeDate>
     <guid>71398ce7fbc3a5b4fa50b50bd54317a7</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/MobileControlRig.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.MobileControlRig</string>
     </typeFullName>
@@ -247,7 +382,7 @@
   <TypeDate>
     <guid>5c2d84226fbbaf94e9c1451f1c39b06a</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/TiltInput.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.TiltInput</string>
       <string>UnityStandardAssets.CrossPlatformInput.TiltInput+AxisOptions</string>
@@ -259,7 +394,7 @@
   <TypeDate>
     <guid>1caf40fc8bebb6b43b2550c05ca791d6</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/TouchPad.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.TouchPad</string>
       <string>UnityStandardAssets.CrossPlatformInput.TouchPad+AxisOption</string>
@@ -270,7 +405,7 @@
   <TypeDate>
     <guid>0f57aeb1b8dce3342bea5c28ac17db24</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/VirtualInput.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.VirtualInput</string>
     </typeFullName>
@@ -279,7 +414,7 @@
   <TypeDate>
     <guid>9703d53e47195aa4190acd11369ccd1b</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/PlatformSpecific/MobileInput.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput</string>
     </typeFullName>
@@ -288,7 +423,7 @@
   <TypeDate>
     <guid>9961032f4f02c4f41997c3ea399d2f22</guid>
     <fileName>Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs</fileName>
-    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:31-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput</string>
     </typeFullName>
@@ -297,7 +432,7 @@
   <TypeDate>
     <guid>db426a2b70f45344c9aec5d762ddda6c</guid>
     <fileName>Assets/Editor/ConfigureAvatarButton.cs</fileName>
-    <timeStamp>2021-06-15T13:15:48-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>ConfigureAvatarButton</string>
     </typeFullName>
@@ -315,7 +450,7 @@
   <TypeDate>
     <guid>cd60154fb4f7569dabb39dabb2868dde</guid>
     <fileName>Assets/Editor/EditorBlendShapes.cs</fileName>
-    <timeStamp>2021-07-02T15:39:51-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>EditorBlendShapes</string>
     </typeFullName>
@@ -333,7 +468,7 @@
   <TypeDate>
     <guid>3e9a1fb2a5c0146499a69a8bdb1b2177</guid>
     <fileName>Assets/ImageSynthesis/Scripts/ImageSynthesis.cs</fileName>
-    <timeStamp>2021-05-28T12:59:56-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>ImageSynthesis</string>
       <string>ImageSynthesis+ReplacementMode</string>
@@ -343,7 +478,7 @@
   <TypeDate>
     <guid>8c5335f0882fe4d478883cc8c58ce906</guid>
     <fileName>Assets/Scripts/AICharacterControl.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AICharacterControl</string>
     </typeFullName>
@@ -352,7 +487,7 @@
   <TypeDate>
     <guid>66cdda26ef80c4244bc16cb061fb05ee</guid>
     <fileName>Assets/Scripts/AgentBehave.cs</fileName>
-    <timeStamp>2021-05-20T15:33:51-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>AgentBehave</string>
     </typeFullName>
@@ -361,7 +496,7 @@
   <TypeDate>
     <guid>2fd43c93346f90847b57799188a37198</guid>
     <fileName>Assets/Scripts/AgentCanvasManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AgentCanvasManager</string>
     </typeFullName>
@@ -379,7 +514,7 @@
   <TypeDate>
     <guid>0dd8ea1265db17a448b892188d9b6b92</guid>
     <fileName>Assets/Scripts/AgentInteraction.cs</fileName>
-    <timeStamp>2021-05-12T09:52:07-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>AgentInteraction</string>
     </typeFullName>
@@ -397,7 +532,7 @@
   <TypeDate>
     <guid>c053ec33e4efd2744bd2061951c90e4e</guid>
     <fileName>Assets/Scripts/AgentSpeech.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AgentSpeech</string>
     </typeFullName>
@@ -406,7 +541,7 @@
   <TypeDate>
     <guid>d73e1861dc0be164fa61ee5bf103beae</guid>
     <fileName>Assets/Scripts/AlignContent.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AlignContent</string>
     </typeFullName>
@@ -415,7 +550,7 @@
   <TypeDate>
     <guid>6dbbd7794d1b6c34a805bbc22d7c6a31</guid>
     <fileName>Assets/Scripts/AvatarBehaviors.cs</fileName>
-    <timeStamp>2021-06-07T14:53:45-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>Items`1</string>
       <string>AvatarBehaviors</string>
@@ -434,7 +569,7 @@
   <TypeDate>
     <guid>7d3ec88aff0d953488085dbe22ddb4e3</guid>
     <fileName>Assets/Scripts/AvatarCommandsManager.cs</fileName>
-    <timeStamp>2021-06-29T10:57:38-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>AvatarCommandsManager</string>
     </typeFullName>
@@ -443,7 +578,7 @@
   <TypeDate>
     <guid>7e025529ad97e584395a267094b7b2a1</guid>
     <fileName>Assets/Scripts/AvatarControl.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AvatarControl</string>
     </typeFullName>
@@ -452,7 +587,7 @@
   <TypeDate>
     <guid>e19271122cd3123489cf33df0aad2411</guid>
     <fileName>Assets/Scripts/AvatarHeadFocus.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AvatarHeadFocus</string>
     </typeFullName>
@@ -461,7 +596,7 @@
   <TypeDate>
     <guid>df5d9c0232fd025478d08b0254b96084</guid>
     <fileName>Assets/Scripts/AvatarManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>AvatarManager</string>
     </typeFullName>
@@ -470,7 +605,7 @@
   <TypeDate>
     <guid>9fdf49549c89cc343b2bcab02e734a84</guid>
     <fileName>Assets/Scripts/CameraCullingMask.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CameraCullingMask</string>
     </typeFullName>
@@ -479,7 +614,7 @@
   <TypeDate>
     <guid>d22deaa0bd2592a4eb94a5fce67143ed</guid>
     <fileName>Assets/Scripts/CameraPanelManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CameraPanelManager</string>
     </typeFullName>
@@ -488,7 +623,7 @@
   <TypeDate>
     <guid>fbd8e49f1c7bbf140aa872839045d325</guid>
     <fileName>Assets/Scripts/CameraRotation.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CameraRotation</string>
     </typeFullName>
@@ -497,7 +632,7 @@
   <TypeDate>
     <guid>30b0383e137fec24487b9fc98301df4b</guid>
     <fileName>Assets/Scripts/CanvasManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CanvasManager</string>
     </typeFullName>
@@ -515,7 +650,7 @@
   <TypeDate>
     <guid>e8952be5e712bc141bd8a8bfc0bd1ecf</guid>
     <fileName>Assets/Scripts/CaptureTaste.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CaptureTaste</string>
     </typeFullName>
@@ -524,7 +659,7 @@
   <TypeDate>
     <guid>cff9f436120af864e86b1cee653462c9</guid>
     <fileName>Assets/Scripts/CaptureTouch.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CaptureTouch</string>
     </typeFullName>
@@ -552,11 +687,20 @@
   <TypeDate>
     <guid>7b9909bb4c81d75439457105148e7c10</guid>
     <fileName>Assets/Scripts/ConfigureAvatar.cs</fileName>
-    <timeStamp>2021-06-23T09:18:44-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>ConfigureAvatar</string>
     </typeFullName>
     <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>dd9c25d11f45fd935aa7864140f99e23</guid>
+    <fileName>Assets/Scripts/ConfigureAvatarButton.cs</fileName>
+    <timeStamp>2021-07-14T17:22:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureAvatarButton</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
   </TypeDate>
   <TypeDate>
     <guid>7431c068d623f724e91ada039d43d20e</guid>
@@ -570,7 +714,7 @@
   <TypeDate>
     <guid>c0c376751ed628e47b1c1ac7f484aa51</guid>
     <fileName>Assets/Scripts/ConfigureSaveImage.cs</fileName>
-    <timeStamp>2021-06-08T09:51:11-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>ConfigureSaveImage</string>
     </typeFullName>
@@ -597,7 +741,7 @@
   <TypeDate>
     <guid>25914b5946726e8438ea480bad48d7ff</guid>
     <fileName>Assets/Scripts/DriverCanvasManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>DriverCanvasManager</string>
     </typeFullName>
@@ -615,7 +759,7 @@
   <TypeDate>
     <guid>7dd41523d696a9c4c9bbe9f84eda8d40</guid>
     <fileName>Assets/Scripts/EmotionStatus.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>EmotionStatus</string>
     </typeFullName>
@@ -624,7 +768,7 @@
   <TypeDate>
     <guid>3c4fc7b7f5eaa32e98b09440b1253d35</guid>
     <fileName>Assets/Scripts/EventDetector.cs</fileName>
-    <timeStamp>2021-06-07T15:44:20-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>Events</string>
       <string>EventDetector</string>
@@ -634,7 +778,7 @@
   <TypeDate>
     <guid>0afc2b44a9cd9ee47a601e95ae9268df</guid>
     <fileName>Assets/Scripts/FaceBehave.cs</fileName>
-    <timeStamp>2021-07-13T13:54:39-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>FaceBehave</string>
     </typeFullName>
@@ -652,7 +796,7 @@
   <TypeDate>
     <guid>e90e90751e221f04b95e6dac84fb59f6</guid>
     <fileName>Assets/Scripts/GameObjectsManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>GameObjectsManager</string>
     </typeFullName>
@@ -661,7 +805,7 @@
   <TypeDate>
     <guid>951d89f314a9dbb448e7dcac738814d7</guid>
     <fileName>Assets/Scripts/GodModCanvasManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>GodModCanvasManager</string>
     </typeFullName>
@@ -670,7 +814,7 @@
   <TypeDate>
     <guid>c01691deb088fff43b3e3c1a2e3408e2</guid>
     <fileName>Assets/Scripts/GodModeControl.cs</fileName>
-    <timeStamp>2021-06-29T16:54:33-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>GodModeControl</string>
     </typeFullName>
@@ -698,7 +842,7 @@
   <TypeDate>
     <guid>b756c1a237bb9054c9dcaecc4fdf2e2e</guid>
     <fileName>Assets/Scripts/HumanVisionManager.cs</fileName>
-    <timeStamp>2021-06-29T16:57:01-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>HumanVisionManager</string>
     </typeFullName>
@@ -707,7 +851,7 @@
   <TypeDate>
     <guid>7720de63e0830f240bf029a56ac393e2</guid>
     <fileName>Assets/Scripts/IKControl.cs</fileName>
-    <timeStamp>2021-06-29T16:58:18-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>Events</string>
       <string>IKControl</string>
@@ -719,7 +863,7 @@
   <TypeDate>
     <guid>847d0895b646e6248ab16f3d79395d9b</guid>
     <fileName>Assets/Scripts/ImageSaver.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName />
   </TypeDate>
   <TypeDate>
@@ -754,7 +898,7 @@
   <TypeDate>
     <guid>ec0a4c5301039cd4aa5c62b3b7d0584a</guid>
     <fileName>Assets/Scripts/MoveChar.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>MoveChar</string>
     </typeFullName>
@@ -763,7 +907,7 @@
   <TypeDate>
     <guid>9d3617f5b3880a64bb774c9d3f0fad2e</guid>
     <fileName>Assets/Scripts/MoveSphere.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>MoveSphere</string>
     </typeFullName>
@@ -781,7 +925,7 @@
   <TypeDate>
     <guid>6c163bf896727b943a335ae2dde54fe5</guid>
     <fileName>Assets/Scripts/PlaceTargetWithMouse.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.SceneUtils.PlaceTargetWithMouse</string>
     </typeFullName>
@@ -790,7 +934,7 @@
   <TypeDate>
     <guid>a6ea4f35acae0424d91143cb130ba181</guid>
     <fileName>Assets/Scripts/SensesManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>SensesManager</string>
     </typeFullName>
@@ -799,7 +943,7 @@
   <TypeDate>
     <guid>f9787af1d49711f4f956bf8d8cc69a73</guid>
     <fileName>Assets/Scripts/SimulatorCommandsManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>SimulatorCommandsManager</string>
     </typeFullName>
@@ -826,7 +970,7 @@
   <TypeDate>
     <guid>65bf747c8dbd4664eacde6d690f3fd38</guid>
     <fileName>Assets/Scripts/SocketCommands.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>CommandType</string>
       <string>SocketCommands</string>
@@ -857,7 +1001,7 @@
   <TypeDate>
     <guid>405bb31acbd100a49b396473521e35a9</guid>
     <fileName>Assets/Scripts/TPCameraControl.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TPCameraControl</string>
     </typeFullName>
@@ -866,7 +1010,7 @@
   <TypeDate>
     <guid>1fc9dbca3de2d8a40bfdd4edf317584a</guid>
     <fileName>Assets/Scripts/TasteManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TasteManager</string>
     </typeFullName>
@@ -875,7 +1019,7 @@
   <TypeDate>
     <guid>521b611700410be45810047f0a74e899</guid>
     <fileName>Assets/Scripts/ThirdPersonUserControl.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl</string>
     </typeFullName>
@@ -884,7 +1028,7 @@
   <TypeDate>
     <guid>57ebf87d02822fb4cb102108685a982c</guid>
     <fileName>Assets/Scripts/TimeManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TimeManager</string>
     </typeFullName>
@@ -893,7 +1037,7 @@
   <TypeDate>
     <guid>3f9899b226cbb7844ac180e85b0022d9</guid>
     <fileName>Assets/Scripts/TimeManagerKeyboard.cs</fileName>
-    <timeStamp>2021-05-20T16:52:27-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
     <typeFullName>
       <string>TimeManagerKeyboard</string>
     </typeFullName>
@@ -902,7 +1046,7 @@
   <TypeDate>
     <guid>bf95ace4b3aa3a641be8cacaadc8d6c5</guid>
     <fileName>Assets/Scripts/TouchManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TouchManager</string>
     </typeFullName>
@@ -911,7 +1055,7 @@
   <TypeDate>
     <guid>9ac051695f1d2c64bbec85bca31484c7</guid>
     <fileName>Assets/Scripts/UniqueId.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>UniqueIdentifierAttribute</string>
       <string>UniqueId</string>
@@ -930,7 +1074,7 @@
   <TypeDate>
     <guid>c41f00ad25cdd8e40aa10221e48d5e00</guid>
     <fileName>Assets/Scripts/UserCanvasManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>UserCanvasManager</string>
     </typeFullName>
@@ -939,7 +1083,7 @@
   <TypeDate>
     <guid>2c39cbf3581451e4faa213c372451d80</guid>
     <fileName>Assets/Scripts/VisionManager.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>VisionManager</string>
     </typeFullName>
@@ -948,7 +1092,7 @@
   <TypeDate>
     <guid>75121988aab843b4797532815abb54ec</guid>
     <fileName>Assets/Scripts/Classes/Agent.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>Agent</string>
     </typeFullName>
@@ -1017,7 +1161,7 @@
   <TypeDate>
     <guid>0d7fcb99ec6c502479219a957023ab47</guid>
     <fileName>Assets/Scripts/Classes/SmellPerception.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>SmellPerception</string>
     </typeFullName>
@@ -1026,7 +1170,7 @@
   <TypeDate>
     <guid>2a7dbbb0eb3d1ea429c78b1268b8e797</guid>
     <fileName>Assets/Scripts/Editor/SmellPropertiesEditor.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>DecalMeshHelperEditor</string>
     </typeFullName>
@@ -1035,7 +1179,7 @@
   <TypeDate>
     <guid>9a92c7d769ce6a644a1f204c4a0530c2</guid>
     <fileName>Assets/Scripts/Extensions/RendererExtensions.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>RendererExtensions</string>
     </typeFullName>
@@ -1044,7 +1188,7 @@
   <TypeDate>
     <guid>8911c5ca6a0be20408704dcae298428d</guid>
     <fileName>Assets/Scripts/Extensions/StringExtensions.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>StringExtensions</string>
     </typeFullName>
@@ -1053,7 +1197,7 @@
   <TypeDate>
     <guid>b833bf60f386b8741a853aa4e0e04081</guid>
     <fileName>Assets/Scripts/Extensions/ToggleExtension.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>ToggleGroupExtension</string>
     </typeFullName>
@@ -1072,7 +1216,7 @@
   <TypeDate>
     <guid>8d1a4dd3bb131764082125cfa81852c3</guid>
     <fileName>Assets/Scripts/ObjectsProperties/HearingProperties.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>HearingProperties</string>
     </typeFullName>
@@ -1081,7 +1225,7 @@
   <TypeDate>
     <guid>0bd6682fcb0d53a4db1c280d9036f8ec</guid>
     <fileName>Assets/Scripts/ObjectsProperties/SmellProperties.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>SmellProperties</string>
     </typeFullName>
@@ -1090,7 +1234,7 @@
   <TypeDate>
     <guid>44f66a187fea796479bb9506a2145211</guid>
     <fileName>Assets/Scripts/ObjectsProperties/TasteProperties.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TasteProperties</string>
     </typeFullName>
@@ -1117,7 +1261,7 @@
   <TypeDate>
     <guid>48c411e74b239694eb53f9ca560c48b9</guid>
     <fileName>Assets/Scripts/OntSense/CartesianPos.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.CartesianPos</string>
     </typeFullName>
@@ -1126,7 +1270,7 @@
   <TypeDate>
     <guid>a9c5d8abe8eb5e049b772716d5e21916</guid>
     <fileName>Assets/Scripts/OntSense/EmotionalState.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.EmotionalState</string>
     </typeFullName>
@@ -1135,7 +1279,7 @@
   <TypeDate>
     <guid>c18dc028f9c5c5d49ad35bd6ebb1b307</guid>
     <fileName>Assets/Scripts/OntSense/HearingAttribute.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.HearingAttribute</string>
     </typeFullName>
@@ -1144,7 +1288,7 @@
   <TypeDate>
     <guid>02efb5142adfc074685c7578d77957ad</guid>
     <fileName>Assets/Scripts/OntSense/Human.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.Human</string>
     </typeFullName>
@@ -1162,7 +1306,7 @@
   <TypeDate>
     <guid>7dc9edbd80af07d449d93c0632af1b0e</guid>
     <fileName>Assets/Scripts/OntSense/OlfactoryAttribute.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.OlfactoryAttribute</string>
     </typeFullName>
@@ -1189,7 +1333,7 @@
   <TypeDate>
     <guid>0e1bcc6b208aa27478e20684137da964</guid>
     <fileName>Assets/Scripts/OntSense/Robot.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.Robot</string>
     </typeFullName>
@@ -1198,7 +1342,7 @@
   <TypeDate>
     <guid>7ec0f7968b7b4d14eac202a60c8f9377</guid>
     <fileName>Assets/Scripts/OntSense/RobotHear.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotHear</string>
     </typeFullName>
@@ -1207,7 +1351,7 @@
   <TypeDate>
     <guid>2ca0331144244044082b5dfa03dd4bbb</guid>
     <fileName>Assets/Scripts/OntSense/RobotPerceptionEvent.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotPerceptionEvent</string>
     </typeFullName>
@@ -1216,7 +1360,7 @@
   <TypeDate>
     <guid>855cc46bc86738c4ea2e61513897aff7</guid>
     <fileName>Assets/Scripts/OntSense/RobotSmell.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotSmell</string>
     </typeFullName>
@@ -1225,7 +1369,7 @@
   <TypeDate>
     <guid>00ff483e7c81c7a4d969f59b70cd1fc2</guid>
     <fileName>Assets/Scripts/OntSense/RobotTaste.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotTaste</string>
     </typeFullName>
@@ -1234,7 +1378,7 @@
   <TypeDate>
     <guid>964dbce5fa300d74598b69dcbce2edd0</guid>
     <fileName>Assets/Scripts/OntSense/RobotTouch.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotTouch</string>
     </typeFullName>
@@ -1243,7 +1387,7 @@
   <TypeDate>
     <guid>9fedc0573ca5c1741a26aefee5cc2092</guid>
     <fileName>Assets/Scripts/OntSense/RobotVision.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.RobotVision</string>
     </typeFullName>
@@ -1252,7 +1396,7 @@
   <TypeDate>
     <guid>1cf11d7ac202e6a4ba404228b3026c17</guid>
     <fileName>Assets/Scripts/OntSense/SparqlAccess.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.SparqlAccess</string>
     </typeFullName>
@@ -1261,7 +1405,7 @@
   <TypeDate>
     <guid>0fcd19874be1aac418dd5800afdf9c58</guid>
     <fileName>Assets/Scripts/OntSense/SparqlEndPoint.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.SparqlEndPoint</string>
     </typeFullName>
@@ -1270,7 +1414,7 @@
   <TypeDate>
     <guid>b14bb301b440646468fc2369965a7e17</guid>
     <fileName>Assets/Scripts/OntSense/Thing.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>OntSenseCSharpAPI.Thing</string>
     </typeFullName>
@@ -1279,7 +1423,7 @@
   <TypeDate>
     <guid>121605e53327e8c5c979e5dd8aa18449</guid>
     <fileName>Assets/TestScripts/TestSaveImage.cs</fileName>
-    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
     <typeFullName>
       <string>TestSaveImage</string>
     </typeFullName>
