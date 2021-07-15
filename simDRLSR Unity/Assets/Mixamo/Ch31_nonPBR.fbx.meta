@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 11d77938ef2ad4247b93307985839c10
 ModelImporter:
-  serializedVersion: 20101
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
@@ -110,8 +110,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 8b68309aacfbaf049b74853a9ad08060
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -915,6 +914,7 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
