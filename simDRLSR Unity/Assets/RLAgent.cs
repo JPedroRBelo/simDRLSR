@@ -130,20 +130,11 @@ using System;
                         if(flagNewActionData){
                             if(System.Enum.IsDefined(typeof(AgentAction), dataAction))
                             {
-                                rlStage = RLStages.GetState;
+                                rlStage = RLStages.SetAction;
                             }
                         }
                         break;
-                    case RLStages.GetState:
-                        GetStates(stepAt);
-                        rlStage = RLStages.WaitState;
-                        break;
-                    case RLStages.WaitState:
-                        if(IsStateCaptured(stepAt)){
-                            
-                            rlStage = RLStages.SetAction;                           
-                        }     
-                        break;
+                   
                     case RLStages.SetAction:
                         SendAction(dataAction,stepAt);
                         flagNewActionData = false;
@@ -152,10 +143,18 @@ using System;
                     case RLStages.GetReward:
                         tempReward = hri.getReward(stepAt);
                         if(tempReward!=NULL_REWARD){
-                            rlStage = RLStages.SendReward;
+                            rlStage = RLStages.GetState;
                         }                        
                         break;
-                    
+                    case RLStages.GetState:
+                        GetStates(stepAt);
+                        rlStage = RLStages.WaitState;
+                        break;
+                    case RLStages.WaitState:
+                        if(IsStateCaptured(stepAt)){                            
+                            rlStage = RLStages.SendReward;                           
+                        }     
+                        break;
                         
                     case RLStages.SendReward:
                         reward = tempReward;
