@@ -33,6 +33,9 @@ public class SocketCommunication : MonoBehaviour
     public bool printLog = false;
     private int stepAt;
 
+    private GameObject simManager;
+
+    private TimeManagerKeyboard timeManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,12 @@ public class SocketCommunication : MonoBehaviour
                 ip = cs.getIPAdress();
                 port = cs.getPort();
             }
+            simManager = GameObject.FindGameObjectsWithTag("SimulatorManager")[0];
+            if(simManager != null){
+                timeManager = simManager.GetComponent<TimeManagerKeyboard>();
+            }
+
+            
 
         }
 
@@ -138,7 +147,65 @@ public class SocketCommunication : MonoBehaviour
                             }catch{
                                 sendDataClient("1");
                                 print("Data error: step");
-                            }                                                        
+                            }
+                        }else if(data.ToString().Contains("episode")){
+                            
+                            string data_string = data.Replace("episode","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                string episode = data_string;
+                                agent.setEpisode(episode);
+                                print("Episode folder: "+episode);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: episode");   
+                            }                                                       
+                        }else if(data.ToString().Contains("speed")){
+                            
+                            string data_string = data.Replace("speed","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                float timeSpeed =  float.Parse(data_string);
+                                GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+                                if(simManager != null){
+                                    simManager[0].GetComponent<TimeManagerKeyboard>().setTime(timeSpeed);
+                                }   
+
+                                print("Time x"+timeSpeed);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: time");   
+                            }                                                       
+                         }else if(data.ToString().Contains("fov")){
+                            
+                            string data_string = data.Replace("fov","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                float fov =  float.Parse(data_string);
+                                agent.setFov(fov);
+                                print("Robot camera Fov: "+fov);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: fov");   
+                            }                                                       
+                            
+                                
+                            
+                        }else if(data.ToString().Contains("workdir")){
+                            
+                            string data_string = data.Replace("workdir","");
+                            try{
+                                string workDir = data_string;
+                                agent.setWorkDir(workDir);
+                                print("Workdir folder: "+workDir);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: episode");   
+                            }                                                       
                             
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");
@@ -160,7 +227,7 @@ public class SocketCommunication : MonoBehaviour
                     if(reward != agent.NULL_REWARD)
                     {
                         sendReward(reward.ToString());
-                        print(this+"Reward sended at step "+stepAt);
+                        //print(this+"Reward sended at step "+stepAt);
                         stepAt = -1;                                            
                     }
                 }              
@@ -179,13 +246,14 @@ public class SocketCommunication : MonoBehaviour
  
     private bool pauseSimulation()
     {
-        Time.timeScale = 0;
+        timeManager.pauseSimulation();
         return true;        
     }
 
     private bool restartSimulation()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        timeManager.playSimulation();
         OnApplicationQuit();
         SceneManager.LoadScene( SceneManager.GetActiveScene().name );
         return true;        
@@ -193,7 +261,7 @@ public class SocketCommunication : MonoBehaviour
 
     private bool restartSimulation(string scene)
     {
-        Time.timeScale = 1;
+        timeManager.playSimulation();
         OnApplicationQuit();
         SceneManager.LoadScene(scene);
         return true;        
@@ -201,7 +269,7 @@ public class SocketCommunication : MonoBehaviour
 
     private bool playSimuation()
     {
-        Time.timeScale = 1;
+        timeManager.playSimulation();
         return true;        
     }
 
@@ -277,7 +345,7 @@ public class SocketCommunication : MonoBehaviour
             StreamWriter writer = new StreamWriter(client.tcp.GetStream());
             writer.WriteLine(stringData);
             writer.Flush();     
-            print("Reward sended!");      
+            //print("Reward sended!");      
         }
         catch (Exception e)
         {

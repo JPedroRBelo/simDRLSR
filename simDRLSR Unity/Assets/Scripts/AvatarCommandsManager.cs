@@ -388,11 +388,11 @@ public class AvatarCommandsManager : MonoBehaviour {
             {
                 command = new Command(id, action, go.transform);
                 manageCommand(command);
-            }
+            }/*
             else
             {
                 print("=======ERROR" + name + "ERROR========");
-            }
+            }*/
         }
         else
         {

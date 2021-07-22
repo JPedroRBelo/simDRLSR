@@ -10,7 +10,7 @@ public class HumanVisionManager : MonoBehaviour {
     public float horizontalLookAngle = 135f;
     public float verticalLookAngle = 90f;
     private GameObject robot;
-    private bool robotVisible = false;
+    //private bool robotVisible = false;
     private Transform personHead;
     public bool printLog = false;
 
@@ -19,14 +19,17 @@ public class HumanVisionManager : MonoBehaviour {
         personHead = transform.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
 
 
-        if (robot != null)
+        if (robot == null)
         {
-            robotVisible = false;
+             Log("Robot not found!");
         }
+        /*
         else
         {
-            Log("Robot not found!");
+            robotVisible = false;
+           
         }
+        */
     }
 
     private void Log(string text){

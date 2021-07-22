@@ -5,9 +5,9 @@ WaitFar;100;0;0;0;0
 LookClose;5;25;70;0;0
 LookMiddle;30;0;50;20;0
 LookFar;80;0;20;0;0
-WaveClose;0;50;50;0;0
-WaveMiddle;10;0;40;50;0
-WaveFar;20;0;30;50;0
+WaveClose;10;50;40;0;0
+WaveMiddle;10;0;10;80;0
+WaveFar;20;0;10;70;0
 HSClose;0;0;0;0;100
-HSMiddle;5;0;25;70;0
-HSFar;90;0;10;0;0
+HSMiddle;20;0;50;30;0
+HSFar;80;0;20;0;0

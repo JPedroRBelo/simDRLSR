@@ -52,7 +52,7 @@ public class ConfigureSimulation : MonoBehaviour
     public string ipAddress = "172.17.0.3";
     public int port = 12375;
 
-    [Header("HRI Probabilities")]
+    //[Header("HRI Probabilities")]
 
     
     public string pathProbFolder = "Config";
@@ -66,12 +66,17 @@ public class ConfigureSimulation : MonoBehaviour
     [Header("Work Folder")]
     public string pathWorkDir = "simMDQN/DataGeneration-Phase/";
 
+    
+
     [Header("RL Configuration")]
     public int totalSteps = 2050; 
 
     public bool saveToXML = false;
     
     private Configure xmlConfigure;
+
+    //seted by Socket communication
+    private string general_work_dir;
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +118,7 @@ public class ConfigureSimulation : MonoBehaviour
                 QualitySettings.SetQualityLevel(i, true);
             }
         }
+        general_work_dir = xmlConfigure.path_work_dir;
     }
 
     void Update(){
@@ -174,7 +180,11 @@ public class ConfigureSimulation : MonoBehaviour
 
     public string getWorkDir()
     {
-        return Path.Combine(xmlConfigure.path_work_dir);
+        return Path.Combine(general_work_dir);
+    }
+
+    public void setWorkDir(string workDir){
+        general_work_dir = workDir;
     }
 
     public int getTotalSteps()

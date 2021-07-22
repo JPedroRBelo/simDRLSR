@@ -60,25 +60,13 @@
   </ol>
 </details>
 
-## Note
-
-Attention: the simulator is currently under development and is undergoing tests and scientific review. This is not the final version. It is also necessary to refine the behavior of the simulated avatars. Thank you for understanding.
-
 ## About the Project
 
 SimDRLSR is a simulator for social robotics that offers resources for training and validation of reinforcement and deep learning methods.
 
-The objective is to provide an environment for the development of automatic learning techniques for human interactive behaviors and, from there, to react naturally and appropriately to these behaviors aiming at the application in social robots. The simulator aims to provide a tool to assist in the stages of development, testing, and configuration of parameters of learning systems for social robotics.
-
 The first version of the simulator is based on the MDQN algorithm as a reinforcement learning module, available at:
 
 https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction
-
-The simulation environment is an implementation derived from the Robot House Simulator (RHS) [[1]](#1) [2]](#2), into the Laboratory of Robot Learning (LAR) of the ICMC/USP ( Brazil). The architecture called Multimodal Deep-Q-Network (MDQN), proposed in [[3]](#3),  is used to validate the proposed environment.
-
-
-
-### Robot Actions
 
 The simDRLSR simulator offers the Pepper robot structure as an agent, which interacts with the environment using four actions:
 
@@ -87,46 +75,8 @@ The simDRLSR simulator offers the Pepper robot structure as an agent, which inte
  - **Wave**: makes the gesture of waving while looking at the nearest human;
  - **Handshake**: performs the handshake gesture to greet the human.
 
-### States
-
-The robot captures two types of images to model the state of the environment: grayscale images; and depth images. 
-For each of these channels, 8 image sequences are captured. These images help the agent to model the state in the reinforcement learning paradigm.
-
-The images are captured using this package:
-
-- https://github.com/immersive-limit/Unity-ComputerVisionSim
-- https://www.immersivelimit.com/tutorials/unity-depth-camera-simulation
-
-### Reward
-
-In this version of the simulator, the robot only receives a positive reward if it successfully executes the _handshake_ action. A negative reward is given if no human touches the robot's hand when this action is performed. For the other three actions, a neutral reward is returned.
-
-In MDQN, the real robot wears a glove capable of feeling the pressure of the human touch, a value that varies between 0 and 100. In simDRLSR we standardize the touch with the values 50, indicating whether there was a human touch or not.
-
-Summarizing the possible rewards:
-
-- Successful hanshake: 50 (positive reward. MDQN converts to 1.0 in training phase);
-- Fail hanshake: -0.1 (negative reward);
-- Others actions: 0 (neutral reward).
-
-### MDQN 
-
-The MDQN model aims to contribute so that social robots can correctly interpret human behaviors to act appropriately with them. In this model, two DQN networks are used for the characteristic automatic extraction to estimate the action-value function, one for grayscale images and another for depth images. The robot captures these images in a real environment in which it aims to interact with people.
-
-MDQN has two phases of processing:
-
-1. **Data Generation Phase**: the agent interacts with the environment using the Q-network, observing the current scene and acting on the environment using the greedy approach. The grayscale and depth images make up the agent's observations. After the execution of each action, the system returns a reward. In this way, the repetition memory stores the $N$ experiences of interactions.
-2. **Training Phase**: uses the repetion memory for training.
-
-The **simDRLSR** simulator assists in the data collection phase, replacing the real robot.
-
-
-### Validation
 
 [![Watch the video](doc/preview2.png)](https://youtu.be/e4C8hK4q8Ug)
-
-
-
 
 
 ## Getting Started
@@ -217,7 +167,7 @@ The IP Adress,most likely, will be the only value you should change.
 
 ### MDQN configuration
 
-The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[3]](#3). We made minor changes to the original code and made it available in the folder called "simMDQN". 
+The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1). We made minor changes to the original code and made it available in the folder called "simMDQN". 
 
 #### simMDQN
 
@@ -352,23 +302,12 @@ At this point, we validate the simDRLSR only with simMDQN.Therefore, we do not p
      ```
 ## License
 
-Distributed under the GNU GPL 3.0. See `LICENSE` for more information.
+Distributed under the MGNU GPL 3.0. See `LICENSE` for more information.
  
  
 ## References
+
 <a id="1">[1]</a> 
-BELO, José Pedro R.; ROMERO, Roseli AF; AZEVEDO, Helio. 
-"Rhs simulator for robotic cognitive systems". 
-2017 Latin American Robotics Symposium (LARS) and 2017 Brazilian Symposium on Robotics (SBR). 
-IEEE, p. 1-6, Curtiba, Brazil 2017.
-
-<a id="2">[2]</a> 
-BELO, José Pedro R.; ROMERO, Roseli AF; AZEVEDO, Helio. 
-"Enhancements in a Social Robotic Simulator for Indoor Environments." 
-2018 Latin American Robotic Symposium, 2018 Brazilian Symposium on Robotics (SBR). 
-IEEE, João Pessoa, Brazil 2018.
-
-<a id="3">[3]</a> 
 Ahmed Hussain Qureshi, Yutaka Nakamura, Yuichiro Yoshikawa and Hiroshi Ishiguro 
 "Robot gains social intelligence through Multimodal Deep Reinforcement Learning" 
 Proceedings of IEEE-RAS International Conference on Humanoid Robots (Humanoids) 
@@ -390,7 +329,7 @@ pp. 745-751, Cancun, Mexico 2016.
 [issues-shield]: https://img.shields.io/github/issues/JPedroRBelo/simDRLSR.svg?style=for-the-badge
 [issues-url]: https://github.com/JPedroRBelo/simDRLSR/issues
 [license-shield]: https://img.shields.io/badge/license-GNU%20GPU%203.0-brightgreen?style=for-the-badge
-[license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/master/LICENSE
+[license-url]: https://github.com/JPedroRBelo/simDRLSR/blob/development/LICENSE
 [scholar-shield]: https://img.shields.io/badge/-Google%20Scholar-black.svg?style=for-the-badge&logo=google-scholar&colorB=555
 [scholar-url]: https://scholar.google.com.br/citations?user=0nh0sDMAAAAJ&hl
 

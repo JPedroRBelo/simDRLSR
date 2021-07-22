@@ -320,7 +320,7 @@ public class GodModeControl : MonoBehaviour
     private Transform objectTarget;
     public Vector3 targetOffset;
     public float distance = 5.0f;
-    private float maxDistance = Mathf.Infinity;
+    //private float maxDistance = Mathf.Infinity;
     //private float minDistance = -Mathf.Infinity;
     public float xSpeed = 200.0f;
     public float ySpeed = 200.0f;

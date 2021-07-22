@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>6145d6a090a89705b97179c111323272</guid>
+    <fileName>Assets/CameraDrag.cs</fileName>
+    <timeStamp>2021-03-05T10:48:06-03:00</timeStamp>
+    <typeFullName>
+      <string>CameraDrag</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5e58cb40f0d65dae493e8b0abea070f0</guid>
+    <fileName>Assets/CaptureGray.cs</fileName>
+    <timeStamp>2021-07-15T13:54:56-03:00</timeStamp>
+    <typeFullName>
+      <string>CaptureGray</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b3c7f115cf1cefb2aa9ca451507eb3c7</guid>
+    <fileName>Assets/ConfigBlendShapes.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigBlendShapes</string>
+      <string>FaceEmotion</string>
+      <string>CustomBlendShape</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7b5c400b082bf32868040f8cab8d3697</guid>
+    <fileName>Assets/ConfigureSimulation.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>Configure</string>
+      <string>ConfigureSimulation</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e1c6e0320aa1b418fbda9cbac3940429</guid>
+    <fileName>Assets/ConsoleToGUI.cs</fileName>
+    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <typeFullName>
+      <string>ConsoleToGUI</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2ef29c576d8c0e14c90cadca5a7fc7b3</guid>
+    <fileName>Assets/MyTestEditor.cs</fileName>
+    <timeStamp>2021-07-15T13:54:57-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>e7b889b999e26107c9f6af53f0175b1c</guid>
+    <fileName>Assets/NeckTest.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>NeckTest</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0c4a66d8d67cb494cbbe003fbe16aadb</guid>
+    <fileName>Assets/RLAgent.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentAction</string>
+      <string>RLStages</string>
+      <string>RLAgent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f95252fe5f6d4a64a89d0782fcac0aa3</guid>
+    <fileName>Assets/RobotInteraction.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>Vector3Wrapper</string>
+      <string>RobotInteraction</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>02d4eff75bd4cc532891b0a06b4b780f</guid>
+    <fileName>Assets/SideDoor.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>SideDoor</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8841b6de59a06eb4993911f0ceac06c8</guid>
+    <fileName>Assets/SimpleMovementOperations.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>SimpleMovementOperations</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3541d26be65541946836bdec65007c6d</guid>
+    <fileName>Assets/SimpleMovementOperationsBackup.cs</fileName>
+    <timeStamp>2021-07-15T13:54:57-03:00</timeStamp>
+    <typeFullName>
+      <string>SimpleMovementOperationsBackup</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5d911005ae9be005497e0ede5ba2c825</guid>
+    <fileName>Assets/SocketCommunication.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>SocketCommunication</string>
+      <string>TcpServerClient</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>eef503eac42467496a63ab7092883b54</guid>
+    <fileName>Assets/UIManager.cs</fileName>
+    <timeStamp>2021-02-28T18:58:07-03:00</timeStamp>
+    <typeFullName>
+      <string>UIManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>842f43ac94b4b4f72ac0898650ddcc44</guid>
+    <fileName>Assets/Cleaner/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.AssetCollector</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>805140a4856714e288ea84985d3023df</guid>
+    <fileName>Assets/Cleaner/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>AssetReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>202c278a17939b24c8b79c0ee1f94d8f</guid>
+    <fileName>Assets/Cleaner/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.ClassReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0d05386265df34bac8d0b6df44aa494c</guid>
+    <fileName>Assets/Cleaner/Editor/CollectionData.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>CollectionData</string>
+      <string>TypeDate</string>
+      <string>IReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>74eec3bfba0594259ac2843353c082a3</guid>
+    <fileName>Assets/Cleaner/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.FindUnusedAssetsWindow</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2c4f01a79a77a45a9a84004cc2b78098</guid>
+    <fileName>Assets/Cleaner/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2021-07-14T09:35:42-03:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.ShaderReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6797421cc6779a24a94db9777490d982</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_DialogSystem.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaTypeAndObject</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaTypeAndObject+SalsaTypeOf</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_PlayerResponse</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_NPCDialog</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_DialogSystem</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>233eaf4cdd6ff7143acb857183af7a32</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Ethan_Demo.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Ethan_Demo</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9a920ab807e06214796190cc7753d566</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_GameManager.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_GameManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b157614d02d148445814285db4e06333</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyes2D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyes2D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>65b8eab5e46561d41bae26f2f664082c</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyes3D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyes3D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b538479d243970241a310f6b9a58bbdb</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesBroadcastEventTester.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesBroadcastEventTester</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c36d99c82c2c269459c80ab941b766ab</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesCustomShapeIterator.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesCustomShapeIterator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>388afb09eebe71f43846b7dceef558ec</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RandomEyesTriggerTracking.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_RandomEyesTriggerTracking</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f5360d6ab4f18594b87777c28227754a</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_RuntimeSetupExample.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.CM_RuntimeSetupExample</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>25a76b351b0c40844b57724f9fdb6cb7</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Salsa2D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Salsa2D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>707e7b368da35e749ba9908c0f89db1d</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Salsa3D_Functions.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_Salsa3D_Functions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3eae2f204cd451f4a9945440fd35824a</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_SalsaBroadcastEventTester.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaBroadcastEventTester</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2cd6f9d675c400b42af88c804aa31499</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_SalsaWaypoints.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypointTriggers</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypointTriggers+Trigger</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_SalsaWaypoints</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d405c877ebaf0a94d9efd760eb336b48</guid>
+    <fileName>Assets/Crazy Minnow Studio/SALSA with RandomEyes/Examples/Scripts/CSharp/CM_Waypoints.cs</fileName>
+    <timeStamp>2021-07-14T17:22:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CrazyMinnow.SALSA.Examples.CM_WaypointItems</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_WaypointItems+Direction</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_Waypoints</string>
+      <string>CrazyMinnow.SALSA.Examples.CM_Waypoints+AnimationType</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9ab98b66288df7b4fa182075f2f12bd6</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/AxisTouchButton.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.AxisTouchButton</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>85bf3be603548374ca46f521a3aa7fda</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/ButtonHandler.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.ButtonHandler</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6ac1ce5a5adfd9f46adbf5b6f752a47c</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager</string>
+      <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager+ActiveInputMethod</string>
+      <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager+VirtualAxis</string>
+      <string>UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager+VirtualButton</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7d3269566d48b8447bb48d2259e28f8b</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/InputAxisScrollbar.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>00c3c865782347f41b6358d9fba14b48</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/Joystick.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.Joystick</string>
+      <string>UnityStandardAssets.CrossPlatformInput.Joystick+AxisOption</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>71398ce7fbc3a5b4fa50b50bd54317a7</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/MobileControlRig.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.MobileControlRig</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5c2d84226fbbaf94e9c1451f1c39b06a</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/TiltInput.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.TiltInput</string>
+      <string>UnityStandardAssets.CrossPlatformInput.TiltInput+AxisOptions</string>
+      <string>UnityStandardAssets.CrossPlatformInput.TiltInput+AxisMapping</string>
+      <string>UnityStandardAssets.CrossPlatformInput.Inspector.TiltInputAxisStylePropertyDrawer</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1caf40fc8bebb6b43b2550c05ca791d6</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/TouchPad.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.TouchPad</string>
+      <string>UnityStandardAssets.CrossPlatformInput.TouchPad+AxisOption</string>
+      <string>UnityStandardAssets.CrossPlatformInput.TouchPad+ControlStyle</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0f57aeb1b8dce3342bea5c28ac17db24</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/VirtualInput.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.VirtualInput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9703d53e47195aa4190acd11369ccd1b</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/PlatformSpecific/MobileInput.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9961032f4f02c4f41997c3ea399d2f22</guid>
+    <fileName>Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>db426a2b70f45344c9aec5d762ddda6c</guid>
+    <fileName>Assets/Editor/ConfigureAvatarButton.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureAvatarButton</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>296db5e9f1fa3c546a805a7c2b255562</guid>
+    <fileName>Assets/Editor/DebugMenu.cs</fileName>
+    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <typeFullName>
+      <string>DebugMenu</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cd60154fb4f7569dabb39dabb2868dde</guid>
+    <fileName>Assets/Editor/EditorBlendShapes.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>EditorBlendShapes</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7d6465a8d23e7164bb3b829af35f1857</guid>
+    <fileName>Assets/ImageSynthesis/Scripts/ColorEncoding.cs</fileName>
+    <timeStamp>2021-02-28T17:20:09-03:00</timeStamp>
+    <typeFullName>
+      <string>ColorEncoding</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3e9a1fb2a5c0146499a69a8bdb1b2177</guid>
+    <fileName>Assets/ImageSynthesis/Scripts/ImageSynthesis.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ImageSynthesis</string>
+      <string>ImageSynthesis+ReplacementMode</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8c5335f0882fe4d478883cc8c58ce906</guid>
+    <fileName>Assets/Scripts/AICharacterControl.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AICharacterControl</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>66cdda26ef80c4244bc16cb061fb05ee</guid>
+    <fileName>Assets/Scripts/AgentBehave.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentBehave</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2fd43c93346f90847b57799188a37198</guid>
+    <fileName>Assets/Scripts/AgentCanvasManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentCanvasManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>73a5261e0c41a34468a092665e917e47</guid>
+    <fileName>Assets/Scripts/AgentHeadMovement.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentHeadMovement</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0dd8ea1265db17a448b892188d9b6b92</guid>
+    <fileName>Assets/Scripts/AgentInteraction.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentInteraction</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>075224e085d68d5488ac4753c6d5ad00</guid>
+    <fileName>Assets/Scripts/AgentMovement.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentMovement</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c053ec33e4efd2744bd2061951c90e4e</guid>
+    <fileName>Assets/Scripts/AgentSpeech.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>AgentSpeech</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d73e1861dc0be164fa61ee5bf103beae</guid>
+    <fileName>Assets/Scripts/AlignContent.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AlignContent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6dbbd7794d1b6c34a805bbc22d7c6a31</guid>
+    <fileName>Assets/Scripts/AvatarBehaviors.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>Items`1</string>
+      <string>AvatarBehaviors</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5fa7072ff72dc2449a75b9638484a81c</guid>
+    <fileName>Assets/Scripts/AvatarColliderManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>AvatarColliderManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7d3ec88aff0d953488085dbe22ddb4e3</guid>
+    <fileName>Assets/Scripts/AvatarCommandsManager.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>AvatarCommandsManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7e025529ad97e584395a267094b7b2a1</guid>
+    <fileName>Assets/Scripts/AvatarControl.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AvatarControl</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e19271122cd3123489cf33df0aad2411</guid>
+    <fileName>Assets/Scripts/AvatarHeadFocus.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AvatarHeadFocus</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>df5d9c0232fd025478d08b0254b96084</guid>
+    <fileName>Assets/Scripts/AvatarManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>AvatarManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9fdf49549c89cc343b2bcab02e734a84</guid>
+    <fileName>Assets/Scripts/CameraCullingMask.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>CameraCullingMask</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d22deaa0bd2592a4eb94a5fce67143ed</guid>
+    <fileName>Assets/Scripts/CameraPanelManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>CameraPanelManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>fbd8e49f1c7bbf140aa872839045d325</guid>
+    <fileName>Assets/Scripts/CameraRotation.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>CameraRotation</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>30b0383e137fec24487b9fc98301df4b</guid>
+    <fileName>Assets/Scripts/CanvasManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>CanvasManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>91a773d54074a3247a0e337af2b8ad8a</guid>
+    <fileName>Assets/Scripts/CaptureSmell.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>CaptureSmell</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e8952be5e712bc141bd8a8bfc0bd1ecf</guid>
+    <fileName>Assets/Scripts/CaptureTaste.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CaptureTaste</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cff9f436120af864e86b1cee653462c9</guid>
+    <fileName>Assets/Scripts/CaptureTouch.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CaptureTouch</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bb1b29982c3690b46bad2d2e66eeb92c</guid>
+    <fileName>Assets/Scripts/ChairManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Helper</string>
+      <string>ChairManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a46474afa933c4fe2bd3e7cce2c3c72b</guid>
+    <fileName>Assets/Scripts/ClickToMove.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>ClickToMove</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7b9909bb4c81d75439457105148e7c10</guid>
+    <fileName>Assets/Scripts/ConfigureAvatar.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureAvatar</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>dd9c25d11f45fd935aa7864140f99e23</guid>
+    <fileName>Assets/Scripts/ConfigureAvatarButton.cs</fileName>
+    <timeStamp>2021-07-14T17:22:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureAvatarButton</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7431c068d623f724e91ada039d43d20e</guid>
+    <fileName>Assets/Scripts/ConfigureObjects.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureObjects</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c0c376751ed628e47b1c1ac7f484aa51</guid>
+    <fileName>Assets/Scripts/ConfigureSaveImage.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>ConfigureSaveImage</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>83f4903157e1e85479c4bf062c4e0adf</guid>
+    <fileName>Assets/Scripts/DoorManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>DoorManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>549dd275161f5c04c9cee8106884dd47</guid>
+    <fileName>Assets/Scripts/DrawerManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>DrawerManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>25914b5946726e8438ea480bad48d7ff</guid>
+    <fileName>Assets/Scripts/DriverCanvasManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>DriverCanvasManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>845ea9fdf340aa6aebab03a5948ffd3a</guid>
+    <fileName>Assets/Scripts/Elevator.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Elevator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7dd41523d696a9c4c9bbe9f84eda8d40</guid>
+    <fileName>Assets/Scripts/EmotionStatus.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>EmotionStatus</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3c4fc7b7f5eaa32e98b09440b1253d35</guid>
+    <fileName>Assets/Scripts/EventDetector.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>Events</string>
+      <string>EventDetector</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0afc2b44a9cd9ee47a601e95ae9268df</guid>
+    <fileName>Assets/Scripts/FaceBehave.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>FaceBehave</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2a1e67b7227adcc44943626cfad836df</guid>
+    <fileName>Assets/Scripts/FlyCamera.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>FlyCamera</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e90e90751e221f04b95e6dac84fb59f6</guid>
+    <fileName>Assets/Scripts/GameObjectsManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>GameObjectsManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>951d89f314a9dbb448e7dcac738814d7</guid>
+    <fileName>Assets/Scripts/GodModCanvasManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>GodModCanvasManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c01691deb088fff43b3e3c1a2e3408e2</guid>
+    <fileName>Assets/Scripts/GodModeControl.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>GodModeControl</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7d511ad5afd81234084f556cb28941a9</guid>
+    <fileName>Assets/Scripts/HearingManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>HearingManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cdf51c1d92f28f0489fb94cce200c326</guid>
+    <fileName>Assets/Scripts/HumanBehavior.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>HumanBehavior</string>
+      <string>HumanBehavior+Roles</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b756c1a237bb9054c9dcaecc4fdf2e2e</guid>
+    <fileName>Assets/Scripts/HumanVisionManager.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>HumanVisionManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7720de63e0830f240bf029a56ac393e2</guid>
+    <fileName>Assets/Scripts/IKControl.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>Events</string>
+      <string>IKControl</string>
+      <string>IKControl+States</string>
+      <string>IKControl+Events</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>847d0895b646e6248ab16f3d79395d9b</guid>
+    <fileName>Assets/Scripts/ImageSaver.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>66fa8e4f2f6284241a0134cab40bcba0</guid>
+    <fileName>Assets/Scripts/LocomotionSimpleAgent.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>LocomotionSimpleAgent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cd91d85b358604a1ebe0dbc2cc239acb</guid>
+    <fileName>Assets/Scripts/LookAt.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>LookAt</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e2dc5ae5394ddbd438ef91bafc09a6e5</guid>
+    <fileName>Assets/Scripts/LookHeadController.cs</fileName>
+    <timeStamp>2021-04-29T17:35:27-03:00</timeStamp>
+    <typeFullName>
+      <string>BendingSegment</string>
+      <string>NonAffectedJoints</string>
+      <string>LookHeadController</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ec0a4c5301039cd4aa5c62b3b7d0584a</guid>
+    <fileName>Assets/Scripts/MoveChar.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>MoveChar</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9d3617f5b3880a64bb774c9d3f0fad2e</guid>
+    <fileName>Assets/Scripts/MoveSphere.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>MoveSphere</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ce7a80d520cacc042b5fe14f373d8173</guid>
+    <fileName>Assets/Scripts/MovementOperations.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>MovementOperations</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6c163bf896727b943a335ae2dde54fe5</guid>
+    <fileName>Assets/Scripts/PlaceTargetWithMouse.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.SceneUtils.PlaceTargetWithMouse</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a6ea4f35acae0424d91143cb130ba181</guid>
+    <fileName>Assets/Scripts/SensesManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>SensesManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f9787af1d49711f4f956bf8d8cc69a73</guid>
+    <fileName>Assets/Scripts/SimulatorCommandsManager.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>SimulatorCommandsManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a417e880f28c44b4592e6ceabab61e8f</guid>
+    <fileName>Assets/Scripts/SinkManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>SinkManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bfa86383ac0ac4a4783cd3a99e126933</guid>
+    <fileName>Assets/Scripts/SmellManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>SmellManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>65bf747c8dbd4664eacde6d690f3fd38</guid>
+    <fileName>Assets/Scripts/SocketCommands.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>CommandType</string>
+      <string>SocketCommands</string>
+      <string>Position3</string>
+      <string>ServerClient</string>
+      <string>Response</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e2283367f2feda448856e949e059ed74</guid>
+    <fileName>Assets/Scripts/Status.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Status</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>edad663ee17d72845bfcdcffdbcf8083</guid>
+    <fileName>Assets/Scripts/SwitchManager.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>SwitchManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>405bb31acbd100a49b396473521e35a9</guid>
+    <fileName>Assets/Scripts/TPCameraControl.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>TPCameraControl</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1fc9dbca3de2d8a40bfdd4edf317584a</guid>
+    <fileName>Assets/Scripts/TasteManager.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>TasteManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>521b611700410be45810047f0a74e899</guid>
+    <fileName>Assets/Scripts/ThirdPersonUserControl.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>57ebf87d02822fb4cb102108685a982c</guid>
+    <fileName>Assets/Scripts/TimeManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>TimeManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3f9899b226cbb7844ac180e85b0022d9</guid>
+    <fileName>Assets/Scripts/TimeManagerKeyboard.cs</fileName>
+    <timeStamp>2021-07-14T13:50:35-03:00</timeStamp>
+    <typeFullName>
+      <string>TimeManagerKeyboard</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bf95ace4b3aa3a641be8cacaadc8d6c5</guid>
+    <fileName>Assets/Scripts/TouchManager.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>TouchManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9ac051695f1d2c64bbec85bca31484c7</guid>
+    <fileName>Assets/Scripts/UniqueId.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UniqueIdentifierAttribute</string>
+      <string>UniqueId</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9e69858df27954d49b203a257438479a</guid>
+    <fileName>Assets/Scripts/UniqueIdDistributor.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>UniqueIdDistributor</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c41f00ad25cdd8e40aa10221e48d5e00</guid>
+    <fileName>Assets/Scripts/UserCanvasManager.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>UserCanvasManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2c39cbf3581451e4faa213c372451d80</guid>
+    <fileName>Assets/Scripts/VisionManager.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>VisionManager</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>75121988aab843b4797532815abb54ec</guid>
+    <fileName>Assets/Scripts/Classes/Agent.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>Agent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3c888ec8c8346b8459fe3236c1bec44a</guid>
+    <fileName>Assets/Scripts/Classes/Commands.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>CommandType</string>
+      <string>ParameterType</string>
+      <string>Hands</string>
+      <string>TypeAction</string>
+      <string>Action</string>
+      <string>Take</string>
+      <string>Activate</string>
+      <string>Deactivate</string>
+      <string>Release</string>
+      <string>OpenDoor</string>
+      <string>CloseDoor</string>
+      <string>Taste</string>
+      <string>Smell</string>
+      <string>Move</string>
+      <string>Rotate</string>
+      <string>Turn</string>
+      <string>HeadFocus</string>
+      <string>HeadReset</string>
+      <string>LookFor</string>
+      <string>Speak</string>
+      <string>Cancel</string>
+      <string>Animate</string>
+      <string>CommandStatus</string>
+      <string>Command</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d846cf716f74fb844b0277e9a0acccef</guid>
+    <fileName>Assets/Scripts/Classes/Constants.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Constants</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ec151c9134d24274094030095cc91d1f</guid>
+    <fileName>Assets/Scripts/Classes/Hand.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Hand</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e6310e2a08fd71da889de40c62d3e2cb</guid>
+    <fileName>Assets/Scripts/Classes/ImageToSaveProperties.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>ImageType</string>
+      <string>ImageToSaveProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0d7fcb99ec6c502479219a957023ab47</guid>
+    <fileName>Assets/Scripts/Classes/SmellPerception.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>SmellPerception</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2a7dbbb0eb3d1ea429c78b1268b8e797</guid>
+    <fileName>Assets/Scripts/Editor/SmellPropertiesEditor.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName />
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9a92c7d769ce6a644a1f204c4a0530c2</guid>
+    <fileName>Assets/Scripts/Extensions/RendererExtensions.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>RendererExtensions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8911c5ca6a0be20408704dcae298428d</guid>
+    <fileName>Assets/Scripts/Extensions/StringExtensions.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>StringExtensions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b833bf60f386b8741a853aa4e0e04081</guid>
+    <fileName>Assets/Scripts/Extensions/ToggleExtension.cs</fileName>
+    <timeStamp>2021-07-15T13:04:55-03:00</timeStamp>
+    <typeFullName>
+      <string>ToggleGroupExtension</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>68e200012a312c94eb6a32cce555649d</guid>
+    <fileName>Assets/Scripts/Extensions/Tuple.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>Tuple`2</string>
+      <string>Tuple</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8d1a4dd3bb131764082125cfa81852c3</guid>
+    <fileName>Assets/Scripts/ObjectsProperties/HearingProperties.cs</fileName>
+    <timeStamp>2021-07-14T13:46:34-03:00</timeStamp>
+    <typeFullName>
+      <string>HearingProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0bd6682fcb0d53a4db1c280d9036f8ec</guid>
+    <fileName>Assets/Scripts/ObjectsProperties/SmellProperties.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>SmellProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>44f66a187fea796479bb9506a2145211</guid>
+    <fileName>Assets/Scripts/ObjectsProperties/TasteProperties.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>TasteProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e8dd6f1b1f82479488c980a6c155af24</guid>
+    <fileName>Assets/Scripts/ObjectsProperties/TouchProperties.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>TouchProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>95cbda1e6e2b5344caad5df50ad58af7</guid>
+    <fileName>Assets/Scripts/ObjectsProperties/VisionProperties.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>VisionProperties</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>48c411e74b239694eb53f9ca560c48b9</guid>
+    <fileName>Assets/Scripts/OntSense/CartesianPos.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.CartesianPos</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a9c5d8abe8eb5e049b772716d5e21916</guid>
+    <fileName>Assets/Scripts/OntSense/EmotionalState.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.EmotionalState</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c18dc028f9c5c5d49ad35bd6ebb1b307</guid>
+    <fileName>Assets/Scripts/OntSense/HearingAttribute.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.HearingAttribute</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>02efb5142adfc074685c7578d77957ad</guid>
+    <fileName>Assets/Scripts/OntSense/Human.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.Human</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>42b55d3d5c13d69468203e4946d1ebae</guid>
+    <fileName>Assets/Scripts/OntSense/Material.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.Material</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7dc9edbd80af07d449d93c0632af1b0e</guid>
+    <fileName>Assets/Scripts/OntSense/OlfactoryAttribute.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.OlfactoryAttribute</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3d5b3c60ed716c9459c83708357ea702</guid>
+    <fileName>Assets/Scripts/OntSense/PhysicalState.cs</fileName>
+    <timeStamp>2021-02-28T17:20:10-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.PhysicalState</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5737aa9af19b7da4fb1d9ab98018c374</guid>
+    <fileName>Assets/Scripts/OntSense/RGBValue.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RGBValue</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0e1bcc6b208aa27478e20684137da964</guid>
+    <fileName>Assets/Scripts/OntSense/Robot.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.Robot</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7ec0f7968b7b4d14eac202a60c8f9377</guid>
+    <fileName>Assets/Scripts/OntSense/RobotHear.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotHear</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2ca0331144244044082b5dfa03dd4bbb</guid>
+    <fileName>Assets/Scripts/OntSense/RobotPerceptionEvent.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotPerceptionEvent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>855cc46bc86738c4ea2e61513897aff7</guid>
+    <fileName>Assets/Scripts/OntSense/RobotSmell.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotSmell</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>00ff483e7c81c7a4d969f59b70cd1fc2</guid>
+    <fileName>Assets/Scripts/OntSense/RobotTaste.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotTaste</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>964dbce5fa300d74598b69dcbce2edd0</guid>
+    <fileName>Assets/Scripts/OntSense/RobotTouch.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotTouch</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9fedc0573ca5c1741a26aefee5cc2092</guid>
+    <fileName>Assets/Scripts/OntSense/RobotVision.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.RobotVision</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1cf11d7ac202e6a4ba404228b3026c17</guid>
+    <fileName>Assets/Scripts/OntSense/SparqlAccess.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.SparqlAccess</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0fcd19874be1aac418dd5800afdf9c58</guid>
+    <fileName>Assets/Scripts/OntSense/SparqlEndPoint.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.SparqlEndPoint</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b14bb301b440646468fc2369965a7e17</guid>
+    <fileName>Assets/Scripts/OntSense/Thing.cs</fileName>
+    <timeStamp>2021-07-15T13:04:19-03:00</timeStamp>
+    <typeFullName>
+      <string>OntSenseCSharpAPI.Thing</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>121605e53327e8c5c979e5dd8aa18449</guid>
+    <fileName>Assets/TestScripts/TestSaveImage.cs</fileName>
+    <timeStamp>2021-07-15T13:54:57-03:00</timeStamp>
+    <typeFullName>
+      <string>TestSaveImage</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+</ArrayOfTypeDate>

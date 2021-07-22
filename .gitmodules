@@ -1,4 +1,0 @@
-[submodule "pyMDQN"]
-	path = pyMDQN
-	url = git@github.com:JPedroRBelo/pyMDQN.git
-	branch = simDRLSRv01

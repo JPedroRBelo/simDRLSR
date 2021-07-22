@@ -25,14 +25,13 @@ public class ImageSynthesis : MonoBehaviour
     public Shader opticalFlowShader;
     public float opticalFlowSensitivity = 1.0f;
 
+    [Header("State Render Texture")]
+    public RenderTexture stateRenderTexture;
+
     [Header("Save Image Capture")]
     public bool saveImage = true;
-    public bool saveIdSegmentation = true;
-    public bool saveLayerSegmentation = true;
-    public bool saveDepth = true;
-    public bool saveNormals = true;
+    public bool saveDepth = true;   
     public bool saveGreyScale = true;
-    public bool saveOpticalFlow;
     //public string filepath = "..\\Captures";
     //public string filename = "test.png";
 
@@ -44,11 +43,7 @@ public class ImageSynthesis : MonoBehaviour
     // pass configuration
     private CapturePass[] capturePasses = new CapturePass[] {
         new CapturePass() { name = "_img" },
-        new CapturePass() { name = "_id", supportsAntialiasing = false },
-        new CapturePass() { name = "_layer", supportsAntialiasing = false },
         new CapturePass() { name = "_depth" },
-        new CapturePass() { name = "_normals" },
-        new CapturePass() { name = "_flow", supportsAntialiasing = false, needsRescale = true }, // (see issue with Motion Vectors in @KNOWN ISSUES)
         new CapturePass() { name = "_grey",needsGreyscale=true }
     };
 
@@ -168,12 +163,8 @@ public class ImageSynthesis : MonoBehaviour
             opticalFlowMaterial = new Material(opticalFlowShader);
         opticalFlowMaterial.SetFloat("_Sensitivity", opticalFlowSensitivity);
 
-        // setup command buffers and replacement shaders
-        SetupCameraWithReplacementShader(capturePasses[1].camera, uberReplacementShader, ReplacementMode.ObjectId);
-        SetupCameraWithReplacementShader(capturePasses[2].camera, uberReplacementShader, ReplacementMode.CatergoryId);
-        SetupCameraWithReplacementShader(capturePasses[3].camera, uberReplacementShader, ReplacementMode.DepthCompressed, Color.white);
-        SetupCameraWithReplacementShader(capturePasses[4].camera, uberReplacementShader, ReplacementMode.Normals);
-        SetupCameraWithPostShader(capturePasses[5].camera, opticalFlowMaterial, DepthTextureMode.Depth | DepthTextureMode.MotionVectors);
+        // setup command buffers and replacement shaders       
+        SetupCameraWithReplacementShader(capturePasses[1].camera, uberReplacementShader, ReplacementMode.DepthCompressed, Color.white);
     }
 
 
@@ -246,12 +237,8 @@ public class ImageSynthesis : MonoBehaviour
             {
                 // Perform a check to make sure that the capture pass should be saved
                 if (
-                    (pass.name == "_img" && false) ||
-                    (pass.name == "_id" && false) ||
-                    (pass.name == "_layer" && false) ||
+                    (pass.name == "_img" && false) ||                    
                     (pass.name == "_depth" && prop.type == ImageType.Depth) ||
-                    (pass.name == "_normals" && false) ||
-                    (pass.name == "_flow" && false) ||
                     (pass.name == "_grey" &&  prop.type == ImageType.Grey)
                 )
                 {
@@ -269,12 +256,8 @@ public class ImageSynthesis : MonoBehaviour
         {
             // Perform a check to make sure that the capture pass should be saved
             if (
-                (pass.name == "_img" && saveImage) ||
-                (pass.name == "_id" && saveIdSegmentation) ||
-                (pass.name == "_layer" && saveLayerSegmentation) ||
+                (pass.name == "_img" && saveImage) ||                
                 (pass.name == "_depth" && saveDepth) ||
-                (pass.name == "_normals" && saveNormals) ||
-                (pass.name == "_flow" && saveOpticalFlow) ||
                 (pass.name == "_grey" && saveGreyScale)
             )
             {
@@ -302,21 +285,22 @@ public class ImageSynthesis : MonoBehaviour
         var readWrite = RenderTextureReadWrite.Default;
         var antiAliasing = (supportsAntialiasing) ? Mathf.Max(1, QualitySettings.antiAliasing) : 1;
 
-        var finalRT =
-            RenderTexture.GetTemporary(width, height, depth, format, readWrite, antiAliasing);
-        var renderRT = (!needsRescale) ? finalRT :
-            RenderTexture.GetTemporary(mainCamera.pixelWidth, mainCamera.pixelHeight, depth, format, readWrite, antiAliasing);
+        var finalRT = stateRenderTexture;
+            //RenderTexture.GetTemporary(width, height, depth, format, readWrite, antiAliasing);
+        //var renderRT = (!needsRescale) ? finalRT :
+        //    RenderTexture.GetTemporary(mainCamera.pixelWidth, mainCamera.pixelHeight, depth, format, readWrite, antiAliasing);
         tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-
         var prevActiveRT = RenderTexture.active;
         var prevCameraRT = cam.targetTexture;
+        RenderTexture.active = finalRT;
+        if (!needsGreyscale){           
 
         // render to offscreen texture (readonly from CPU side)
-        RenderTexture.active = renderRT;
-        cam.targetTexture = renderRT;
+        RenderTexture.active = finalRT;
+        cam.targetTexture = finalRT;
 
         cam.Render();
-
+        /*
         if (needsRescale)
         {
             // blit to rescale (see issue with Motion Vectors in @KNOWN ISSUES)
@@ -324,25 +308,30 @@ public class ImageSynthesis : MonoBehaviour
             Graphics.Blit(renderRT, finalRT);
             RenderTexture.ReleaseTemporary(renderRT);
         }
+        */
+
+        }
 
         // read offsreen texture contents into the CPU readable texture
         tex.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
         tex.Apply();
-
+        /*
         if (needsGreyscale)
         {
             tex = ConvertToGrayscale(tex);
         }
+        */
         // encode texture into PNG
         tex = ChangeFormat(tex,TextureFormat.R8);
         var bytes = tex.EncodeToPNG();
         File.WriteAllBytes(filename, bytes);
         // restore state and cleanup
+        
         cam.targetTexture = prevCameraRT;
         RenderTexture.active = prevActiveRT;
 
         Object.Destroy(tex);
-        RenderTexture.ReleaseTemporary(finalRT);
+        //RenderTexture.ReleaseTemporary(finalRT);
     }
 
     private  Texture2D ChangeFormat( Texture2D oldTexture, TextureFormat newFormat)

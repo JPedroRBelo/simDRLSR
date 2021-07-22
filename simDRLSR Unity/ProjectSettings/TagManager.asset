@@ -17,14 +17,15 @@ TagManager:
   - SideDoor
   - Person
   - Hand
+  - SimulatorManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Props
   - Water
   - UI
-  - 
+  - Icons
   - 
   - PostProcessing
   - 

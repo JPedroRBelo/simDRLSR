@@ -33,12 +33,16 @@ using System;
         [Header("Rewards")]
         public float failHandshakeReward = -0.1f;
         public float handshakeReward = 50f;
-        public float neutralReward = 0f;        
+        public float neutralReward = 0f;    
+
+        public float failEyeGazeReward = -0.1f;
+        public float successEyeGazeReward = 50f;
+
         public  float NULL_REWARD = -Mathf.Infinity;
 
         [Header("RL Configuration")]
         public int totalSteps = 1000;
-        private string workDir = "simMDQN/DataGeneration-Phase/";
+        private string workDir;
 
         private RobotInteraction hri;
         [Header("Temporary Variables")]
@@ -52,6 +56,7 @@ using System;
         private ConfigureSaveImage imageSaver;
 
         private int stepAt;
+        private string episode;
         private RLStages rlStage;
         private AgentAction dataAction;
         private bool flagNewActionData;
@@ -64,16 +69,25 @@ using System;
             stepAt = initStep;
         }
 
+        public void setEpisode(string episode){
+            this.episode = episode;
+        }
+
+        public void setWorkDir(string workDir){
+            this.workDir = workDir;
+        }
+
         void Start()
-        {
-
-            
-
+        {            
+            workDir = "";
+            episode = "";
             hri = gameObject.GetComponent<RobotInteraction>();
             hri.handshakeReward = handshakeReward;
             hri.neutralReward = neutralReward;
             hri.failHandshakeReward = failHandshakeReward;
             hri.NULL_REWARD = NULL_REWARD;
+            hri.successEyeGazeReward = successEyeGazeReward;
+            hri.failEyeGazeReward = failEyeGazeReward;
             tempReward = NULL_REWARD;
             reward =  NULL_REWARD;
             if (cameraGameObject)
@@ -84,7 +98,7 @@ using System;
             rlStage = RLStages.WaitStart;
             dataAction = AgentAction.DoNothing;
             flagNewActionData = false;
-
+            
             GameObject simulatorManager = GameObject.Find("/SimulatorManager");
             if(simulatorManager == null){
                 Debug.Log("Simulator Manager not found...");
@@ -94,7 +108,9 @@ using System;
                     Debug.Log("Script Configure Simulation not found...");
                 }else
                 {
-                    workDir = cs.getWorkDir();
+                    if((workDir=="")||(workDir==null)){
+                        workDir = cs.getWorkDir();
+                    }
                     totalSteps = cs.getTotalSteps();
                 }
             }
@@ -114,20 +130,11 @@ using System;
                         if(flagNewActionData){
                             if(System.Enum.IsDefined(typeof(AgentAction), dataAction))
                             {
-                                rlStage = RLStages.GetState;
+                                rlStage = RLStages.SetAction;
                             }
                         }
                         break;
-                    case RLStages.GetState:
-                        GetStates(stepAt);
-                        rlStage = RLStages.WaitState;
-                        break;
-                    case RLStages.WaitState:
-                        if(IsStateCaptured(stepAt)){
-                            
-                            rlStage = RLStages.SetAction;                           
-                        }     
-                        break;
+                   
                     case RLStages.SetAction:
                         SendAction(dataAction,stepAt);
                         flagNewActionData = false;
@@ -136,10 +143,18 @@ using System;
                     case RLStages.GetReward:
                         tempReward = hri.getReward(stepAt);
                         if(tempReward!=NULL_REWARD){
-                            rlStage = RLStages.SendReward;
+                            rlStage = RLStages.GetState;
                         }                        
                         break;
-                    
+                    case RLStages.GetState:
+                        GetStates(stepAt);
+                        rlStage = RLStages.WaitState;
+                        break;
+                    case RLStages.WaitState:
+                        if(IsStateCaptured(stepAt)){                            
+                            rlStage = RLStages.SendReward;                           
+                        }     
+                        break;
                         
                     case RLStages.SendReward:
                         reward = tempReward;
@@ -223,14 +238,17 @@ using System;
                 //string dir = Path.Combine(Application.dataPath,("/../../"+workDir) );
                 string dir = Path.Combine(Application.dataPath, "..", "..");
                 dir = Path.Combine(dir,workDir);
-                StreamReader reader = new StreamReader(dir+"files/episode.txt");
-                //string ep = reader.ReadToEnd();
-                string ep = "";
-                while (!reader.EndOfStream){
-                    ep = reader.ReadLine();
-                    //print("Episode: "+ep);
+                string ep = episode;
+                if((ep=="")||(ep==null)){                
+                    StreamReader reader = new StreamReader(dir+"files/episode.txt");
+                    //string ep = reader.ReadToEnd();
+                    
+                    while (!reader.EndOfStream){
+                        ep = reader.ReadLine();
+                        //print("Episode: "+ep);
+                    }
+                    reader.Close();
                 }
-                reader.Close();
 
                 string save_path1 = Path.Combine(dir, "dataset");
                 save_path1 = Path.Combine(save_path1, "RGB");
@@ -251,6 +269,9 @@ using System;
             //}
         }
 
+        public void setFov(float fov){
+            cameraGameObject.GetComponent<Camera>().fieldOfView = fov;
+        }
 
     }
 

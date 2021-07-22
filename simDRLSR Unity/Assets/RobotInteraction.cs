@@ -5,15 +5,27 @@ using System;
 using UnityEngine;
 
 
-[RequireComponent(typeof(LookHeadController))]
+public class Vector3Wrapper
+{
+    public Vector3 vector;
+
+    public Vector3Wrapper(Vector3 vector){
+        this.vector = vector;
+    }
+}
+
 [RequireComponent(typeof(Animator))]
 public class RobotInteraction : MonoBehaviour
 {
-
+    
     [HideInInspector] 
     public float handshakeReward = 50f;
     [HideInInspector] 
     public float failHandshakeReward = -0.1f;
+    [HideInInspector]
+    public float  successEyeGazeReward = 50f;
+    [HideInInspector]
+    public float failEyeGazeReward = -0.1f;
     [HideInInspector] 
     public float neutralReward = 0f;
     [HideInInspector] 
@@ -53,6 +65,7 @@ public class RobotInteraction : MonoBehaviour
     private Camera camera;
 
     private GameObject neckOriginalTransform;
+    private GameObject headOriginalTransform;
 
     private GameObject personFocused;
 
@@ -146,6 +159,14 @@ public class RobotInteraction : MonoBehaviour
                 neckOriginalTransform.transform.localPosition = robotNeck.localPosition;
                 neckOriginalTransform.transform.localRotation = robotNeck.localRotation;
                 lastNeckRotation = neckOriginalTransform.transform.localEulerAngles;
+
+
+                headOriginalTransform = new GameObject("headOriginalTransform");
+                headOriginalTransform.transform.SetParent(neckOriginalTransform.transform);
+                headOriginalTransform.transform.forward = robotHead.forward;
+                headOriginalTransform.transform.localScale = robotHead.localScale;
+                headOriginalTransform.transform.localPosition = robotHead.localPosition;
+                headOriginalTransform.transform.localRotation = robotHead.localRotation;
             }
         }
     }
@@ -168,8 +189,7 @@ public class RobotInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //updateLastAction();
-       
+        //updateLastAction();       
             switch (actionStage)
             {
                 
@@ -253,11 +273,16 @@ public class RobotInteraction : MonoBehaviour
                             break;
                         
                     }
+                    float timeSpeed = 1f;
+                    GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+                    if(simManager != null){
+                        timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+                    }                    
                     long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                    if (timeNow - actionTimeStart >= timeToWait * 1000)
+                    if (timeNow - actionTimeStart >= timeToWait/timeSpeed * 1000)
                     {                    
                         if(detectEndOfAction()){
-                            resetPersonFocused();
+                            
                             actionStage = ActionStages.WaitReward;
                         }                                        
                     }                
@@ -277,7 +302,7 @@ public class RobotInteraction : MonoBehaviour
                     
                     break;
                 case ActionStages.End:
-                    //rAction = AgentAction.DoNothing;d
+                    //rAction = AgentAction.DoNothing;
                     resetHandTouch();
                     if(actionFromRL){
                         print(rAction+" executed!");
@@ -298,7 +323,8 @@ public class RobotInteraction : MonoBehaviour
         if (handTouchInspector)
         {
              touchRobotHand();
-        }              
+        }   
+       
     }
 
     private float calcReward(AgentAction action,int step)
@@ -309,6 +335,14 @@ public class RobotInteraction : MonoBehaviour
                 return handshakeReward;
             }else{
                 return failHandshakeReward;
+            }
+                
+        }else if(action == AgentAction.Wave)
+        {
+            if(eventDetector.detectEyeGaze(step)){
+                return successEyeGazeReward;
+            }else{
+                return failEyeGazeReward;
             }
                 
         }else
@@ -328,6 +362,7 @@ public class RobotInteraction : MonoBehaviour
 
     public void setAction(AgentAction action,int step)
     {
+        resetPersonFocused();
         queueAction = action;
         queueStep = step;
         dictStepRewards[step] = NULL_REWARD;
@@ -351,13 +386,28 @@ public class RobotInteraction : MonoBehaviour
         
     }
         
-    public AgentAction getActualAction(){
+    public (int step, AgentAction action) getActualAction(){
         //Verifica se o Handshake foi finalizado ou não
+        int auxStep = step;
+        AgentAction atAction = rAction;
         if((rAction==AgentAction.HandShake)&&(!animator.GetCurrentAnimatorStateInfo(0).IsName(CONST_TRYHANDSHAKE )))
         {
-            return AgentAction.Look;
+            atAction =  AgentAction.Look;
         }
-        return rAction;        
+        return (auxStep,atAction);        
+    }
+
+
+    public (int step, AgentAction action) getLastAction(){
+        
+        int lastStep = step-1;
+        AgentAction lastAction =  AgentAction.DoNothing;
+        if(dictStepActions.ContainsKey(lastStep))
+        {
+            lastAction = dictStepActions[lastStep];
+        }
+        
+        return (lastStep,lastAction);        
     }
 
     public void touchRobotHand()
@@ -371,9 +421,15 @@ public class RobotInteraction : MonoBehaviour
 
     private void ActionWait()
     {
+    	float timeSpeed = 1f;
+	GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+	if(simManager != null){
+		timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+	}    
+        
         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
         //Vector3 randomPosition = transform.forward;
-        if (timeNow - timeStart >= randomTime * 1000)
+        if (timeNow - timeStart >= (randomTime * 1000)/timeSpeed)
         {
             neckRotation = randomAnglesToLook(waitHorizontalLookAngle, waitVerticalLookAngle);
             //randomTime = UnityEngine.Random.Range(minRandomLookTime, maxRandomLookTime);
@@ -384,19 +440,17 @@ public class RobotInteraction : MonoBehaviour
         rotateNeck(neckRotation);
         //getNearestPersonFacePosition();
     }
-
-
     
     private void ActionLook()
     {
-        Vector3 posNearestPerson = new Vector3(-1f, 0f, 0f);
+        Vector3Wrapper posNearestPerson = null;
         if (personFocused != null)
         {
             //GameObject person = getNearestPerson();
             posNearestPerson = getPersonPosition(personFocused);
-            if (posNearestPerson.x >= 0)
+            if (posNearestPerson != null)
             {
-                rotateNeck(posNearestPerson);
+                rotateNeck(posNearestPerson.vector);
             }
             else
             {
@@ -408,7 +462,7 @@ public class RobotInteraction : MonoBehaviour
         {
             GameObject person = getNearestPerson();
             posNearestPerson = getPersonPosition(personFocused);
-            if (posNearestPerson.x > 0)
+            if (posNearestPerson != null)
             {
                 personFocused = person;                        
             }
@@ -461,15 +515,17 @@ public class RobotInteraction : MonoBehaviour
     }
 
 
-
     private void rotateNeck(Vector3 rotation)
     {
         float maxVerticalLookAngle = verticalLookAngle/2;
         float maxHorizontalLookAngle = horizontalLookAngle/2;
 
         float auxHorizontal = rotation.y;
-        float auxVertical = rotation.z;
+        //float auxVertical = rotation.z;
+        float auxVertical = rotation.x;
 
+        
+       
         if(auxHorizontal < -maxHorizontalLookAngle)
         {
             auxHorizontal = -maxHorizontalLookAngle;
@@ -485,14 +541,24 @@ public class RobotInteraction : MonoBehaviour
         {
             auxVertical = maxVerticalLookAngle;
         }
+        
+        //rotation = new Vector3(rotation.x,auxHorizontal,auxVertical);
+        
+        rotation = new Vector3(auxVertical,auxHorizontal,neckOriginalRotation.z);
+        //print("neck1: "+rotation);
+        Vector3 nkRotation  = neckOriginalTransform.transform.localEulerAngles;
+        nkRotation = new Vector3(nkRotation.x,nkRotation.y,nkRotation.z);
 
-        rotation = new Vector3(rotation.x,auxHorizontal,auxVertical);
+        //print("neck2: "+nkRotation);
+        rotation = new Vector3(-nkRotation.x+rotation.x,nkRotation.y-rotation.y,rotation.z);
+        //rotation = rotation + origNkRot;
+        
         if (robotNeck != null)
         {
             Vector3 currentAngle = new Vector3(
-                        Mathf.LerpAngle(robotNeck.localEulerAngles.x, rotation.x, Time.deltaTime * speed),
-                        Mathf.LerpAngle(robotNeck.localEulerAngles.y, rotation.y, Time.deltaTime * speed),
-                        Mathf.LerpAngle(robotNeck.localEulerAngles.z, rotation.z, Time.deltaTime * speed));
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.x), rotation.x, Time.deltaTime * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.y), rotation.y, Time.deltaTime * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.z), rotation.z, Time.deltaTime * speed));
             robotNeck.localEulerAngles = currentAngle;
         }
     }
@@ -505,15 +571,37 @@ public class RobotInteraction : MonoBehaviour
     }
 
 
-    private Vector3 getPersonPosition(GameObject person)
+    private Vector3Wrapper getPersonPosition(GameObject person)
     {
         RaycastHit hit = new RaycastHit();
         return getPersonPosition(person, out hit);
     }
 
-    private Vector3 getPersonPosition(GameObject person, out RaycastHit hit)
+
+     private float WrapAngle(float angle)
+        {
+            angle%=360;
+            if(angle >180)
+                return angle - 360;
+ 
+            return angle;
+        }
+
+    private Vector3 getAngles(Transform target1,Transform target2)
     {
-        Vector3 angleNearestPerson = new Vector3(-1f, 0f, 0f);
+        var targetDirection = target1.position - target2.position;
+        targetDirection = target2.InverseTransformDirection(targetDirection);
+        var angleOnX = Mathf.Atan2( targetDirection.y, targetDirection.z ) * Mathf.Rad2Deg;  
+        var angleOnY = Mathf.Atan2( targetDirection.x, targetDirection.z ) * Mathf.Rad2Deg;        
+        var angleOnZ = Mathf.Atan2( targetDirection.x, targetDirection.y ) * Mathf.Rad2Deg;  
+        //print("Angleonx:"+ (-angleOnX-WrapAngle(neckOriginalTransform.transform.localEulerAngles.x)));
+        Vector3 angles = new Vector3(angleOnX,angleOnY,angleOnZ);
+        return angles;
+    }
+
+    private Vector3Wrapper getPersonPosition(GameObject person, out RaycastHit hit)
+    {
+        Vector3Wrapper angleNearestPerson = null;
 
         hit = new RaycastHit();
         if (person != null)
@@ -523,70 +611,40 @@ public class RobotInteraction : MonoBehaviour
             if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
             {
 
+                Vector3 robot_angle = getAngles(person_head,headOriginalTransform.transform);               
 
-                Vector3 angles_robot = get3DAngles(neckOriginalTransform.transform, person_head, "left");
-                Vector3 aux_robot_angle = neckOriginalTransform.transform.localEulerAngles - angles_robot;
-                float hrobot_angle = aux_robot_angle[1];
-                float xrobot_angle = aux_robot_angle[0];
-                float vrobot_angle = -aux_robot_angle[2];
-                
-                if(Math.Abs(xrobot_angle)< Math.Abs(vrobot_angle)){
-                    vrobot_angle = xrobot_angle;
-                }
-
-                Vector3 angles_camera = get3DAngles(robotNeck.transform, person_head, "left");
-                Vector3 aux_cam_angle = neckOriginalTransform.transform.localEulerAngles - angles_camera;
-                float hcam_angle = aux_cam_angle[1];
-                float vcam_angle = -aux_cam_angle[2];
-                float xcam_angle = aux_cam_angle[0];
-
-                if(Math.Abs(xcam_angle)< Math.Abs(vcam_angle)){
-                    vcam_angle = xcam_angle;
-                }
-
-                Vector3 angles_robotHead = get3DAngles(rgbCamera, person_head);
+                Vector3 camera_angle = getAngles(person_head,robotHead.transform);
+                Vector3 angles_robotHead = getAngles( person_head,rgbCamera);                
 
                 if (hit.transform == person_head)
                 {
-
-                    if ((Math.Abs(hrobot_angle) <= (horizontalLookAngle / 2)) && (Math.Abs(vrobot_angle) <= (verticalLookAngle / 2)))
+                    if ((Math.Abs(robot_angle.y) <= (horizontalLookAngle / 2)) && (Math.Abs(robot_angle.x) <= (verticalLookAngle / 2)))
                     {
                         
                         float vFov = camera.fieldOfView;
                         float radAngle = camera.fieldOfView * Mathf.Deg2Rad;
                         float radHFOV = 2 * (float)(Math.Atan(Mathf.Tan(radAngle / 2) * camera.aspect));
                         float hFov = Mathf.Rad2Deg * radHFOV;    
-                        //print(person.name+" angle robot" +hcam_angle+ " "+vcam_angle+ " "+xcam_angle);  
-                        //print("VCAM "+Math.Abs(vcam_angle)+" "+((vFov+verticalSearchOffSet) / 2));
-                        //print("HCAM "+Math.Abs(hcam_angle)+" "+((hFov+horizontalSearchOffSet) / 2));
-                        //print("XCAM "+Math.Abs(xcam_angle)+" "+((hFov+horizontalSearchOffSet) / 2));
-                        if ((Math.Abs(vcam_angle) <= ((vFov+verticalSearchOffSet) / 2)) && (Math.Abs(hcam_angle) <= ((hFov+horizontalSearchOffSet) / 2)))
+                       
+                        if ((Math.Abs(camera_angle.x) <= ((vFov+verticalSearchOffSet) / 2)) && (Math.Abs(camera_angle.y) <= ((hFov+horizontalSearchOffSet) / 2)))
                         {
                             
-                            if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);                           
-                            //angleNearestPerson = new Vector3(0, -hrobot_angle, -vrobot_angle-(lookAngleOffSet/hit.distance));
+                            if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);  
                             Vector3 calcBodyOffSet = aux_offsetRotation - robotSpine.localEulerAngles;
-                            float offsetValue = angles_robotHead[2];
-                            if(Math.Abs(angles_robotHead[1])<Math.Abs(angles_robotHead[2])){
-                                offsetValue = -angles_robotHead[1];
-                            }
-                            angleNearestPerson = new Vector3(0, -hrobot_angle, (-vrobot_angle-offsetValue)-calcBodyOffSet[2]-15f);                                
+                            float offsetValue = 1 +(Mathf.Abs(robot_angle.y)/90); 
+                            angleNearestPerson = new Vector3Wrapper(new Vector3((robot_angle.x/offsetValue)-10f, robot_angle.y, 0));
+                                                       
                         }
                         else
                         {
-                           
-                            //print("VCAM "+Math.Abs(vcam_angle)+" "+((vFov+verticalSearchOffSet) / 2));
-                            //print("HCAM "+Math.Abs(hcam_angle)+" "+((hFov+horizontalSearchOffSet) / 2));
-                            //print("HCAM "+Math.Abs(xcam_angle)+" "+((hFov+horizontalSearchOffSet) / 2));
-                            //if (drawLines) print("Lim: "+((vFov+verticalSearchOffSet) / 2)+" "+((hFov+horizontalSearchOffSet) / 2) +"\nBlue: "+vcam_angle+" "+hcam_angle);
-                            if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.blue);
+                           if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.blue);
                         }
                     }
                     else
                     {
                         if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.yellow);
                     }
-                    if (drawLines) Debug.DrawRay(rgbCamera.position, rgbCamera.forward, Color.magenta);
+                    if (drawLines) Debug.DrawRay(rgbCamera.position, rgbCamera.forward * 10f, Color.magenta);
                 }
                 else
                 {
@@ -598,27 +656,25 @@ public class RobotInteraction : MonoBehaviour
         return angleNearestPerson;
     }
 
-
     private GameObject getNearestPerson()
     {
         float maxRange = 10f;
         RaycastHit hit;
 
         float minDist = 10000f;
-        Vector3 angleNearestPerson = new Vector3(-1f, 0f, 0f);
 
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         GameObject auxFocusedPerson = null;
         foreach (GameObject p in people)
         {
 
-            Vector3 angleToPerson = getPersonPosition(p,out hit);
-            if (angleToPerson.x >= 0)
+            Vector3Wrapper angleToPerson = getPersonPosition(p,out hit);
+            if (angleToPerson  != null)
             {
                 if (hit.distance < minDist)
                 {
                     minDist = hit.distance;
-                    angleNearestPerson = new Vector3(0, angleToPerson.y, angleToPerson.z);
+                    Vector3 angleNearestPerson = new Vector3(angleToPerson.vector.x, angleToPerson.vector.y, 0);
                     lastNeckRotation = angleNearestPerson;
                     auxFocusedPerson = p;
                 }
@@ -628,158 +684,6 @@ public class RobotInteraction : MonoBehaviour
         return personFocused;
     }
 
-    /*
-    private Vector3 getNearestPersonFacePosition()
-    {
-        float maxRange = 10f;
-        RaycastHit hit;
-
-        float minDist = 10000f;
-        Vector3 angleNearestPerson = new Vector3(-1f, 0f, 0f);
-
-        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
-        GameObject auxFocusedPerson = null;
-        foreach (GameObject p in people)
-        {
-            Transform person_head = p.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
-
-            Vector3 delta = rgbCamera.position - person_head.position;
-            Quaternion look = Quaternion.LookRotation(delta);
-            float vertical = look.eulerAngles.x;
-            float horizontal = look.eulerAngles.y;
-
-            //if (Vector3.Distance(robotHead.transform.position, player.position) < maxRange)
-
-            if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
-            {
-               
-                Vector3 angles_robot = get3DAngles(neckOriginalTransform.transform, person_head, "left");
-                float hrobot_angle = (neckOriginalTransform.transform.localEulerAngles - angles_robot)[1];
-                float vrobot_angle = -(neckOriginalTransform.transform.localEulerAngles - angles_robot)[2];
-
-                Vector3 angles_camera = get3DAngles(robotNeck.transform, person_head, "left");
-                float hcam_angle = (neckOriginalTransform.transform.localEulerAngles - angles_camera)[1];
-                float vcam_angle = -(neckOriginalTransform.transform.localEulerAngles - angles_camera)[2];
-
-
-                if (hit.transform == person_head)
-                {
-
-                    if ((Math.Abs(hrobot_angle) <= (horizontalLookAngle / 2)) && (Math.Abs(vrobot_angle) <= (verticalLookAngle / 2)))
-                    {
-
-                        float vFov = camera.fieldOfView;
-                        float radAngle = camera.fieldOfView * Mathf.Deg2Rad;
-                        float radHFOV = 2 * (float)(Math.Atan(Mathf.Tan(radAngle / 2) * camera.aspect));
-                        float hFov = Mathf.Rad2Deg * radHFOV;
-                        if ((Math.Abs(vcam_angle) <= ((vFov+verticalSearchOffSet) / 2)) && (Math.Abs(hcam_angle) <= ((hFov+horizontalSearchOffSet) / 2)))
-                        {
-                            if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);
-                            if (hit.distance < minDist)
-                            {
-                                minDist = hit.distance;
-                                angleNearestPerson = new Vector3(0, angles_robot.y, -angles_robot.z);
-                                lastNeckRotation = angleNearestPerson;
-                                auxFocusedPerson = p;
-                            }
-                        }
-                        else
-                        {
-                            if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.blue);
-                        }
-                    }
-                    else
-                    {
-                        if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.yellow);
-                    }
-                    if (drawLines) Debug.DrawRay(rgbCamera.position, rgbCamera.forward, Color.magenta);
-                }
-                else
-                {
-
-                    if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.red);
-                }
-            }
-
-
-        }
-        personFocused = auxFocusedPerson;
-        return angleNearestPerson;
-    }
-*/
-    /*
-    private void getVisiblePerson(int updateTime)
-    {
-        float maxRange = 10f;
-        RaycastHit hit;
-
-        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
-        foreach(GameObject p in people){
-            Transform person_head = p.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
-
-            Vector3 delta = rgbCamera.position - person_head.position;
-            Quaternion look = Quaternion.LookRotation(delta);
-            float vertical = look.eulerAngles.x;
-            float horizontal = look.eulerAngles.y;
-
-            //print(p.name + " " + vertical);
-            //print(p.name + " " + horizontal);
-
-
-            float angle = Vector3.Angle(rgbCamera.transform.position, person_head.position - robotHead.transform.position);
-            // print(p.name + " " + angle);
-            //if (Vector3.Distance(robotHead.transform.position, player.position) < maxRange)
-
-            if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
-            {
-                Vector3 dir = person_head.position - rgbCamera.position;
-                dir = person_head.InverseTransformDirection(dir);
-                float angle2 = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-
-                Vector3 directionToTarget;
-                float angleForward;
-                float distance;
-                directionToTarget = person_head.position - rgbCamera.position;
-                angleForward = Vector3.Angle(rgbCamera.forward, directionToTarget);
-
-
-                Vector3 angles_robot = get3DAngles(neckOriginalTransform.transform, person_head, "left");
-                float hrobot_angle = angles_robot[1];
-                float vrobot_angle = angles_robot[2];
-
-
-                if(drawLines) print(p.name + " " + (neckOriginalTransform.transform.position-angles_robot));
-                if(p.name.Equals("Bernadete"))
-                    neckRotation = new Vector3(0, hrobot_angle, -vrobot_angle);
-
-                if (hit.transform == person_head)
-                {
-
-                    float fov = camera.fieldOfView;
-                    if(Math.Abs(angleForward) <= (verticalLookAngle / 2))
-                    {
-
-                        if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);
-
-                    }
-                    else
-                    {
-                        if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.yellow);
-                    }
-                    
-                }
-                else
-                {
-                    if(drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.red);
-                }
-            }
-            
-           
-        }
-    }
-
-    */
 
     public Vector3 get3DAngles(Transform refPosition, Transform obj, string direction_name = "forward")
     {
@@ -852,7 +756,7 @@ public class RobotInteraction : MonoBehaviour
             angleXY = -angleXY;
         }
         */
-        Vector3 angles = new Vector3(angleXY, angleXZ, angleYZ);
+        Vector3 angles = new Vector3(angleYZ, angleXZ, angleXY);
         return angles;
     }       
 
