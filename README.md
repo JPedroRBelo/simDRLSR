@@ -182,7 +182,7 @@ To configure pyMDQN:
 cd simDRLSR
 git clone git@github.com:JPedroRBelo/pyMDQN.git pyMDQN
 cd pyMDQN
-git checkout simDRLSRv01
+git checkout master
 ```
 - ⚠️ To use pyMDQN it is not necessary to use a docker container, however, we encourage the use of Conda to install modules, such as pytorch, pip, numpy, etc.
 - The IP address is seted to localhost IP `127.0.0.1`. You can change this in `environment.py` pyMDQN script.
