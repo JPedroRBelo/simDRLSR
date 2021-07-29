@@ -146,7 +146,6 @@
      <None Include="Assets\CmdBehaviors\moveToLib.txt" />
      <None Include="Assets\CmdBehaviors\test.txt" />
      <None Include="Assets\CmdBehaviors\worker.txt" />
-     <None Include="Assets\UnityAssetCleaner\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\CmdBehaviors\livro2.txt" />
      <None Include="Assets\CmdBehaviors\bernadette.txt" />
      <None Include="Assets\CmdBehaviors\workchair2.txt" />
