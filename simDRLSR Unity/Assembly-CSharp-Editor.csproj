@@ -40,6 +40,12 @@
      <Compile Include="Assets\Editor\EditorBlendShapes.cs" />
      <Compile Include="Assets\Editor\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\Editor\SmellPropertiesEditor.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\AssetReferenceCollection.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\CollectionData.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\AssetCollector.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\FindUnusedAssetsWindow.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\ShaderReferenceCollection.cs" />
+     <Compile Include="Assets\UnityAssetCleaner\Assets\Cleaner\Editor\ClassReferenceCollection.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/mnt/Arquivos/Unity/2020.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
