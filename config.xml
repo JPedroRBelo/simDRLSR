@@ -1,8 +1,8 @@
 ﻿<Configure>
-  <simulation_quality>Medium</simulation_quality>
-  <fps>30</fps>
-  <width>1280</width>
-  <height>900</height>
+  <simulation_quality>Very Low</simulation_quality>
+  <fps>60</fps>
+  <width>640</width>
+  <height>480</height>
   <fullscreen>false</fullscreen>
   <ip_address>127.0.0.1</ip_address>
   <port>12375</port>
