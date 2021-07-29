@@ -167,9 +167,27 @@ The IP Adress,most likely, will be the only value you should change.
 
 ### MDQN configuration
 
-The simulator simDRLSR v0.1 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1). We made minor changes to the original code and made it available in the folder called "simMDQN". 
+The simulator simDRLSR v0.270 is based on ![MDQN](https://github.com/ahq1993/Multimodal-Deep-Q-Network-for-Social-Human-Robot-Interaction) published in the scientific article in [[1]](#1). We made minor changes to the original code and made it available in the folder called "simMDQN" (LUA/Torch) or at "PyMDQN" repository (Python,Pytorch; recomended). 
 
-#### simMDQN
+#### pyMDQN
+
+
+The pyMDQN repository can be found at ![pyMDQN](https://github.com/JPedroRBelo/pyMDQN/),
+
+To configure pyMDQN:
+
+- Clone PyMDQN:
+
+```sh
+cd simDRLSR
+git clone git@github.com:JPedroRBelo/pyMDQN.git pyMDQN
+cd pyMDQN
+git checkout simDRLSRv01
+```
+- ⚠️ To use pyMDQN it is not necessary to use a docker container, however, we encourage the use of Conda to install modules, such as pytorch, pip, numpy, etc.
+- The IP address is seted to localhost IP `127.0.0.1`. You can change this in `environment.py` pyMDQN script.
+
+#### (Optional) simMDQN
 
 To run simMDQN it's necessary set the host IP address:
 
@@ -189,22 +207,7 @@ To run simMDQN it's necessary set the host IP address:
 
 As the configuration of MDQN with lua has some problems we are developing a version in Python 3. This version is a submodule available in this repository available in pyMDQN.
 
-#### (Optional) pyMDQN
 
-The pyMDQN folder available in this repository belongs to the ![pyMDQN/simDRLSv01](https://github.com/JPedroRBelo/pyMDQN/tree/simDRLSRv01) branch, adhering to the parameters used in version 0.1 of simDRLSR.
-
-To configure pyMDQN:
-
-- If you cloned the simDRLSR without pyMDQN (MDQN with lua, only), you need to clone pyMDQN manualy:
-
-```sh
-cd simDRLSR
-git clone git@github.com:JPedroRBelo/pyMDQN.git pyMDQN
-cd pyMDQN
-git checkout simDRLSRv01
-```
-- ⚠️ To use pyMDQN it is not necessary to use a docker container, however, we encourage the use of Conda to install modules, such as pytorch, pip, numpy, etc.
-- The IP address is seted to localhost IP `127.0.0.1`. You can change this in `environment.py` pyMDQN script.
 
 ### Running simulator with MDQN pre-treined model
 
