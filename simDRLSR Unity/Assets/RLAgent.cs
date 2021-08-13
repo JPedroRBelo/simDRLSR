@@ -43,6 +43,7 @@ using System;
         [Header("RL Configuration")]
         public int totalSteps = 1000;
         private string workDir;
+        public bool save_image_in_disc = false;
 
         private RobotInteraction hri;
         [Header("Temporary Variables")]
@@ -147,13 +148,21 @@ using System;
                         }                        
                         break;
                     case RLStages.GetState:
-                        GetStates(stepAt);
+                        if(save_image_in_disc){
+                            SaveStates(stepAt);
+                        }
+                        
                         rlStage = RLStages.WaitState;
                         break;
                     case RLStages.WaitState:
+                    if(save_image_in_disc){
                         if(IsStateCaptured(stepAt)){                            
                             rlStage = RLStages.SendReward;                           
-                        }     
+                        }
+
+                    }else{
+                        rlStage = RLStages.SendReward;
+                    }    
                         break;
                         
                     case RLStages.SendReward:
@@ -232,7 +241,34 @@ using System;
             return imageSaver.IsCaptureFinished();
         }
 
-        public void GetStates(int step)
+        /*
+        public List<byte[][]> GetImages(){
+            List<ImageToSaveProperties> imgProp = new List<ImageToSaveProperties>();
+            imgProp.Add(new ImageToSaveProperties("","",width: 320,height:240,ImageType.Grey));
+            imgProp.Add(new ImageToSaveProperties("","",width: 320,height:240,ImageType.Depth));
+            imageSaver.CaptureImages(imgProp,0);
+            while(IsStateCaptured()){
+                print("Capturing Images");
+            }
+            return imageSaver.GetLastState(); 
+        }*/
+
+
+
+        public void GetImages(){
+            List<ImageToSaveProperties> imgProp = new List<ImageToSaveProperties>();
+            string img_1 = "image_0_";
+            string img_2 = "depth_0_";
+            imgProp.Add(new ImageToSaveProperties(img_1,"IMAGE",width: 320,height:240,ImageType.Grey));
+            imgProp.Add(new ImageToSaveProperties(img_2,"DEPTH",width: 320,height:240,ImageType.Depth));
+            imageSaver.CaptureImages(imgProp,0,false);
+            
+            //return imageSaver.GetLastState(); 
+        }
+
+
+
+        public void SaveStates(int step)
         {
             //if(IsStateCaptured()){
                 //string dir = Path.Combine(Application.dataPath,("/../../"+workDir) );

@@ -20,9 +20,10 @@ public class SocketCommunication : MonoBehaviour
     public GameObject robot;
     private RLAgent agent;
 
+    public bool sendImages = false;
 
     
-
+    private Queue<byte[]> imagesQueue = new Queue<byte[]> ();
     private TcpServerClient client;
     private List<TcpServerClient> disconnectList;
 
@@ -32,7 +33,7 @@ public class SocketCommunication : MonoBehaviour
     private bool serverStarted;
     public bool printLog = false;
     private int stepAt;
-
+    private bool waitingImages = false;
     private GameObject simManager;
 
     private TimeManagerKeyboard timeManager;
@@ -210,6 +211,19 @@ public class SocketCommunication : MonoBehaviour
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");
                             restartSimulation("Library");
+                        }else if(data.ToString().Equals("get_screen")){
+                            waitingImages = true;
+                            agent.GetImages();
+                            
+                            //sendImageClient(lastState);
+                        }else if(data.ToString().Equals("reset")){
+                            sendDataClient("0");
+
+                            restartSimulation("Library");
+                        }else if(data.ToString().Equals("next")){
+                            sendDataClient("0");
+
+                            restartSimulation("Library");
                         }else if(data.ToString().Equals("stop")){
                             sendDataClient("0");
                             pauseSimulation();
@@ -236,11 +250,19 @@ public class SocketCommunication : MonoBehaviour
 
             //Check for message from the client
             for (int i = 0; i < disconnectList.Count - 1; i++)
-            {
+            {   
 
                 disconnectList.RemoveAt(i);
             }
         }
+        if(sendImages){
+            waitingImages = true;
+            imagesQueue= new Queue<byte[]>();
+            agent.GetImages();
+            sendImages = false;
+        }
+
+
     }
 
  
@@ -333,6 +355,152 @@ public class SocketCommunication : MonoBehaviour
             Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
         }
     }
+
+ /*   
+ public void sendImageClient(List<List<byte[]>>  data)
+    {
+        if(waitingImages){
+            //byte[][][] stringData = data.ToArray();
+            //byte[] image =  BitConverter.GetBytes(data);
+            print("Sending images");
+            
+            
+            
+            foreach (List<byte[]> gray_depth in data)
+            {
+                foreach (byte[] image in gray_depth)
+                {
+                    try
+                    {
+                        NetworkStream stream = client.tcp.GetStream();
+                        BinaryWriter writer = new BinaryWriter(stream);
+                        // Send the message to the connected TcpServer.
+                        int byteSize = 6;
+
+                        byte[] size = Encoding.ASCII.GetBytes(image.Length.ToString());
+                        int extraSize = byteSize - size.Length;
+                        if(extraSize<0){
+                            extraSize = 0;
+                        }
+                        string aux = "";
+                        for(int i = 0; i < extraSize;i++){
+                            aux = aux+"0";
+                        }
+                        size = Encoding.ASCII.GetBytes(aux+image.Length.ToString());
+                        writer.Write(size,0,size.Length);
+                        writer.Flush();
+                        //sendDataClient()
+                        //stream.Write(image.Length,0,4);
+                        writer.Write(image, 0, image.Length);
+                        writer.Flush(); 
+
+                        //int total = SendVarData(client,image);
+
+                        print("Data sended!");  
+                    }
+                    catch (Exception e)
+                    {
+                        Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
+                    }
+                    
+                }                
+            }
+            waitingImages = false;
+        }else{
+            Debug.Log("Socket Client does not required theses images");
+        }
+    }
+*/
+    public void setQueueImages(List<List<byte[]>> images){
+        
+        foreach (List<byte[]> gray_depth in images)
+        {
+            foreach(byte[] image in gray_depth){
+                imagesQueue.Enqueue(image);
+            }
+        }
+    }
+
+    //private void sendImage()
+
+    public void sendImageClient(List<List<byte[]>>  data)
+    {
+        if(waitingImages){
+            //byte[][][] stringData = data.ToArray();
+            //byte[] image =  BitConverter.GetBytes(data);
+            print("Sending images");
+            
+            
+            
+            foreach (List<byte[]> gray_depth in data)
+            {
+                foreach (byte[] image in gray_depth)
+                {
+                    try
+                    {
+                        NetworkStream stream = client.tcp.GetStream();
+                        BinaryWriter writer = new BinaryWriter(stream);
+                        // Send the message to the connected TcpServer.
+                        int byteSize = 6;
+
+                        byte[] size = Encoding.ASCII.GetBytes(image.Length.ToString());
+                        int extraSize = byteSize - size.Length;
+                        if(extraSize<0){
+                            extraSize = 0;
+                        }
+                        string aux = "";
+                        for(int i = 0; i < extraSize;i++){
+                            aux = aux+"0";
+                        }
+                        size = Encoding.ASCII.GetBytes(aux+image.Length.ToString());
+                        writer.Write(size,0,size.Length);
+                        writer.Flush();
+                        //sendDataClient()
+                        //stream.Write(image.Length,0,4);
+                        writer.Write(image, 0, image.Length);
+                        writer.Flush(); 
+
+                        //int total = SendVarData(client,image);
+
+                        print("Data sended!");  
+                    }
+                    catch (Exception e)
+                    {
+                        Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
+                    }
+                    
+                }                
+            }
+            waitingImages = false;
+        }else{
+            Debug.Log("Socket Client does not required theses images");
+        }
+    }
+    
+
+    private int SendVarData(Socket s, byte[] data)
+    {
+            int total = 0;
+            int size = data.Length;
+            int dataleft = size;
+            int sent;
+
+            byte[] datasize = new byte[4];
+            datasize = BitConverter.GetBytes(size);
+           
+            
+            sent = s.Send(datasize);
+
+            while (total < size)
+            {
+                sent = s.Send(data, total, dataleft, SocketFlags.None);
+                total += sent;
+                dataleft -= sent;
+            }
+            
+            return total;
+    }
+    
 
     
 

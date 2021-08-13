@@ -4,6 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine.Experimental.Rendering;
+using System.Linq;
 
 // @TODO:
 // . support custom color wheels in optical flow via lookup textures
@@ -45,6 +46,7 @@ public class ImageSynthesis : MonoBehaviour
         new CapturePass() { name = "_img" },
         new CapturePass() { name = "_depth" },
         new CapturePass() { name = "_grey",needsGreyscale=true }
+           
     };
 
     struct CapturePass
@@ -266,6 +268,31 @@ public class ImageSynthesis : MonoBehaviour
         }
         
     }
+
+    public List<byte[]> GetImage(List<ImageToSaveProperties> imgProp)
+    {
+        capturing = true;
+        List<byte[]> gray_depth = new List<byte[]>();
+        foreach(var prop in imgProp){   
+
+            foreach (var pass in capturePasses)
+            {
+                // Perform a check to make sure that the capture pass should be saved
+                if (
+                    (pass.name == "_img" && false) ||                    
+                    (pass.name == "_depth" && prop.type == ImageType.Depth) ||
+                    (pass.name == "_grey" &&  prop.type == ImageType.Grey)
+                )
+                {
+                    gray_depth.Add(Save(pass.camera, Path.Combine(prop.path,prop.filename), prop.width, prop.height, pass.supportsAntialiasing, pass.needsRescale,pass.needsGreyscale,false));
+
+                }
+            }
+        }
+        capturing = false;
+        return gray_depth;
+    }
+
     
     
 
@@ -277,7 +304,7 @@ public class ImageSynthesis : MonoBehaviour
 
 
 
-    private void Save(Camera cam, string filename, int width, int height, bool supportsAntialiasing, bool needsRescale, bool needsGreyscale)
+    private byte[] Save(Camera cam, string filename, int width, int height, bool supportsAntialiasing, bool needsRescale, bool needsGreyscale,bool save_file = true )
     {
         var mainCamera = GetComponent<Camera>();
         var depth = 24;
@@ -323,17 +350,23 @@ public class ImageSynthesis : MonoBehaviour
         */
         // encode texture into PNG
         tex = ChangeFormat(tex,TextureFormat.R8);
-        var bytes = tex.EncodeToPNG();
-        File.WriteAllBytes(filename, bytes);
+
+        var bytes = tex.EncodeToPNG().ToArray();
+        if(save_file){
+            File.WriteAllBytes(filename, bytes);
+        }
+
         // restore state and cleanup
         
         cam.targetTexture = prevCameraRT;
         RenderTexture.active = prevActiveRT;
 
         Object.Destroy(tex);
+        return bytes;
         //RenderTexture.ReleaseTemporary(finalRT);
     }
 
+   
     private  Texture2D ChangeFormat( Texture2D oldTexture, TextureFormat newFormat)
     {
         

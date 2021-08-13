@@ -8822,6 +8822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 1281610743}
+  sendImages: 0
   printLog: 1
 --- !u!114 &938626110
 MonoBehaviour:
@@ -16745,6 +16746,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505999197794055748, guid: 53afb2cd74563506babcebfa74ad4e5e,
+        type: 3}
+      propertyPath: handshakeReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505999197794055748, guid: 53afb2cd74563506babcebfa74ad4e5e,
+        type: 3}
+      propertyPath: successEyeGazeReward
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5505999197794055749, guid: 53afb2cd74563506babcebfa74ad4e5e,
         type: 3}
