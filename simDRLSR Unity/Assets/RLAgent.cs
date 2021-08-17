@@ -150,8 +150,7 @@ using System;
                     case RLStages.GetState:
                         if(save_image_in_disc){
                             SaveStates(stepAt);
-                        }
-                        
+                        }                        
                         rlStage = RLStages.WaitState;
                         break;
                     case RLStages.WaitState:
@@ -204,6 +203,28 @@ using System;
             return reward;
         }
 
+        public void configReward(string name,float reward){
+            switch(name){
+                case "neutral":
+                    neutralReward = reward;
+                    break;
+                case "hs_success":
+                    handshakeReward = reward;
+                    break;
+                case "hs_fail":
+                    failHandshakeReward = reward;
+                    break;
+                case "eg_success":
+                    successEyeGazeReward = reward;
+                    break;                
+                case "eg_fail":
+                    failEyeGazeReward = reward;
+                    break;                
+                default:
+                    break;
+            }           
+        }
+
         
         public int sendData(string data)
         { 
@@ -220,6 +241,7 @@ using System;
                     flagNewActionData = true;
                 }
                 catch (FormatException) {
+                    print(data);
                     Debug.Log("Invalid type");
                     dataAction = AgentAction.DoNothing;
                     flagNewActionData = false;

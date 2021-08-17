@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Globalization;
 
 
 
@@ -24,6 +25,9 @@ public class SocketCommunication : MonoBehaviour
 
     
     private Queue<byte[]> imagesQueue = new Queue<byte[]> ();
+    private Queue<byte[]> sizesQueue = new Queue<byte[]> ();
+    private Queue<byte[]> last_imagesQueue = new Queue<byte[]> ();
+    private Queue<byte[]> last_sizesQueue = new Queue<byte[]> ();
     private TcpServerClient client;
     private List<TcpServerClient> disconnectList;
 
@@ -36,10 +40,18 @@ public class SocketCommunication : MonoBehaviour
     private bool waitingImages = false;
     private GameObject simManager;
 
+    private bool waitingImageSize;
+    private bool waitingImageFile;
+
+    private bool last_waitingImageSize;
+    private bool last_waitingImageFile;
+
     private TimeManagerKeyboard timeManager;
     // Start is called before the first frame update
     void Start()
     {
+        waitingImageSize = false;
+        waitingImageFile = false;
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         if(simulatorManager == null){
             Debug.Log("Simulator Manager not found...");
@@ -173,11 +185,11 @@ public class SocketCommunication : MonoBehaviour
                                     simManager[0].GetComponent<TimeManagerKeyboard>().setTime(timeSpeed);
                                 }   
 
-                                print("Time x"+timeSpeed);
+                                print("speed "+timeSpeed);
                                 sendDataClient("0");
                             }catch{
                                 sendDataClient("1");
-                                print("Data error: time");   
+                                print("Data error: "+data.ToString());   
                             }                                                       
                          }else if(data.ToString().Contains("fov")){
                             
@@ -191,10 +203,22 @@ public class SocketCommunication : MonoBehaviour
                             }catch{
                                 sendDataClient("1");
                                 print("Data error: fov");   
-                            }                                                       
+                            }   
+                        }else if(data.ToString().Contains("reward")){                            
+                            string data_string = data.Replace("reward","");
+                            string data_aux = data_string.Replace(" ","");
+                            try{
+                                string[] sub_string = data_aux.Split(':');
+                                var ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                                ci.NumberFormat.NumberDecimalSeparator = ".";
+                                float reward =  float.Parse(sub_string[1],ci);
+                                agent.configReward(sub_string[0],reward);
+                                sendDataClient("0");
                             
-                                
-                            
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: "+data_string);   
+                            }        
                         }else if(data.ToString().Contains("workdir")){
                             
                             string data_string = data.Replace("workdir","");
@@ -212,24 +236,35 @@ public class SocketCommunication : MonoBehaviour
                             sendDataClient("0");
                             restartSimulation("Library");
                         }else if(data.ToString().Equals("get_screen")){
-                            waitingImages = true;
-                            agent.GetImages();
+
+                            waitingImageSize = true;
+                            waitingImageFile = false;
+                            imagesQueue= new Queue<byte[]>();
+                            sizesQueue = new Queue<byte[]>();
+                            sendDataClient("0");
+                            agent.GetImages();                    
+
                             
                             //sendImageClient(lastState);
                         }else if(data.ToString().Equals("reset")){
                             sendDataClient("0");
 
                             restartSimulation("Library");
-                        }else if(data.ToString().Equals("next")){
-                            sendDataClient("0");
+                        }else if(data.ToString().Equals("next_size")){
 
-                            restartSimulation("Library");
-                        }else if(data.ToString().Equals("stop")){
+                            waitingImageSize = true;
+
+                        }else if(data.ToString().Equals("next_image")){
+                             waitingImageFile = true;
+
+                        }
+                        else if(data.ToString().Equals("stop")){
                             sendDataClient("0");
                             pauseSimulation();
                             restartSimulation("Empty");
                         }else{
                             stepAt = agent.sendData(data);
+                            sendDataClient("1");
                         }
                         
                     }
@@ -255,15 +290,24 @@ public class SocketCommunication : MonoBehaviour
                 disconnectList.RemoveAt(i);
             }
         }
-        if(sendImages){
-            waitingImages = true;
-            imagesQueue= new Queue<byte[]>();
-            agent.GetImages();
-            sendImages = false;
-        }
+        if(waitingImageSize){
+            if(sizesQueue.Count>0){
+                sendImageSize();
+                waitingImageSize = false;
+            }
+         }
+         if (waitingImageFile){
+             if(imagesQueue.Count>0){
+                 sendImageClient();
+                 waitingImageFile = false;
+             }
+         }
+        
 
 
     }
+
+   
 
  
     private bool pauseSimulation()
@@ -356,6 +400,42 @@ public class SocketCommunication : MonoBehaviour
         }
     }
 
+    private void sendImageSize(){
+        try
+        {
+            byte[] size = sizesQueue.Dequeue();
+            NetworkStream stream = client.tcp.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            print("Size: "+System.Text.Encoding.UTF8.GetString(size));
+            writer.Write(size, 0, size.Length);
+            writer.Flush();    
+            print("Size sended!");      
+        }
+        catch (Exception e)
+        {
+            Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
+        }
+        
+    }
+
+    private void sendImageClient(){
+        try
+        {
+            byte[] image = imagesQueue.Dequeue();
+            NetworkStream stream = client.tcp.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write(image, 0, image.Length);
+            //writer.Flush();    
+            print("Image sended!");      
+        }
+        catch (Exception e)
+        {
+            Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
+        } 
+    }
+
+
+
  /*   
  public void sendImageClient(List<List<byte[]>>  data)
     {
@@ -416,6 +496,19 @@ public class SocketCommunication : MonoBehaviour
         foreach (List<byte[]> gray_depth in images)
         {
             foreach(byte[] image in gray_depth){
+                int byteSize = 6;
+
+                byte[] size = Encoding.ASCII.GetBytes(image.Length.ToString());
+                int extraSize = byteSize - size.Length;
+                if(extraSize<0){
+                    extraSize = 0;
+                }
+                string aux = "";
+                for(int i = 0; i < extraSize;i++){
+                    aux = aux+"0";
+                }
+                size = Encoding.ASCII.GetBytes(aux+image.Length.ToString());
+                sizesQueue.Enqueue(size);
                 imagesQueue.Enqueue(image);
             }
         }
@@ -423,6 +516,7 @@ public class SocketCommunication : MonoBehaviour
 
     //private void sendImage()
 
+    /*
     public void sendImageClient(List<List<byte[]>>  data)
     {
         if(waitingImages){
@@ -460,9 +554,7 @@ public class SocketCommunication : MonoBehaviour
                         writer.Write(image, 0, image.Length);
                         writer.Flush(); 
 
-                        //int total = SendVarData(client,image);
-
-                        print("Data sended!");  
+                        //int total = SendVarData(client,image); 
                     }
                     catch (Exception e)
                     {
@@ -476,7 +568,7 @@ public class SocketCommunication : MonoBehaviour
             Debug.Log("Socket Client does not required theses images");
         }
     }
-    
+    */
 
     private int SendVarData(Socket s, byte[] data)
     {
@@ -509,7 +601,7 @@ public class SocketCommunication : MonoBehaviour
         try
         {
             print("Sending reward");
-            string stringData = data;
+            string stringData = "reward "+data;
             StreamWriter writer = new StreamWriter(client.tcp.GetStream());
             writer.WriteLine(stringData);
             writer.Flush();     

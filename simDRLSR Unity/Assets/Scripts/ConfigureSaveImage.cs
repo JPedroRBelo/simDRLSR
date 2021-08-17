@@ -100,7 +100,7 @@ public class ConfigureSaveImage : MonoBehaviour
                     }
                 }else{
                     flag = true;
-                    socket.sendImageClient(lastState);
+                    socket.setQueueImages(lastState);
                 }                
                 if(flag){
                     
