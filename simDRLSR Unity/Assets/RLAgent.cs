@@ -207,17 +207,22 @@ using System;
             switch(name){
                 case "neutral":
                     neutralReward = reward;
+                    hri.neutralReward = reward;
                     break;
                 case "hs_success":
                     handshakeReward = reward;
+                    hri.handshakeReward = reward;
                     break;
                 case "hs_fail":
+                    hri.failHandshakeReward = reward;
                     failHandshakeReward = reward;
                     break;
                 case "eg_success":
+                    hri.successEyeGazeReward = reward;
                     successEyeGazeReward = reward;
                     break;                
                 case "eg_fail":
+                    hri.failEyeGazeReward = reward;
                     failEyeGazeReward = reward;
                     break;                
                 default:

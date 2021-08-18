@@ -171,21 +171,7 @@ public class RobotInteraction : MonoBehaviour
         }
     }
 
-    //Atualiza qual a ultima ação executada, antes da atual
-    /*
-    public void updateLastAction()
-    {
-        step++;
-        if (rAction != actualAction)
-        {
-            lastAction = actualAction;
-            actualAction = rAction;
-            lastStepAction[rAction] = step;
-            //print("Step Action "+lastStepAction[rAction]);
-        }
-        
-    }*/
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -290,14 +276,10 @@ public class RobotInteraction : MonoBehaviour
                 case ActionStages.WaitReward:                
                     if(actionFromRL){
                         dictStepRewards[step] = calcReward(rAction,step);
-                        print("Reward: "+dictStepRewards[step]);
                     }else{
                         if(rAction!=AgentAction.DoNothing)
                             print("Debug Reward: "+calcReward(rAction,-1));
                     }
-
-
-                        
                     actionStage = ActionStages.End;              
                     
                     break;
@@ -307,13 +289,7 @@ public class RobotInteraction : MonoBehaviour
                     if(actionFromRL){
                         print(rAction+" executed!");
                     }
-                
-                    
-                    
                     actionStage = ActionStages.Start;
-                    
-                    
-
                     break;
                 default:
                     break;
@@ -340,6 +316,7 @@ public class RobotInteraction : MonoBehaviour
         }else if(action == AgentAction.Wave)
         {
             if(eventDetector.detectEyeGaze(step)){
+                print("Eyegaze: "+successEyeGazeReward);
                 return successEyeGazeReward;
             }else{
                 return failEyeGazeReward;
@@ -382,8 +359,7 @@ public class RobotInteraction : MonoBehaviour
         }else
         {
             return NULL_REWARD;
-        }
-        
+        }        
     }
         
     public (int step, AgentAction action) getActualAction(){
@@ -422,9 +398,9 @@ public class RobotInteraction : MonoBehaviour
     private void ActionWait()
     {
     	float timeSpeed = 1f;
-	GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
-	if(simManager != null){
-		timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+        GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
+        if(simManager != null){
+            timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
 	}    
         
         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;

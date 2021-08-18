@@ -302,12 +302,7 @@ public class SocketCommunication : MonoBehaviour
                  waitingImageFile = false;
              }
          }
-        
-
-
     }
-
-   
 
  
     private bool pauseSimulation()
@@ -338,10 +333,6 @@ public class SocketCommunication : MonoBehaviour
         timeManager.playSimulation();
         return true;        
     }
-
-
-
-
 
     private bool isConnected(TcpClient c)
     {
@@ -387,12 +378,12 @@ public class SocketCommunication : MonoBehaviour
     {
         try
         {
-            print("Sending data");
+            //print("Sending data");
             string stringData = data;
             StreamWriter writer = new StreamWriter(client.tcp.GetStream());
             writer.WriteLine(stringData);
             writer.Flush();     
-            print("Data sended!");      
+            //print("Data sended!");      
         }
         catch (Exception e)
         {
@@ -406,10 +397,10 @@ public class SocketCommunication : MonoBehaviour
             byte[] size = sizesQueue.Dequeue();
             NetworkStream stream = client.tcp.GetStream();
             BinaryWriter writer = new BinaryWriter(stream);
-            print("Size: "+System.Text.Encoding.UTF8.GetString(size));
+            //print("Size: "+System.Text.Encoding.UTF8.GetString(size));
             writer.Write(size, 0, size.Length);
             writer.Flush();    
-            print("Size sended!");      
+            //print("Size sended!");      
         }
         catch (Exception e)
         {
@@ -426,7 +417,7 @@ public class SocketCommunication : MonoBehaviour
             BinaryWriter writer = new BinaryWriter(stream);
             writer.Write(image, 0, image.Length);
             //writer.Flush();    
-            print("Image sended!");      
+            //print("Image sended!");      
         }
         catch (Exception e)
         {
@@ -514,61 +505,7 @@ public class SocketCommunication : MonoBehaviour
         }
     }
 
-    //private void sendImage()
 
-    /*
-    public void sendImageClient(List<List<byte[]>>  data)
-    {
-        if(waitingImages){
-            //byte[][][] stringData = data.ToArray();
-            //byte[] image =  BitConverter.GetBytes(data);
-            print("Sending images");
-            
-            
-            
-            foreach (List<byte[]> gray_depth in data)
-            {
-                foreach (byte[] image in gray_depth)
-                {
-                    try
-                    {
-                        NetworkStream stream = client.tcp.GetStream();
-                        BinaryWriter writer = new BinaryWriter(stream);
-                        // Send the message to the connected TcpServer.
-                        int byteSize = 6;
-
-                        byte[] size = Encoding.ASCII.GetBytes(image.Length.ToString());
-                        int extraSize = byteSize - size.Length;
-                        if(extraSize<0){
-                            extraSize = 0;
-                        }
-                        string aux = "";
-                        for(int i = 0; i < extraSize;i++){
-                            aux = aux+"0";
-                        }
-                        size = Encoding.ASCII.GetBytes(aux+image.Length.ToString());
-                        writer.Write(size,0,size.Length);
-                        writer.Flush();
-                        //sendDataClient()
-                        //stream.Write(image.Length,0,4);
-                        writer.Write(image, 0, image.Length);
-                        writer.Flush(); 
-
-                        //int total = SendVarData(client,image); 
-                    }
-                    catch (Exception e)
-                    {
-                        Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
-                    }
-                    
-                }                
-            }
-            waitingImages = false;
-        }else{
-            Debug.Log("Socket Client does not required theses images");
-        }
-    }
-    */
 
     private int SendVarData(Socket s, byte[] data)
     {

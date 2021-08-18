@@ -341,8 +341,8 @@ public class AvatarBehaviors : MonoBehaviour
                         //}
                         //Verifica se humano não ignorou o robô. Caso positivo, ele está engajado na interação
                         isHumanEngaged = !(hriType==HumanActionType.Ignore); 
-                        //print(transform.name+" "+hriType);
-                        print("Command: "+hriType);
+
+                        //print("Command: "+hriType);
                         if(!isHumanEngaged)
                         {
                             //Debug.Log("Human Action>>> humano nao engajado, resetando posicao cabeca");
@@ -352,8 +352,7 @@ public class AvatarBehaviors : MonoBehaviour
                     isHumanEngaged = !(hriType==HumanActionType.Ignore);                  
                     
                 }
-            }
-            
+            }            
         }
         
         if(hriType!=HumanActionType.Ignore)       
