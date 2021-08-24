@@ -605,6 +605,8 @@ public class RobotInteraction : MonoBehaviour
                         if ((Math.Abs(camera_angle.x) <= ((vFov+verticalSearchOffSet) / 2)) && (Math.Abs(camera_angle.y) <= ((hFov+horizontalSearchOffSet) / 2)))
                         {
                             
+
+                            
                             if (drawLines) Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);  
                             Vector3 calcBodyOffSet = aux_offsetRotation - robotSpine.localEulerAngles;
                             float offsetValue = 1 +(Mathf.Abs(robot_angle.y)/90); 
