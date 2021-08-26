@@ -537,7 +537,6 @@ public class SocketCommunication : MonoBehaviour
     {
         try
         {
-            print("Sending reward");
             string stringData = "reward "+data;
             StreamWriter writer = new StreamWriter(client.tcp.GetStream());
             writer.WriteLine(stringData);

@@ -115,7 +115,6 @@ using System;
                     totalSteps = cs.getTotalSteps();
                 }
             }
-            print("Total Steps: "+totalSteps);
         }
 
         // Update is called once per frame
@@ -253,8 +252,10 @@ using System;
                 }
             }
             reward = NULL_REWARD;
+            /*
             if(flagNewActionData)
                 print(this+" received commmand: "+dataAction);
+            */
             return stepAt;
         }            
         
@@ -268,19 +269,7 @@ using System;
             return imageSaver.IsCaptureFinished();
         }
 
-        /*
-        public List<byte[][]> GetImages(){
-            List<ImageToSaveProperties> imgProp = new List<ImageToSaveProperties>();
-            imgProp.Add(new ImageToSaveProperties("","",width: 320,height:240,ImageType.Grey));
-            imgProp.Add(new ImageToSaveProperties("","",width: 320,height:240,ImageType.Depth));
-            imageSaver.CaptureImages(imgProp,0);
-            while(IsStateCaptured()){
-                print("Capturing Images");
-            }
-            return imageSaver.GetLastState(); 
-        }*/
-
-
+      
 
         public void GetImages(){
             List<ImageToSaveProperties> imgProp = new List<ImageToSaveProperties>();

@@ -12866,7 +12866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434769189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.87, y: -2.35, z: -13.61}
+  m_LocalPosition: {x: 0.71, y: 0, z: -13.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 625864030}
@@ -19494,7 +19494,7 @@ MonoBehaviour:
   closeDistance: 3
   visionAngle: 90
   waitTime: 1000
-  maxToleranceTime: 15000
+  maxToleranceTime: 7500
 --- !u!114 &1000218163341576123
 MonoBehaviour:
   m_ObjectHideFlags: 0

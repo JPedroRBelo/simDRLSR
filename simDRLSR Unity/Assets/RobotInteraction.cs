@@ -174,7 +174,7 @@ public class RobotInteraction : MonoBehaviour
   
     // Update is called once per frame
     void Update()
-    {
+    {   
         //updateLastAction();       
             switch (actionStage)
             {
@@ -286,9 +286,7 @@ public class RobotInteraction : MonoBehaviour
                 case ActionStages.End:
                     //rAction = AgentAction.DoNothing;
                     resetHandTouch();
-                    if(actionFromRL){
-                        print(rAction+" executed!");
-                    }
+
                     actionStage = ActionStages.Start;
                     break;
                 default:
