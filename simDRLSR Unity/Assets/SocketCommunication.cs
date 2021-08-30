@@ -31,6 +31,8 @@ public class SocketCommunication : MonoBehaviour
     private TcpServerClient client;
     private List<TcpServerClient> disconnectList;
 
+    private List<byte> lastImage;
+
     private const int MAXDATASIZE =  4096;    // max number of bytes we can send at once
     private const int BACKLOG = 10;          // how many pending connections queue will hold
     private TcpListener server;
@@ -42,6 +44,7 @@ public class SocketCommunication : MonoBehaviour
 
     private bool waitingImageSize;
     private bool waitingImageFile;
+    private bool waitingLastImage;
 
     private bool last_waitingImageSize;
     private bool last_waitingImageFile;
@@ -50,8 +53,10 @@ public class SocketCommunication : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lastImage = new List<byte>();
         waitingImageSize = false;
         waitingImageFile = false;
+        waitingLastImage = false;
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         if(simulatorManager == null){
             Debug.Log("Simulator Manager not found...");
@@ -253,6 +258,9 @@ public class SocketCommunication : MonoBehaviour
                         }else if(data.ToString().Equals("next_size")){
 
                             waitingImageSize = true;
+                        }else if(data.ToString().Equals("last_image")){
+
+                            waitingLastImage = true;
 
                         }else if(data.ToString().Equals("next_image")){
                              waitingImageFile = true;
@@ -300,6 +308,12 @@ public class SocketCommunication : MonoBehaviour
              if(imagesQueue.Count>0){
                  sendImageClient();
                  waitingImageFile = false;
+             }
+         }
+         if (waitingLastImage){
+             if(lastImage != null){
+                 sendLastImage();
+                 waitingLastImage = false;
              }
          }
     }
@@ -391,6 +405,22 @@ public class SocketCommunication : MonoBehaviour
         }
     }
 
+    private void sendLastImage(){
+        try
+        {
+            
+            byte[] image = lastImage.ToArray();
+            NetworkStream stream = client.tcp.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Flush();
+            writer.Write(image, 0, image.Length);   
+        }
+        catch (Exception e)
+        {
+            Log("System>>> Write error: " + e.Message + " to client " + client.clientName);
+        }
+    }
+
     private void sendImageSize(){
         try
         {
@@ -415,6 +445,7 @@ public class SocketCommunication : MonoBehaviour
         try
         {  
             byte[] image = imagesQueue.Dequeue();
+            lastImage = new List<byte>(image);
             NetworkStream stream = client.tcp.GetStream();
             BinaryWriter writer = new BinaryWriter(stream);
             writer.Write(image, 0, image.Length);
