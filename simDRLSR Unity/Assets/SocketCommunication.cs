@@ -394,9 +394,11 @@ public class SocketCommunication : MonoBehaviour
     private void sendImageSize(){
         try
         {
+            
             byte[] size = sizesQueue.Dequeue();
             NetworkStream stream = client.tcp.GetStream();
             BinaryWriter writer = new BinaryWriter(stream);
+            writer.Flush();
             //print("Size: "+System.Text.Encoding.UTF8.GetString(size));
             writer.Write(size, 0, size.Length);
             writer.Flush();    
@@ -411,7 +413,7 @@ public class SocketCommunication : MonoBehaviour
 
     private void sendImageClient(){
         try
-        {
+        {  
             byte[] image = imagesQueue.Dequeue();
             NetworkStream stream = client.tcp.GetStream();
             BinaryWriter writer = new BinaryWriter(stream);
