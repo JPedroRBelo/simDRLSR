@@ -34,8 +34,6 @@ public class ConfigBlendShapes : MonoBehaviour
     }
 
 
-
-
     void Start ()
     {
         dictEmotions = new Dictionary<string, List<CustomBlendShape>>();
@@ -73,7 +71,7 @@ public class ConfigBlendShapes : MonoBehaviour
         float blendTime = 1/blendShape.blend;
         float elapsed = 0.0f;
         if(activate){            
-            while (elapsed < blendTime )
+            while (blendShape.range > skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
             {
                 speed = Mathf.Lerp( 0, blendShape.range, elapsed / blendTime );
                 elapsed += Time.deltaTime;
@@ -88,7 +86,7 @@ public class ConfigBlendShapes : MonoBehaviour
             }
         } 
         elapsed = 0.0f;       
-        while (elapsed < blendTime )
+        while (0 < skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
         {
             speed = Mathf.Lerp( blendShape.range, 0, elapsed / blendTime );
             elapsed += Time.deltaTime;
@@ -170,10 +168,11 @@ public class CustomBlendShape
         range = 0f;
     }
 
-    public CustomBlendShape(int shape, float blend,float range)
+    public CustomBlendShape(int shape, float blend,float range,bool invert)
     {            
         this.shape = shape;
         this.blend = blend;
         this.range = range;
+        
     }
 }

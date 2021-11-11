@@ -26,6 +26,7 @@ public class SocketCommunication : MonoBehaviour
     
     private Queue<byte[]> imagesQueue = new Queue<byte[]> ();
     private Queue<byte[]> sizesQueue = new Queue<byte[]> ();
+    private Queue<bool> facesQueue = new Queue<bool>();
     private Queue<byte[]> last_imagesQueue = new Queue<byte[]> ();
     private Queue<byte[]> last_sizesQueue = new Queue<byte[]> ();
     private TcpServerClient client;
@@ -45,6 +46,7 @@ public class SocketCommunication : MonoBehaviour
     private bool waitingImageSize;
     private bool waitingImageFile;
     private bool waitingLastImage;
+    private bool waitingFaceState;
 
     private bool last_waitingImageSize;
     private bool last_waitingImageFile;
@@ -57,6 +59,8 @@ public class SocketCommunication : MonoBehaviour
         waitingImageSize = false;
         waitingImageFile = false;
         waitingLastImage = false;
+        waitingFaceState = false;
+        //facesQueue = new Queue<bool>();
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         if(simulatorManager == null){
             Debug.Log("Simulator Manager not found...");
@@ -240,14 +244,31 @@ public class SocketCommunication : MonoBehaviour
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");
                             restartSimulation("Library");
+                        }else if(data.ToString().Contains("use_depth")){
+                            
+                            string data_string = data.Replace("use_depth","");
+                            data_string = data_string.Replace(" ","");
+                            try{
+                                bool use_depth = false;
+                                if(data_string.Equals("True")||data_string.Equals("true")){
+                                    use_depth = true;
+                                }
+                                agent.setUseDepth(use_depth);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: fov");   
+                            } 
                         }else if(data.ToString().Equals("get_screen")){
 
                             waitingImageSize = true;
                             waitingImageFile = false;
+                            waitingFaceState = false;
                             imagesQueue= new Queue<byte[]>();
+                            facesQueue = new Queue<bool>();
                             sizesQueue = new Queue<byte[]>();
                             sendDataClient("0");
-                            agent.GetImages();                    
+                            agent.CaptureStates();                    
 
                             
                             //sendImageClient(lastState);
@@ -264,6 +285,9 @@ public class SocketCommunication : MonoBehaviour
 
                         }else if(data.ToString().Equals("next_image")){
                              waitingImageFile = true;
+
+                        }else if(data.ToString().Equals("next_face")){
+                             waitingFaceState = true;
 
                         }
                         else if(data.ToString().Equals("stop")){
@@ -308,6 +332,12 @@ public class SocketCommunication : MonoBehaviour
              if(imagesQueue.Count>0){
                  sendImageClient();
                  waitingImageFile = false;
+             }
+         }
+         if(waitingFaceState){
+             if(facesQueue.Count>0){
+                 sendFaceState();
+                 waitingFaceState = false;
              }
          }
          if (waitingLastImage){
@@ -421,6 +451,13 @@ public class SocketCommunication : MonoBehaviour
         }
     }
 
+
+    private void sendFaceState(){
+
+            bool face = facesQueue.Dequeue();
+            sendDataClient(face.ToString());
+    }
+    
     private void sendImageSize(){
         try
         {
@@ -536,6 +573,15 @@ public class SocketCommunication : MonoBehaviour
                 imagesQueue.Enqueue(image);
             }
         }
+    }
+
+    public void SetQueueFaces(List<bool> faceState){
+        
+        foreach (bool face in faceState)
+        {            
+            facesQueue.Enqueue(face);
+        }
+        
     }
 
 

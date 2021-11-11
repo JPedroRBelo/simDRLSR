@@ -581,7 +581,7 @@ public class RobotInteraction : MonoBehaviour
         if (person != null)
         {
             Transform person_head = person.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
-            
+            //check if there is anything obstructing the robot's view towards the person
             if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
             {
 
@@ -589,7 +589,7 @@ public class RobotInteraction : MonoBehaviour
 
                 Vector3 camera_angle = getAngles(person_head,robotHead.transform);
                 Vector3 angles_robotHead = getAngles( person_head,rgbCamera);                
-
+             
                 if (hit.transform == person_head)
                 {
                     if ((Math.Abs(robot_angle.y) <= (horizontalLookAngle / 2)) && (Math.Abs(robot_angle.x) <= (verticalLookAngle / 2)))
@@ -658,6 +658,45 @@ public class RobotInteraction : MonoBehaviour
         }
         personFocused = auxFocusedPerson;
         return personFocused;
+    }
+
+
+    public bool thereIsAFaceInRobotView(GameObject person)
+    {
+        RaycastHit hit = new RaycastHit();
+
+        if (person != null)
+        {
+            Transform person_head = person.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
+            //check if there is anything obstructing the robot's view towards the person
+            if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
+            {
+
+                Vector3 robot_angle = getAngles(person_head,headOriginalTransform.transform);               
+
+                Vector3 camera_angle = getAngles(person_head,robotHead.transform);
+                Vector3 angles_robotHead = getAngles( person_head,rgbCamera);                
+             
+                if (hit.transform == person_head)
+                {
+                    if ((Math.Abs(robot_angle.y) <= (horizontalLookAngle / 2)) && (Math.Abs(robot_angle.x) <= (verticalLookAngle / 2)))
+                    {
+                        
+                        float vFov = camera.fieldOfView;
+                        float radAngle = camera.fieldOfView * Mathf.Deg2Rad;
+                        float radHFOV = 2 * (float)(Math.Atan(Mathf.Tan(radAngle / 2) * camera.aspect));
+                        float hFov = Mathf.Rad2Deg * radHFOV;    
+                       
+                        if ((Math.Abs(camera_angle.x) <= ((vFov) / 2)) && (Math.Abs(camera_angle.y) <= ((hFov) / 2)))
+                        {
+
+                            return true;                   
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -747,7 +786,7 @@ public class RobotInteraction : MonoBehaviour
     {
         if (robotHead == null)
         {
-            Debug.Log("É nullllllllllllllllllllllllllllllllllllllllllll");
+          //  Debug.Log(transform.name+" É nullllllllllllllllllllllllllllllllllllllllllll");
         }
         return robotHead;
     }

@@ -58,7 +58,8 @@ using System.IO;
                     GUILayout.Label("Shape");
                     EditorGUILayout.Space();
                     GUILayout.Label("Blend");
-                    GUILayout.Label("Value");
+                     EditorGUILayout.Space();
+                    GUILayout.Label("Value");                
                     GUILayout.Label("Delete",Styles.fontStyle);
                     GUILayout.EndHorizontal();
                     float sizeMultiplier = 0f;
@@ -72,7 +73,9 @@ using System.IO;
                         EditorGUILayout.Space(30);
                         emotion.Value[i].blend  = EditorGUILayout.FloatField("", emotion.Value[i].blend, GUILayout.Width(40));
                         EditorGUILayout.Space();
-                        emotion.Value[i].range = EditorGUILayout.Slider(emotion.Value[i].range, 0f, 100f);
+                        emotion.Value[i].range = EditorGUILayout.Slider(emotion.Value[i].range, -100f, 100f);
+                        //GUILayout.Label("");
+  
                         //GUILayout.Label("");
                         EditorGUILayout.Space(20);
                         if(GUILayout.Button("X", GUILayout.Width(20), GUILayout.Height(20))){

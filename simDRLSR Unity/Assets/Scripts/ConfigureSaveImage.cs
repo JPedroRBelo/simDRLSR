@@ -18,16 +18,19 @@ public class ConfigureSaveImage : MonoBehaviour
     private int stepAt;
     private bool isToCapture = false;
     private List<List<byte[]>> lastState;
+    private List<bool> faceState;
     private bool save_image_in_disc;
     private SocketCommunication socket;
-
+    public  EventDetector eventDetector;
 
     private int interator;
     void Start()
     {
         save_image_in_disc = true;
         lastState = new List<List<byte[]>>();
+        faceState = new List<bool>();
     	float timeSpeed = 1f;
+       // eventDetector = 
         GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
 
         if(simManager != null){
@@ -71,8 +74,7 @@ public class ConfigureSaveImage : MonoBehaviour
                     //imSynthesis.Save(filename, width: (int)gameViewSize.x, height: (int)gameViewSize.y, imSynthesis.filepath);
                     for(int i = 0; i < imgProp.Count;i++)
                     {
-                        imgProp[i].filename = imgProp[i].basename+interator.ToString()+".png";
-                                        
+                        imgProp[i].filename = imgProp[i].basename+interator.ToString()+".png";                                        
                     }
                     if(save_image_in_disc){
                         imSynthesis.Save(imgProp);
@@ -80,7 +82,9 @@ public class ConfigureSaveImage : MonoBehaviour
                         List<byte[]> gray_depth = imSynthesis.GetImage(imgProp);
                         lastState.Add(gray_depth);
                     }
-                    
+                    //call event detector
+                    bool face = eventDetector.detectFace();
+                    faceState.Add(face);
                     interator = interator+1;
                 }
 
@@ -101,6 +105,7 @@ public class ConfigureSaveImage : MonoBehaviour
                 }else{
                     flag = true;
                     socket.setQueueImages(lastState);
+                    socket.SetQueueFaces(faceState);
                 }                
                 if(flag){
                     
@@ -117,6 +122,7 @@ public class ConfigureSaveImage : MonoBehaviour
     {
         save_image_in_disc = saveInDisc;
         lastState = new List<List<byte[]>>();
+        faceState = new List<bool>();
         interator = 1;
         isToCapture = true;
         stateCaptured[step] = false;
@@ -127,6 +133,7 @@ public class ConfigureSaveImage : MonoBehaviour
     public void CaptureImages()
     {
         lastState = new List<List<byte[]>>();
+        faceState = new List<bool>();
         isToCapture = true;
         interator = 0;
         this.imgProp = imgProp;
@@ -139,6 +146,10 @@ public class ConfigureSaveImage : MonoBehaviour
 
     public List<List<byte[]>> GetLastState(){
         return lastState;
+    }
+
+    public List<bool> GetFaceState(){
+        return faceState;
     }
 
     public bool IsCaptureFinished()

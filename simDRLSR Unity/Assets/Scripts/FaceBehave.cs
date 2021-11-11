@@ -23,7 +23,7 @@ public class FaceBehave : MonoBehaviour
 	public Dictionary<string, bool> facialEmotions = new Dictionary<string,bool>(){
 														{"smile", false},
 														{"blink" , false},	
-														{"angry" , false},
+														{"anger" , false},
 														{"happy" , false},
 														{"sad" , false},
 														{"surprise" , false},
@@ -67,6 +67,7 @@ public class FaceBehave : MonoBehaviour
     private Vector3 currentAngle;
     private Vector3 targetAngle;
 
+	public bool executeAngry = false;
 
 	public Transform camera;
 	
@@ -120,6 +121,10 @@ public class FaceBehave : MonoBehaviour
 		if(simManager != null){
 			timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
 		} 
+		if(executeAngry){
+			facialEmotions["anger"] = true;
+			executeAngry = false;
+		}
 		try{
 			foreach(KeyValuePair<string, bool> emotion in facialEmotions){
 				if(emotion.Value){
@@ -127,11 +132,15 @@ public class FaceBehave : MonoBehaviour
 					if(emotion.Key=="blink"){
 						duration = blinkDuration;
 					}
+					else if(emotion.Key=="anger"){
+						duration = 10;
+					}
 					blendShapes.setEmotion(emotion.Key,true,duration/timeSpeed);
 					facialEmotions[emotion.Key] = false;
 				}
 			}
-		}catch{}		
+		}catch{}	
+			
 		
 	}
 
@@ -162,6 +171,7 @@ public class FaceBehave : MonoBehaviour
 					startBlinkTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 					blinkTime = UnityEngine.Random.Range(minBlinkTime*1000, maxBlinkTime*1000);
 					facialEmotions["blink"] = true;
+					
 			}
 		}
 

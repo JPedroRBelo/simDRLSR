@@ -62,6 +62,8 @@ using System;
         private AgentAction dataAction;
         private bool flagNewActionData;
 
+        private bool useDepth;
+
         private float tempReward;
         private float reward;
 
@@ -82,6 +84,7 @@ using System;
         {            
             workDir = "";
             episode = "";
+            useDepth = true;
             hri = gameObject.GetComponent<RobotInteraction>();
             hri.handshakeReward = handshakeReward;
             hri.neutralReward = neutralReward;
@@ -190,6 +193,9 @@ using System;
             return dataAction;
         } 
 
+        public void setUseDepth(bool useDepth){
+            this.useDepth = useDepth;
+        }
         
 
         void SendAction(AgentAction action, int step)
@@ -271,12 +277,14 @@ using System;
 
       
 
-        public void GetImages(){
+        public void CaptureStates(){
             List<ImageToSaveProperties> imgProp = new List<ImageToSaveProperties>();
             string img_1 = "image_0_";
             string img_2 = "depth_0_";
             imgProp.Add(new ImageToSaveProperties(img_1,"IMAGE",width: 320,height:240,ImageType.Grey));
-            imgProp.Add(new ImageToSaveProperties(img_2,"DEPTH",width: 320,height:240,ImageType.Depth));
+            if(useDepth){
+                imgProp.Add(new ImageToSaveProperties(img_2,"DEPTH",width: 320,height:240,ImageType.Depth));
+            }            
             imageSaver.CaptureImages(imgProp,0,false);
             
             //return imageSaver.GetLastState(); 
