@@ -22,6 +22,14 @@ public class EventDetector : MonoBehaviour
     private RobotInteraction robotHRI;
     private Transform robotHead;
 
+    public string no_face = "no_face";
+
+    private Dictionary<EkmanGroupEmotions,string> ekmanGroupToString = new Dictionary<EkmanGroupEmotions, string>{
+                                                                            {EkmanGroupEmotions.Neutral,"neutral"},
+                                                                            {EkmanGroupEmotions.Positive,"positive"},
+                                                                            {EkmanGroupEmotions.Negative,"negative"}
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +77,29 @@ public class EventDetector : MonoBehaviour
             }            
         }
         return false;
+    }
+
+
+    
+    public string detectEmotion(){
+        string emotion = no_face;
+        foreach (GameObject person in GameObject.FindGameObjectsWithTag("Person"))
+        {
+            Transform person_head = person.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
+            Vector3 dirFromBtoA = (transform.position - person_head.position ).normalized;
+            float robotInHumanVisionDot = Vector3.Dot(dirFromBtoA,  person_head.forward);
+  
+            if(robotInHumanVisionDot>=0.15){
+                float dist = Vector3.Distance(person_head.position, transform.position);
+                if(robotHRI.thereIsAFaceInRobotView(person)&&dist<faceMaxDistance){
+                    //print("FACE");
+                    FaceBehave faceBehave= person.GetComponent<FaceBehave>();
+                    emotion = ekmanGroupToString[faceBehave.getCurrentGroupEmotion()];
+                    return emotion;
+                }
+            }            
+        }
+        return emotion;
     }
 
     public bool detectHandshake(int step){        

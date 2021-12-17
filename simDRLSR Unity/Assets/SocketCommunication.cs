@@ -27,6 +27,7 @@ public class SocketCommunication : MonoBehaviour
     private Queue<byte[]> imagesQueue = new Queue<byte[]> ();
     private Queue<byte[]> sizesQueue = new Queue<byte[]> ();
     private Queue<bool> facesQueue = new Queue<bool>();
+    private Queue<string> emotionsQueue = new Queue<string>();
     private Queue<byte[]> last_imagesQueue = new Queue<byte[]> ();
     private Queue<byte[]> last_sizesQueue = new Queue<byte[]> ();
     private TcpServerClient client;
@@ -47,7 +48,7 @@ public class SocketCommunication : MonoBehaviour
     private bool waitingImageFile;
     private bool waitingLastImage;
     private bool waitingFaceState;
-
+    private bool waitingEmotionState;
     private bool last_waitingImageSize;
     private bool last_waitingImageFile;
 
@@ -60,6 +61,7 @@ public class SocketCommunication : MonoBehaviour
         waitingImageFile = false;
         waitingLastImage = false;
         waitingFaceState = false;
+        waitingEmotionState = false;
         //facesQueue = new Queue<bool>();
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         if(simulatorManager == null){
@@ -264,8 +266,10 @@ public class SocketCommunication : MonoBehaviour
                             waitingImageSize = true;
                             waitingImageFile = false;
                             waitingFaceState = false;
+                            waitingEmotionState = false;
                             imagesQueue= new Queue<byte[]>();
                             facesQueue = new Queue<bool>();
+                            emotionsQueue = new Queue<string>();
                             sizesQueue = new Queue<byte[]>();
                             sendDataClient("0");
                             agent.CaptureStates();                    
@@ -289,6 +293,8 @@ public class SocketCommunication : MonoBehaviour
                         }else if(data.ToString().Equals("next_face")){
                              waitingFaceState = true;
 
+                        }else if(data.ToString().Equals("next_emotion")){
+                             waitingEmotionState = true;
                         }
                         else if(data.ToString().Equals("stop")){
                             sendDataClient("0");
@@ -338,6 +344,12 @@ public class SocketCommunication : MonoBehaviour
              if(facesQueue.Count>0){
                  sendFaceState();
                  waitingFaceState = false;
+             }
+         }
+        if(waitingEmotionState){
+             if(emotionsQueue.Count>0){
+                 sendEmotionState();
+                 waitingEmotionState = false;
              }
          }
          if (waitingLastImage){
@@ -456,6 +468,12 @@ public class SocketCommunication : MonoBehaviour
 
             bool face = facesQueue.Dequeue();
             sendDataClient(face.ToString());
+    }
+
+    private void sendEmotionState(){
+
+            string emotion = emotionsQueue.Dequeue();
+            sendDataClient(emotion);
     }
     
     private void sendImageSize(){
@@ -580,8 +598,15 @@ public class SocketCommunication : MonoBehaviour
         foreach (bool face in faceState)
         {            
             facesQueue.Enqueue(face);
-        }
+        }        
+    }
+
+    public void SetQueueEmotions(List<string> emotionState){
         
+        foreach (string emotion in emotionState)
+        {            
+            emotionsQueue.Enqueue(emotion);
+        }        
     }
 
 

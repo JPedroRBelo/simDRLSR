@@ -22,6 +22,13 @@ class Items<T>
     public T Item { get; set; }
 }
 
+
+public enum EngagedModes{
+    Both,
+    OnlyRobot,
+    OnlyHuman,
+}
+
 public class AvatarBehaviors : MonoBehaviour
 {
 
@@ -53,9 +60,11 @@ public class AvatarBehaviors : MonoBehaviour
     private GameObject robot;
     private RobotInteraction robotHRI;
 
-    private List<List<Items<HumanActionType>>> engagedProbTab;
-    private List<List<Items<HumanActionType>>> human_notEngdProbTab;
-    private List<List<Items<HumanActionType>>> robot_notEngdProbTab;
+    //private List<List<Items<HumanActionType>>> engagedProbTab;
+    //private List<List<Items<HumanActionType>>> human_notEngdProbTab;
+    //private List<List<Items<HumanActionType>>> robot_notEngdProbTab;
+
+    private Dictionary<EkmanGroupEmotions,Dictionary<EngagedModes,List<List<Items<HumanActionType>>>>> dictProb;
 
 
     private bool isHumanEngaged;
@@ -71,8 +80,24 @@ public class AvatarBehaviors : MonoBehaviour
     private bool ignoreFlag;
     private bool ignoring;
 
+    private List<string> emotions_prob_files;
+    private Dictionary<EkmanGroupEmotions,string> ekmanGroupToProbFolders = new Dictionary<EkmanGroupEmotions, string>(){
+                                                            {EkmanGroupEmotions.Neutral,"NeutralEmotion"},
+                                                            {EkmanGroupEmotions.Positive,"PositiveEmotion"},
+                                                            {EkmanGroupEmotions.Negative,"NegativeEmotion"}
+    };
+
+    private Dictionary<EngagedModes,string> engagedModesToProbFiles = new Dictionary<EngagedModes, string>(){
+                                                            {EngagedModes.Both,"engaged_hri_probabilities.csv"},
+                                                            {EngagedModes.OnlyRobot,"human_notengd_hri_probabilities.csv"},
+                                                            {EngagedModes.OnlyHuman,"robot_notengd_hri_probabilities.csv"}
+                                                            
+    };
+
+    private FaceBehave faceBehave;
     //private float ignoredDistance;
 
+     
     
 
     private enum InteractionType
@@ -119,6 +144,11 @@ public class AvatarBehaviors : MonoBehaviour
 
     private void Start()
     {
+        //emotions_prob_files = new List<string>{"NeutralEmotion","EnjoymentEmotion","AngerEmotion","ContemptEmotion","DisgustEmotion","FearEmotion","SadnessEmotion","SurpriseEmotion"};
+        emotions_prob_files = new List<string>{"NeutralEmotion","PositiveEmotion","NegativeEmotion"};
+
+        
+
         startToleranceTime = 0;
         timeLastRobotAction = 0;
         robot = GameObject.FindGameObjectsWithTag("Robot")[0];
@@ -177,19 +207,50 @@ public class AvatarBehaviors : MonoBehaviour
             }
 
         }
-
-        string file_engaged_prob = Path.Combine(path_config,"engaged_hri_probabilities.csv");
-        string file_human_not_engd_prob = Path.Combine(path_config,"human_notengd_hri_probabilities.csv");
-        string file_robot_not_engd_prob = Path.Combine(path_config,"robot_notengd_hri_probabilities.csv");
-        engagedProbTab = initProbabilities(file_engaged_prob);
-        human_notEngdProbTab = initProbabilities(file_human_not_engd_prob);
-        robot_notEngdProbTab = initProbabilities(file_human_not_engd_prob);
+        path_config = "Config";
+        faceBehave = transform.GetComponent<FaceBehave>();
+        dictProb = new Dictionary<EkmanGroupEmotions,Dictionary<EngagedModes,List<List<Items<HumanActionType>>>>>();
+        loadProbTables();
         
         isHumanEngaged = false;
         count = 0;    
         commandId = 0;
     }
 
+    private void loadProbTables(){
+        /*
+        string emotionFolder = ekmanGroupToProbFiles[faceBehave.getCurrentGroupEmotion()];
+        string file_engaged_prob = Path.Combine(Application.streamingAssetsPath,emotionFolder,"engaged_hri_probabilities.csv");
+        string file_human_not_engd_prob = Path.Combine(Application.streamingAssetsPath,emotionFolder,"human_notengd_hri_probabilities.csv");
+        string file_robot_not_engd_prob = Path.Combine(Application.streamingAssetsPath,emotionFolder,"robot_notengd_hri_probabilities.csv");
+        //string file_engaged_prob = "engaged_hri_probabilities";
+        //string file_human_not_engd_prob = "human_notengd_hri_probabilities";
+        //string file_robot_not_engd_prob = "robot_notengd_hri_probabilities";
+        engagedProbTab = initProbabilities(file_engaged_prob);
+        human_notEngdProbTab = initProbabilities(file_human_not_engd_prob);
+        robot_notEngdProbTab = initProbabilities(file_human_not_engd_prob);
+        */
+
+        var engagedModes = Enum.GetValues(typeof(EngagedModes));
+        var groupEmotions = Enum.GetValues(typeof(EkmanGroupEmotions));
+        foreach (EkmanGroupEmotions emotion in groupEmotions)
+        {
+            Dictionary<EngagedModes,List<List<Items<HumanActionType>>>> auxDict = new Dictionary<EngagedModes,List<List<Items<HumanActionType>>>>();
+            string emotionFolder = ekmanGroupToProbFolders[emotion];
+            foreach(EngagedModes mode in engagedModes)
+            {                
+                string probFile = engagedModesToProbFiles[mode];
+                string probTableFile = Path.Combine(Application.streamingAssetsPath,emotionFolder,probFile);
+               
+                auxDict[mode] = initProbabilities(probTableFile);
+                
+            } 
+            dictProb[emotion] = auxDict;
+        }
+        
+
+
+    }
 
 
     private void Update()
@@ -198,6 +259,7 @@ public class AvatarBehaviors : MonoBehaviour
        
         //Verifica se humano está de frente ao robô (se robô é visível)
         HumanActionType hriType = HumanActionType.Ignore;
+        EkmanGroupEmotions humanEmotion = faceBehave.getCurrentGroupEmotion();
         if((hriCommands.Count() == 0)&& (!ignoreFlag))
         {       
             GameObject robotAttention = robotHRI.getPersonFocusedByRobot();
@@ -213,14 +275,13 @@ public class AvatarBehaviors : MonoBehaviour
                 //Debug.Log("Human Action>>> robot angle: "+angle);
                 if(angle<=visionAngle){                    
                     //Debug.Log("Human Action>>> human is engaged?: "+isHumanEngaged);
-                    List<List<Items<HumanActionType>>> probTab = engagedProbTab;
+                    List<List<Items<HumanActionType>>> probTab = dictProb[humanEmotion][EngagedModes.Both];
                     if(!isHumanEngaged){
-                        probTab = human_notEngdProbTab;
+                        probTab = dictProb[humanEmotion][EngagedModes.OnlyRobot];
                     } else if(robotAttention!=gameObject)
                     {
-                        probTab = robot_notEngdProbTab;
+                        probTab = dictProb[humanEmotion][EngagedModes.OnlyHuman];
                     }
-                    
                     //print(transform.name+">>> robot attention: "+robotAttention);
 
                     long timeNow =  DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
@@ -518,7 +579,7 @@ public class AvatarBehaviors : MonoBehaviour
         var selectedHumanAction = probTab[(int)hri].SkipWhile(i => i.Probability < probability).First();
         return selectedHumanAction.Item;  
     }
-
+    
     private List<List<float>> readProbTable(string file)
     {
         List<List<float>> probTable = new List<List<float>>();
@@ -532,7 +593,7 @@ public class AvatarBehaviors : MonoBehaviour
                 List<string> values = line.Split(';').OfType<string>().ToList();
                 List<float> row = new List<float>();
                 for(int i = 1; i<values.Count ;i++)
-                {                    
+                {         
                     float value = float.Parse(values[i]);                
                     row.Add(value);
                 }                
@@ -542,6 +603,30 @@ public class AvatarBehaviors : MonoBehaviour
         return probTable;
     }
 
+    /*
+    private List<List<float>> readProbTable(string file)
+    {
+        List<List<float>> probTable = new List<List<float>>();
+        print(file);
+        TextAsset ta = StreamReader.Load(file) as TextAsset;
+        List<string> listToReturn = new List<string>();
+        string[] arrayString = ta.text.Split('\n');
+        foreach (var line in arrayString.Skip(1)){
+            List<string> values = line.Split(';').OfType<string>().ToList();
+            List<float> row = new List<float>();
+            
+            for(int i = 1; i<values.Count ;i++)
+            {                    
+                float value = float.Parse(values[i]);                
+                row.Add(value);
+            }
+            if(row.Count != 0) 
+
+                probTable.Add(row);
+        }
+        return probTable;
+    }
+    */
 
     /* Inicia Probabilidades
     *  Lê arquivo csv com a probabilidade do humano agir de acordo com a distancia e comportamento do robo
@@ -565,7 +650,7 @@ public class AvatarBehaviors : MonoBehaviour
                 sum += item.Probability;
                 converted.Add(new Items<HumanActionType> { Probability = sum, Item = item.Item });
             }
-            converted.Add(new Items<HumanActionType> { Probability = 1.0, Item = auxRow.Last().Item });
+            converted.Add(new Items<HumanActionType> { Probability = 1.0, Item = auxRow.Last().Item });            
             probTab.Add(converted);
         }
         return probTab;

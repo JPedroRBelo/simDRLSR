@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
+
 public class ConfigureSaveImage : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -19,9 +20,11 @@ public class ConfigureSaveImage : MonoBehaviour
     private bool isToCapture = false;
     private List<List<byte[]>> lastState;
     private List<bool> faceState;
+    private List<string> emotionalState;
     private bool save_image_in_disc;
     private SocketCommunication socket;
     public  EventDetector eventDetector;
+    
 
     private int interator;
     void Start()
@@ -29,6 +32,7 @@ public class ConfigureSaveImage : MonoBehaviour
         save_image_in_disc = true;
         lastState = new List<List<byte[]>>();
         faceState = new List<bool>();
+        emotionalState = new List<string>();
     	float timeSpeed = 1f;
        // eventDetector = 
         GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
@@ -85,6 +89,9 @@ public class ConfigureSaveImage : MonoBehaviour
                     //call event detector
                     bool face = eventDetector.detectFace();
                     faceState.Add(face);
+                    string emotion = "no_face";
+                    emotion = eventDetector.detectEmotion();
+                    emotionalState.Add(emotion);
                     interator = interator+1;
                 }
 
@@ -106,6 +113,7 @@ public class ConfigureSaveImage : MonoBehaviour
                     flag = true;
                     socket.setQueueImages(lastState);
                     socket.SetQueueFaces(faceState);
+                    socket.SetQueueEmotions(emotionalState);
                 }                
                 if(flag){
                     
@@ -123,6 +131,7 @@ public class ConfigureSaveImage : MonoBehaviour
         save_image_in_disc = saveInDisc;
         lastState = new List<List<byte[]>>();
         faceState = new List<bool>();
+        emotionalState = new List<string>();
         interator = 1;
         isToCapture = true;
         stateCaptured[step] = false;
@@ -134,6 +143,7 @@ public class ConfigureSaveImage : MonoBehaviour
     {
         lastState = new List<List<byte[]>>();
         faceState = new List<bool>();
+        emotionalState = new List<string>();
         isToCapture = true;
         interator = 0;
         this.imgProp = imgProp;
@@ -147,7 +157,9 @@ public class ConfigureSaveImage : MonoBehaviour
     public List<List<byte[]>> GetLastState(){
         return lastState;
     }
-
+    public List<string> GetEmotionalState(){
+        return emotionalState;
+    }
     public List<bool> GetFaceState(){
         return faceState;
     }

@@ -89,7 +89,7 @@ public class ConfigureSimulation : MonoBehaviour
 
     void Awake()
     {
-        dir_fileName = Path.Combine(Application.dataPath,"..",fileName);
+        dir_fileName = Path.Combine(Application.streamingAssetsPath,fileName);
 
 
         string auxQuality = simulationQuality;

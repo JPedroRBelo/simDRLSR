@@ -1,0 +1,13 @@
+;Ignore;Wait;Look;Move;Handshake
+WaitClose;50;50;0;0;0
+WaitMiddle;70;30;0;0;0
+WaitFar;100;0;0;0;0
+LookClose;50;30;20;0;0
+LookMiddle;70;0;30;0;0
+LookFar;100;0;0;0;0
+WaveClose;50;20;30;0;0
+WaveMiddle;75;0;25;0;0
+WaveFar;100;0;0;0;0
+HSClose;50;30;20;0;0
+HSMiddle;75;0;25;0;0
+HSFar;100;0;0;0;0

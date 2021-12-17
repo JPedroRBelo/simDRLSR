@@ -12,10 +12,9 @@ using System.IO;
         ConfigBlendShapes blendShapes;
         public List<int> selected = new List<int>();
         public string emotionName = "emotion";
-        private Dictionary<string, List<CustomBlendShape>> dictEmotions;
+        //private Dictionary<string, FaceEmotion> dictEmotions;
 
        
-     
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
@@ -23,21 +22,21 @@ using System.IO;
             string[] blendNames = blendShapes.getBlendShapeNames();
  
            //string[] blendNames = new  string[]{"Option1", "Option2", "Option3"};
-                
+               
             if(GUILayout.Button("Load Emotion Files")){
-                dictEmotions = LoadEmotions("/emotionsInfo.dat");
+               blendShapes.dictEmotions = LoadEmotions("/emotionsInfo.dat");
             }
 
             if(GUILayout.Button("Save Emotion Files")){
-                SaveEmotions(dictEmotions,"/emotionsInfo.dat");                
+                SaveEmotions(blendShapes.dictEmotions,"/emotionsInfo.dat");                
             }
-
+            
             if(GUILayout.Button("Reset Configuration")){
                 
-                dictEmotions = new Dictionary<string, List<CustomBlendShape>>();              
+                blendShapes.dictEmotions = new Dictionary<string, FaceEmotion>();              
             }
             try{
-                foreach(KeyValuePair<string, List<CustomBlendShape>> emotion in dictEmotions){           
+                foreach(KeyValuePair<string, FaceEmotion> emotion in blendShapes.dictEmotions){           
                 //for (int j = 0; j < emotions.Count;j++){
                     GUILayout.BeginVertical("GroupBox");
                     GUILayout.BeginHorizontal("HelpBox");
@@ -49,7 +48,7 @@ using System.IO;
                     GUILayout.Label("Emotion : "+emotion.Key);
                     
                     if(GUILayout.Button("X",Styles.buttonRed, GUILayout.Width(25), GUILayout.Height(25))){
-                        dictEmotions.Remove(emotion.Key);
+                        blendShapes.dictEmotions.Remove(emotion.Key);
                     }
                     EditorGUILayout.EndHorizontal();
 
@@ -66,27 +65,39 @@ using System.IO;
                     //[Range(0f, 100f)]
                     float range = 0f;
                     
-                    for (int i = 0; i < emotion.Value.Count;i++){                    
+                    for (int i = 0; i < emotion.Value.shapes.Count;i++){                    
                         GUILayout.BeginHorizontal("box");                    
                         //EditorGUILayout.Space(20);
-                        emotion.Value[i].shape = EditorGUILayout.Popup(emotion.Value[i].shape, blendNames);
+                        emotion.Value.shapes[i].shape = EditorGUILayout.Popup(emotion.Value.shapes[i].shape, blendNames);
                         EditorGUILayout.Space(30);
-                        emotion.Value[i].blend  = EditorGUILayout.FloatField("", emotion.Value[i].blend, GUILayout.Width(40));
+                        emotion.Value.shapes[i].blend  = EditorGUILayout.FloatField("", emotion.Value.shapes[i].blend, GUILayout.Width(40));
                         EditorGUILayout.Space();
-                        emotion.Value[i].range = EditorGUILayout.Slider(emotion.Value[i].range, -100f, 100f);
+                        emotion.Value.shapes[i].range = EditorGUILayout.Slider(emotion.Value.shapes[i].range, -100f, 100f);
                         //GUILayout.Label("");
   
                         //GUILayout.Label("");
                         EditorGUILayout.Space(20);
                         if(GUILayout.Button("X", GUILayout.Width(20), GUILayout.Height(20))){
-                            emotion.Value.RemoveAt(i);
+                            emotion.Value.shapes.RemoveAt(i);
                         }
                         GUILayout.EndHorizontal();
                     }
+                    GUILayout.BeginHorizontal("box"); 
+                    GUILayout.Label("Eye Offset");
+                    //EditorGUILayout.Space();
+                    GUILayout.FlexibleSpace();
+                    GUILayout.Label("X");
+                    emotion.Value.xEyeOffset  = EditorGUILayout.FloatField("", emotion.Value.xEyeOffset, GUILayout.Width(80));
+                    GUILayout.Label("Y");
+                    emotion.Value.yEyeOffset  = EditorGUILayout.FloatField("", emotion.Value.yEyeOffset, GUILayout.Width(80));
+                 
+                    GUILayout.FlexibleSpace();
+                    GUILayout.EndHorizontal();
+
                     GUILayout.BeginHorizontal("box");
                     
                     if(GUILayout.Button("Add Blend Shape")){//, GUILayout.Width(20), GUILayout.Height(20))){
-                        emotion.Value.Add(new CustomBlendShape());
+                        emotion.Value.shapes.Add(new CustomBlendShape());
                     }
                     GUILayout.EndHorizontal();
                     GUILayout.EndVertical();
@@ -98,7 +109,7 @@ using System.IO;
 
             GUILayout.BeginHorizontal("box");
             if(GUILayout.Button("+", GUILayout.Width(20), GUILayout.Height(20))){
-                dictEmotions.Add(emotionName,new List<CustomBlendShape>());
+                blendShapes.dictEmotions.Add(emotionName,new FaceEmotion(emotionName));
             }
             emotionName = EditorGUILayout.TextField("Add Emotion: ", emotionName);
             GUILayout.EndHorizontal();
@@ -117,15 +128,19 @@ using System.IO;
                 }
             } */   
 
-            blendShapes.dictEmotions = dictEmotions;
-            SaveEmotions(dictEmotions,"/emotionsInspector.dat");
+            //blendShapes.dictEmotions = dictEmotions;
+            SaveEmotions(blendShapes.dictEmotions,"/emotionsInspector.dat");
         }
     
         void OnEnable()
         {
             blendShapes = target as ConfigBlendShapes; 
-            //dictEmotions = new Dictionary<string, List<CustomBlendShape>>();  
-            dictEmotions = LoadEmotions("/emotionsInspector.dat");   
+            blendShapes.dictEmotions = new Dictionary<string, FaceEmotion>();  
+            blendShapes.dictEmotions = LoadEmotions("/emotionsInspector.dat");   
+        }
+
+        public Dictionary<string, FaceEmotion> getDictEmotions(){
+            return blendShapes.dictEmotions;
         }
 
 
@@ -150,7 +165,7 @@ using System.IO;
         }
 
 
-         public void SaveEmotions (Dictionary<string, List<CustomBlendShape>> emotion,string path) 
+         public void SaveEmotions (Dictionary<string, FaceEmotion> emotion,string path) 
         {
             BinaryFormatter bf = new BinaryFormatter ();
             FileStream file = File.Create (Application.persistentDataPath + path);
@@ -159,19 +174,19 @@ using System.IO;
             bf.Serialize (file, emotion);
             file.Close ();
         }
-        public Dictionary<string, List<CustomBlendShape>> LoadEmotions(string path)
+        public Dictionary<string, FaceEmotion> LoadEmotions(string path)
         {
             if(File.Exists(Application.persistentDataPath + path))
             {
                 BinaryFormatter bf = new BinaryFormatter ();
                 FileStream file = File.Open (Application.persistentDataPath + path, FileMode.Open);
-                Dictionary<string, List<CustomBlendShape>> emotions = (Dictionary<string, List<CustomBlendShape>>)bf.Deserialize(file);
+                Dictionary<string, FaceEmotion> emotions = (Dictionary<string, FaceEmotion>)bf.Deserialize(file);
                 file.Close ();
                 return emotions;
             }else{
                 Debug.Log("Emotion save file not found!!!");
             }
-            return new Dictionary<string, List<CustomBlendShape>>();
+            return new Dictionary<string, FaceEmotion>();
         }
 
     }   

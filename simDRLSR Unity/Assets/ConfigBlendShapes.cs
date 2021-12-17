@@ -5,6 +5,7 @@ using UnityEditor;
 using System; 
 using System.Runtime.Serialization.Formatters.Binary; 
 using System.IO;
+using System.Linq;
  
 public class ConfigBlendShapes : MonoBehaviour
 {
@@ -17,10 +18,11 @@ public class ConfigBlendShapes : MonoBehaviour
     
     private int index;
     [HideInInspector]
-    public Dictionary<string, List<CustomBlendShape>> dictEmotions;
-    public Dictionary<string,bool> emotionExecutation;
+    public Dictionary<string, FaceEmotion> dictEmotions =new Dictionary<string, FaceEmotion>();
+    public Dictionary<string,bool> emotionExecution;
 
     //public string[] blendShapes;
+    private FaceBehave faceBehave;
 
     void Awake ()
     {
@@ -29,16 +31,19 @@ public class ConfigBlendShapes : MonoBehaviour
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         }
         skinnedMesh = skinnedMeshRenderer.sharedMesh;
-     
+        faceBehave = GetComponent<FaceBehave>();
+        //dictEmotions = new Dictionary<string, FaceEmotion>();
+        blendShapeCount = skinnedMesh.blendShapeCount; 
+        blendNames = getBlendShapeNames(skinnedMesh);
+        emotionExecution = new Dictionary<string, bool>();
+        emotionExecution["neutral"] = true;
 
     }
 
 
     void Start ()
     {
-        dictEmotions = new Dictionary<string, List<CustomBlendShape>>();
-        blendShapeCount = skinnedMesh.blendShapeCount; 
-        blendNames = getBlendShapeNames(skinnedMesh);
+        
         index = 0;
         speed = 0;
     }
@@ -48,7 +53,8 @@ public class ConfigBlendShapes : MonoBehaviour
     }
 
     void Update ()
-    {   /*
+    {   
+        /*
         FaceEmotion emotion = emotions[index%emotions.Count];
         for(int j = 0; j < emotion.shapes.Count; j++){
             int shapeId = emotion.shapes[j].shape;
@@ -62,22 +68,67 @@ public class ConfigBlendShapes : MonoBehaviour
         } 
 
         index = index + 1;
-           */      
+           */    
+       
         
     }
 
-    IEnumerator ExecuteBlendShape(CustomBlendShape blendShape, bool activate ,float duration )
+    IEnumerator ExecuteBlendShape(CustomBlendShape blendShape,string emotion, bool activate ,float duration,float xEyeOffset, float yEyeOffset, string resetMod = "reset")
     {   
+        Vector2 eyeOffSet = new Vector2(xEyeOffset,yEyeOffset);
         float blendTime = 1/blendShape.blend;
         float elapsed = 0.0f;
-        if(activate){            
-            while (blendShape.range > skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
-            {
-                speed = Mathf.Lerp( 0, blendShape.range, elapsed / blendTime );
+        float range = 0f;
+        float startBlendValue = 0f;
+
+        float  originalBlendValue = 0;
+        Vector2 originalEyeOffSet = faceBehave.getDefaultEyeOffset();
+
+        if(resetMod =="continue")
+        {
+            originalBlendValue = skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape);
+            originalEyeOffSet = faceBehave.GetEyeOffset();
+
+        }else
+        if(resetMod =="without_eyegaze")
+        {
+            originalBlendValue = skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape);
+            originalEyeOffSet = faceBehave.GetEyeOffset();
+            eyeOffSet = faceBehave.GetEyeOffset();
+            
+        }       
+
+        bool condition = true;
+        if(activate){
+            if(!emotion.Equals("blink")){
+                emotionExecution[emotion] = true;
+            }                
+            faceBehave.SetEyeOffset(eyeOffSet);   
+            condition = true;
+            while (condition)
+            {                       
+                if((blendShape.range>originalBlendValue))
+                {
+                    if(blendShape.range <= skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
+                    {                   
+                        condition = false;
+                        continue;
+                    }
+                    
+                }else
+                if(blendShape.range >= skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
+                {
+                        condition = false;
+                        continue;
+                }
+                
+                speed = Mathf.Lerp( originalBlendValue, blendShape.range , elapsed / blendTime );
                 elapsed += Time.deltaTime;
                 skinnedMeshRenderer.SetBlendShapeWeight(blendShape.shape, speed);
                 yield return null;
-            }
+            }               
+          
+
             elapsed = 0.0f;
             while (elapsed < duration )
             {
@@ -85,26 +136,72 @@ public class ConfigBlendShapes : MonoBehaviour
                 yield return null;
             }
         } 
-        elapsed = 0.0f;       
-        while (0 < skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape))
+        elapsed = 0.0f;            
+        condition = true;
+        while (condition)
         {
-            speed = Mathf.Lerp( blendShape.range, 0, elapsed / blendTime );
+            if((blendShape.range<0))
+            {
+                if(originalBlendValue <= skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape)){                
+                    condition = false;
+                    continue;
+                }                
+            }else
+            if(originalBlendValue >= skinnedMeshRenderer.GetBlendShapeWeight(blendShape.shape)){
+                
+                condition = false;
+                continue;
+            }
+            
+
+            speed = Mathf.Lerp( blendShape.range, originalBlendValue, elapsed / blendTime );
             elapsed += Time.deltaTime;
             skinnedMeshRenderer.SetBlendShapeWeight(blendShape.shape, speed);
             yield return null;
         }
+        if(emotionExecution.ContainsKey(emotion)){
+            emotionExecution.Remove(emotion);
+        }
+        faceBehave.SetEyeOffset(originalEyeOffSet);
     } 
     
-
-    public void setEmotion(string emotion, bool activate,float duration = 0f){
-               // if(emotions[i].name.Equals(emotion)){
-
-            foreach(CustomBlendShape blendshape in dictEmotions[emotion]){
-                StartCoroutine( ExecuteBlendShape(blendshape, activate,duration));
+    public string getCurrentEmotion(){
+        return emotionExecution.Keys.Last();
+    }
+    public void setEmotion(string emotion, bool activate,float duration = 0f,string resetMod="reset"){
+            
+            // the code that you want to measure comes here
+            if(dictEmotions.Count==0){
+                dictEmotions = LoadEmotions("/emotionsInspector.dat");
             }
+            if(dictEmotions.ContainsKey(emotion) && dictEmotions[emotion].shapes.Count > 0){
+                if(!emotion.Equals("blink")){
+                    Debug.Log("Configuring "+transform.name+" with "+emotion+" emotion.");
+
+                }
+                foreach(CustomBlendShape blendshape in dictEmotions[emotion].shapes){
+                    StartCoroutine( ExecuteBlendShape(blendshape,emotion, activate,duration,dictEmotions[emotion].xEyeOffset,dictEmotions[emotion].yEyeOffset,resetMod));
+                }
+            }
+            
+           
             
 
     }
+    public Dictionary<string, FaceEmotion> LoadEmotions(string path)
+        {
+            if(File.Exists(Application.persistentDataPath + path))
+            {
+                BinaryFormatter bf = new BinaryFormatter ();
+                FileStream file = File.Open (Application.persistentDataPath + path, FileMode.Open);
+                Dictionary<string, FaceEmotion> emotions = (Dictionary<string, FaceEmotion>)bf.Deserialize(file);
+                file.Close ();
+                return emotions;
+            }else{
+                Debug.Log("Emotion save file not found!!!");
+            }
+            return new Dictionary<string, FaceEmotion>();
+        }
 
     public string[] getBlendShapeNames(){
         SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
@@ -128,14 +225,6 @@ public class ConfigBlendShapes : MonoBehaviour
         }
         return arr;
     }
-    public void printTest(string test){
-        print(test);
-    }
-
-    public void setEmotions(List<FaceEmotion> emotions){
-        //this.emotions = emotions;
-        print(emotions);
-    }
 
 
 }
@@ -146,10 +235,14 @@ public class FaceEmotion
     public string name;
     public List<CustomBlendShape> shapes;
     //public List<
+    public float xEyeOffset;
+    public float yEyeOffset;
     public FaceEmotion(string name)
     {
         this.name = name;
-        this.shapes = new List<CustomBlendShape>();
+        this.shapes = new List<CustomBlendShape>();        
+        this.xEyeOffset = 0f;
+        this.yEyeOffset = 0f;
         
     }
 }
@@ -161,14 +254,15 @@ public class CustomBlendShape
     public float blend;
     public float range;
     //public List<
+
     public CustomBlendShape()
     {            
         shape = 0;
-        blend = 0f;
+        blend = 2f;
         range = 0f;
     }
 
-    public CustomBlendShape(int shape, float blend,float range,bool invert)
+    public CustomBlendShape(int shape, float blend,float range)
     {            
         this.shape = shape;
         this.blend = blend;
