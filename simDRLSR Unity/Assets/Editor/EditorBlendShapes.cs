@@ -168,7 +168,7 @@ using System.IO;
          public void SaveEmotions (Dictionary<string, FaceEmotion> emotion,string path) 
         {
             BinaryFormatter bf = new BinaryFormatter ();
-            FileStream file = File.Create (Application.persistentDataPath + path);
+            FileStream file = File.Create (Application.streamingAssetsPath + path);
             //List<FaceEmotion> emotions = new FaceEmotion();
             
             bf.Serialize (file, emotion);
@@ -176,10 +176,10 @@ using System.IO;
         }
         public Dictionary<string, FaceEmotion> LoadEmotions(string path)
         {
-            if(File.Exists(Application.persistentDataPath + path))
+            if(File.Exists(Application.streamingAssetsPath + path))
             {
                 BinaryFormatter bf = new BinaryFormatter ();
-                FileStream file = File.Open (Application.persistentDataPath + path, FileMode.Open);
+                FileStream file = File.Open (Application.streamingAssetsPath + path, FileMode.Open);
                 Dictionary<string, FaceEmotion> emotions = (Dictionary<string, FaceEmotion>)bf.Deserialize(file);
                 file.Close ();
                 return emotions;
