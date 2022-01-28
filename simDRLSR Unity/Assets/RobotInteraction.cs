@@ -532,9 +532,9 @@ public class RobotInteraction : MonoBehaviour
         if (robotNeck != null)
         {
             Vector3 currentAngle = new Vector3(
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.x), rotation.x, Time.deltaTime * Time.timeScale * speed),
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.y), rotation.y, Time.deltaTime * Time.timeScale * speed),
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.z), rotation.z, Time.deltaTime * Time.timeScale * speed));
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.x), rotation.x, Time.deltaTime / Time.timeScale * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.y), rotation.y, Time.deltaTime / Time.timeScale * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.z), rotation.z, Time.deltaTime / Time.timeScale * speed));
             robotNeck.localEulerAngles = currentAngle;
         }
     }
