@@ -78,14 +78,14 @@ public class AgentHeadMovement : MonoBehaviour {
                 {
                     if (isVisible(focus))
                     {
-                        animator.SetFloat("HeadReach", 1, 0.5f, Time.deltaTime * 0.6f);
+                        animator.SetFloat("HeadReach", 1, 0.5f, Time.deltaTime * Time.timeScale* 0.6f);
                         animator.SetLookAtWeight(animator.GetFloat("HeadReach"));
                         animator.SetLookAtPosition(focus.position);
                     }
                 }
                 else
                 {
-                    animator.SetFloat("HeadReach", 0, 0.1f, Time.deltaTime * 0.3f);
+                    animator.SetFloat("HeadReach", 0, 0.1f, Time.deltaTime * Time.timeScale* 0.3f);
                     animator.SetLookAtWeight(animator.GetFloat("HeadReach"));
                     animator.SetLookAtPosition(focus.position);
 
@@ -274,7 +274,7 @@ public class AgentHeadMovement : MonoBehaviour {
         {
             Vector3 direction = position - focus.parent.position;
             Quaternion rotation  = Quaternion.LookRotation(direction);
-            focus.parent.rotation = Quaternion.Lerp(focus.parent.rotation, rotation, Constants.NATURAL_LOOK_SPD  * Time.deltaTime);            
+            focus.parent.rotation = Quaternion.Lerp(focus.parent.rotation, rotation, Constants.NATURAL_LOOK_SPD  * Time.deltaTime* Time.timeScale);            
         }
         return true;
     }
@@ -283,7 +283,7 @@ public class AgentHeadMovement : MonoBehaviour {
     {
         if (ik)
         {
-            focus.parent.localRotation = Quaternion.Lerp(focus.parent.localRotation, rotation, Constants.NATURAL_LOOK_SPD * Time.deltaTime);
+            focus.parent.localRotation = Quaternion.Lerp(focus.parent.localRotation, rotation, Constants.NATURAL_LOOK_SPD * Time.deltaTime* Time.timeScale);
         }
         return true;
     }

@@ -36,3 +36,7 @@ bernadette04;10;4;LibraryHall2
 bernadette05;10;4;Chairs2
 bernadette06;10;4;Bin
 bernadette07;10;4;Exit5
+bernadette01;10;4;LibraryHall
+bernadette02;10;4;Robot
+bernadette02;10;4;Counter2
+bernadette03;10;4;Exit2

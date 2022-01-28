@@ -123,7 +123,7 @@ public class ConfigBlendShapes : MonoBehaviour
                 }
                 
                 speed = Mathf.Lerp( originalBlendValue, blendShape.range , elapsed / blendTime );
-                elapsed += Time.deltaTime;
+                elapsed += Time.deltaTime* Time.timeScale;
                 skinnedMeshRenderer.SetBlendShapeWeight(blendShape.shape, speed);
                 yield return null;
             }               
@@ -132,7 +132,7 @@ public class ConfigBlendShapes : MonoBehaviour
             elapsed = 0.0f;
             while (elapsed < duration )
             {
-                elapsed += Time.deltaTime; 
+                elapsed += Time.deltaTime* Time.timeScale; 
                 yield return null;
             }
         } 

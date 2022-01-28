@@ -60,8 +60,8 @@ public class SimpleMovementOperations : MonoBehaviour
 	void UpdateAnimator(Vector3 move)
 	{
 		// update the animator parameters
-		animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
-		animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
+		animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime/ Time.timeScale);
+		animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime/ Time.timeScale);
 		
 		// calculate which leg is behind, so as to leave that leg trailing in the jump animation
 		// (This code is reliant on the specific run cycle offset in our animations,
@@ -91,7 +91,7 @@ public class SimpleMovementOperations : MonoBehaviour
 	{
 		// help the character turn faster (this is in addition to root rotation in the animation)
 		float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, forwardAmount);
-		transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
+		transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime / Time.timeScale, 0);
 	}
 
 
@@ -99,9 +99,9 @@ public class SimpleMovementOperations : MonoBehaviour
 	{
 		// we implement this function to override the default root motion.
 		// this allows us to modify the positional speed before it's applied.
-		if (Time.deltaTime > 0)
+		if (Time.deltaTime/ Time.timeScale > 0)
 		{
-			Vector3 v = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
+			Vector3 v = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime/ Time.timeScale;
 
 			// we preserve the existing y part of the current velocity.
 			//v.y = rigidBody.velocity.y;

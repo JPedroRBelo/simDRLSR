@@ -142,7 +142,7 @@ public class AgentInteraction : MonoBehaviour {
                     //isReachable(agentHands[i]) && 
                     if (agentHands[i].ik)
                     {
-                        animator.SetFloat(agentHands[i].getAnimatorParam(), 1, 0.1f, Time.deltaTime * 0.02f);
+                        animator.SetFloat(agentHands[i].getAnimatorParam(), 1, 0.1f, Time.deltaTime * Time.timeScale* 0.02f);
                         animator.SetIKPositionWeight(avatarIKGoal, animator.GetFloat(agentHands[i].getAnimatorParam()));
                         animator.SetIKRotationWeight(avatarIKGoal, 1);
                         animator.SetIKPosition(avatarIKGoal, agentHands[i].focus.position);
@@ -150,7 +150,7 @@ public class AgentInteraction : MonoBehaviour {
                     }
                     else
                     {
-                        animator.SetFloat(agentHands[i].getAnimatorParam(), 0, 0.1f, Time.deltaTime * 0.3f);
+                        animator.SetFloat(agentHands[i].getAnimatorParam(), 0, 0.1f, Time.deltaTime * Time.timeScale* 0.3f);
                         animator.SetIKPositionWeight(avatarIKGoal, animator.GetFloat(agentHands[i].getAnimatorParam()));
                         animator.SetIKRotationWeight(avatarIKGoal, 0);
                         animator.SetIKPosition(avatarIKGoal, agentHands[i].focus.position);
@@ -219,7 +219,7 @@ public class AgentInteraction : MonoBehaviour {
             anklePosition.localPosition = Vector3.Lerp(anklePosition.localPosition, new Vector3(anklePosition.localPosition.x, crouchValue, anklePosition.localPosition.z), turningRate * Time.deltaTime);
 
         }*/
-        anklePosition.localPosition = Vector3.Lerp(anklePosition.localPosition, new Vector3(anklePosition.localPosition.x, crouchValue, anklePosition.localPosition.z), turningRate * Time.deltaTime);
+        anklePosition.localPosition = Vector3.Lerp(anklePosition.localPosition, new Vector3(anklePosition.localPosition.x, crouchValue, anklePosition.localPosition.z), turningRate * Time.timeScale* Time.deltaTime);
 
     }
 
@@ -322,7 +322,7 @@ public class AgentInteraction : MonoBehaviour {
                                 break;
                             case (int)Activate.Position:
                                 velocityFocus = Constants.NATURALSPD * 10;
-                                timerHandtouchRH += Time.deltaTime;
+                                timerHandtouchRH += Time.deltaTime* Time.timeScale;
                                 float seconds = timerHandtouchRH % 60;
                                 if (seconds < 3f)
                                 {
@@ -460,7 +460,7 @@ public class AgentInteraction : MonoBehaviour {
 
                             case (int)Taste.Taste:
 
-                                timer += Time.deltaTime;
+                                timer += Time.deltaTime * Time.timeScale;
                                 float seconds = timer % 60;
                                 velocityFocus = Constants.NATURALSPD;
                                 if (seconds > timeToTaste)
@@ -534,7 +534,7 @@ public class AgentInteraction : MonoBehaviour {
 
                             case (int)Smell.Smell:
 
-                                timer += Time.deltaTime;
+                                timer += Time.deltaTime* Time.timeScale;
                                 float seconds = timer % 60;
                                 velocityFocus = Constants.NATURALSPD;
                                 if (seconds > timeToTaste)
@@ -657,7 +657,7 @@ public class AgentInteraction : MonoBehaviour {
             float angle1 = angleOfTriangle(distSpineShoulder, distSpineObject, distHandShoulder);
             float angle2 = Vector3.Angle(transform.up, vectorHandShoulder);
 
-            float angleZ = Mathf.LerpAngle(spineRotation.z, angle1, turningRate * Time.deltaTime);
+            float angleZ = Mathf.LerpAngle(spineRotation.z, angle1, turningRate * Time.deltaTime* Time.timeScale);
             Quaternion rotation = Quaternion.LookRotation(vectorObjectSpine);
             
 
@@ -706,8 +706,8 @@ public class AgentInteraction : MonoBehaviour {
     {
         if (isSpineReset==false)
         {
-            float angleZ = Mathf.LerpAngle(spineRotation.z, auxSRotation.z, turningRate * Time.deltaTime);
-            float angleX = Mathf.LerpAngle(spineRotation.x, auxSRotation.x, turningRate * Time.deltaTime);
+            float angleZ = Mathf.LerpAngle(spineRotation.z, auxSRotation.z, turningRate * Time.deltaTime* Time.timeScale);
+            float angleX = Mathf.LerpAngle(spineRotation.x, auxSRotation.x, turningRate * Time.deltaTime* Time.timeScale);
             if((angleZ< 10) && (angleX < 10))
             {
                 isSpineReset = true;

@@ -15,7 +15,7 @@ public class EventDetector : MonoBehaviour
 
     public float neutralReward = 0;
 
-    public float faceMaxDistance = 12f;
+    public float faceMaxDistance = 30f;
 
     private Animator animator;
     private Dictionary<Events,bool> lastStepEvents;
@@ -57,8 +57,13 @@ public class EventDetector : MonoBehaviour
                 }
             }
         }
-        detectFace();
+        detectEmotion();
+       
 
+    }
+
+    void FixedUpdate(){
+        detectEmotion();
     }
 
     public bool detectFace(){
@@ -71,7 +76,7 @@ public class EventDetector : MonoBehaviour
             if(robotInHumanVisionDot>=0.15){
                 float dist = Vector3.Distance(person_head.position, transform.position);
                 if(robotHRI.thereIsAFaceInRobotView(person)&&dist<faceMaxDistance){
-                    //print("FACE");
+
                     return true;
                 }
             }            
@@ -91,13 +96,20 @@ public class EventDetector : MonoBehaviour
   
             if(robotInHumanVisionDot>=0.15){
                 float dist = Vector3.Distance(person_head.position, transform.position);
+                
                 if(robotHRI.thereIsAFaceInRobotView(person)&&dist<faceMaxDistance){
                     //print("FACE");
                     FaceBehave faceBehave= person.GetComponent<FaceBehave>();
                     emotion = ekmanGroupToString[faceBehave.getCurrentGroupEmotion()];
+                    //print("Emotion: "+emotion);
                     return emotion;
+                }/*else if(!robotHRI.thereIsAFaceInRobotView(person)){
+                    print("Emotion: person not in view");   
                 }
-            }            
+                else{
+                    print("Emotion: distance"+dist.ToString());   
+                }*/
+            }//else print("Emotion: "+robotInHumanVisionDot);            
         }
         return emotion;
     }

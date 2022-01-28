@@ -28,12 +28,22 @@ public class TimeManagerKeyboard : MonoBehaviour {
             playSimulation();
 
         }
+        if ((Input.GetKeyDown("2")))
+        {
+            setTime(10f);
+
+        }
+        if((Input.GetKeyDown("1")))
+        {
+            setTime(1f);
+
+        }
 
     }
     public void playSimulation()
     {
         timeStateAt = TimeStates.Started;
-        setTime(1f);
+        setTime(timeValue);
         
     }
 

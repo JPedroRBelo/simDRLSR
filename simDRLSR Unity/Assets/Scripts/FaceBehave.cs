@@ -214,9 +214,9 @@ public class FaceBehave : MonoBehaviour
 	void LateUpdate(){
 
 		currentAngle = new Vector3(
-			Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime*speed),
-			Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime*speed),
-			Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime*speed));
+			Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime*speed* Time.timeScale),
+			Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime*speed* Time.timeScale),
+			Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime*speed* Time.timeScale));
 
 		leftEye.localEulerAngles = currentAngle;
 		rightEye.localEulerAngles = currentAngle;

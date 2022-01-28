@@ -84,7 +84,7 @@ public class AgentMovement : MonoBehaviour {
                                 if (!isV3Zero(previousPosition))
                                 {                                    
                                     Vector3 curMove = transform.position - previousPosition;
-                                    float velocity = curMove.magnitude / Time.deltaTime;                                    
+                                    float velocity = curMove.magnitude / Time.deltaTime* Time.timeScale;                                    
                                     if (velocity == 0 && countUpdate >20)
                                     {
                                         pos1 = new Vector3(agentSpine.position.x, agentSpine.position.y, agentSpine.position.z);

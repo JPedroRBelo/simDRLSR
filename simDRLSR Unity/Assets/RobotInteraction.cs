@@ -259,11 +259,11 @@ public class RobotInteraction : MonoBehaviour
                             break;
                         
                     }
-                    float timeSpeed = 1f;
+                    float timeSpeed = Time.timeScale;/*
                     GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
                     if(simManager != null){
                         timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
-                    }                    
+                    }    */                
                     long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                     if (timeNow - actionTimeStart >= timeToWait/timeSpeed * 1000)
                     {                    
@@ -314,9 +314,10 @@ public class RobotInteraction : MonoBehaviour
         }else if(action == AgentAction.Wave)
         {
             if(eventDetector.detectEyeGaze(step)){
-                print("Eyegaze: "+successEyeGazeReward);
+                print("Eyegaze: True");
                 return successEyeGazeReward;
             }else{
+                print("Eyegaze: False");
                 return failEyeGazeReward;
             }
                 
@@ -395,12 +396,13 @@ public class RobotInteraction : MonoBehaviour
 
     private void ActionWait()
     {
-    	float timeSpeed = 1f;
+    	float timeSpeed = Time.timeScale;//
+        /*
         GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
         if(simManager != null){
             timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
 	}    
-        
+        */
         long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
         //Vector3 randomPosition = transform.forward;
         if (timeNow - timeStart >= (randomTime * 1000)/timeSpeed)
@@ -530,9 +532,9 @@ public class RobotInteraction : MonoBehaviour
         if (robotNeck != null)
         {
             Vector3 currentAngle = new Vector3(
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.x), rotation.x, Time.deltaTime * speed),
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.y), rotation.y, Time.deltaTime * speed),
-                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.z), rotation.z, Time.deltaTime * speed));
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.x), rotation.x, Time.deltaTime * Time.timeScale * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.y), rotation.y, Time.deltaTime * Time.timeScale * speed),
+                        Mathf.LerpAngle(WrapAngle(robotNeck.localEulerAngles.z), rotation.z, Time.deltaTime * Time.timeScale * speed));
             robotNeck.localEulerAngles = currentAngle;
         }
     }
@@ -669,16 +671,20 @@ public class RobotInteraction : MonoBehaviour
         {
             Transform person_head = person.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Head);
             //check if there is anything obstructing the robot's view towards the person
+            
             if (Physics.Raycast(rgbCamera.position, (person_head.position - rgbCamera.transform.position), out hit))
             {
-
+                Debug.DrawRay(rgbCamera.position, (rgbCamera.position - hit.transform.position), Color.yellow);
+                Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.blue);
                 Vector3 robot_angle = getAngles(person_head,headOriginalTransform.transform);               
 
                 Vector3 camera_angle = getAngles(person_head,robotHead.transform);
                 Vector3 angles_robotHead = getAngles( person_head,rgbCamera);                
-             
+               
+                
                 if (hit.transform == person_head)
                 {
+                    Debug.DrawRay(rgbCamera.position, (hit.transform.position - rgbCamera.position), Color.green);
                     if ((Math.Abs(robot_angle.y) <= (horizontalLookAngle / 2)) && (Math.Abs(robot_angle.x) <= (verticalLookAngle / 2)))
                     {
                         

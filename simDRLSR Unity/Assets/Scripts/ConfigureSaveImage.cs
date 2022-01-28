@@ -24,21 +24,27 @@ public class ConfigureSaveImage : MonoBehaviour
     private bool save_image_in_disc;
     private SocketCommunication socket;
     public  EventDetector eventDetector;
+
+    private string emotion;
+
+
+
     
 
     private int interator;
     void Start()
     {
+        emotion = "no_face";
         save_image_in_disc = true;
         lastState = new List<List<byte[]>>();
         faceState = new List<bool>();
         emotionalState = new List<string>();
-    	float timeSpeed = 1f;
+    	float timeSpeed = Time.timeScale;
        // eventDetector = 
         GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
 
         if(simManager != null){
-		    timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
+		    //timeSpeed = simManager[0].GetComponent<TimeManagerKeyboard>().getTime();
             socket = simManager[0].GetComponent<SocketCommunication>();
 	    }    
         interator = numberOfPictures;
@@ -62,6 +68,11 @@ public class ConfigureSaveImage : MonoBehaviour
             CaptureLoop();
         }
 
+    }
+
+    void FixedUpdate(){
+        //emotion = "no_face";
+        emotion = eventDetector.detectEmotion();
     }
 
     private void CaptureLoop()
@@ -89,8 +100,7 @@ public class ConfigureSaveImage : MonoBehaviour
                     //call event detector
                     bool face = eventDetector.detectFace();
                     faceState.Add(face);
-                    string emotion = "no_face";
-                    emotion = eventDetector.detectEmotion();
+
                     emotionalState.Add(emotion);
                     interator = interator+1;
                 }
@@ -114,6 +124,7 @@ public class ConfigureSaveImage : MonoBehaviour
                     socket.setQueueImages(lastState);
                     socket.SetQueueFaces(faceState);
                     socket.SetQueueEmotions(emotionalState);
+                    emotion = "no_face";
                 }                
                 if(flag){
                     
