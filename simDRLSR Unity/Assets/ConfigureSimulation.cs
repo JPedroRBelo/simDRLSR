@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System;
 
 
 [XmlRoot]
@@ -51,6 +52,9 @@ public class ConfigureSimulation : MonoBehaviour
     [Header("Socker Communication")]
     public string ipAddress = "172.17.0.3";
     public int port = 12375;
+    private int arg_port_number;
+    private int arg_screen_height;
+    private int arg_screen_width;
 
     //[Header("HRI Probabilities")]
 
@@ -82,13 +86,43 @@ public class ConfigureSimulation : MonoBehaviour
     void Start()
     {      
        
+
         
     }
 
-
+    private int getIntParameter(string parameter_name){
+        List<string> arguments = new List<string>(Environment.GetCommandLineArgs());
+        int i_arg = arguments.IndexOf(parameter_name);
+        if(i_arg>=0){
+            string arg_string = arguments[i_arg+1];
+            Debug.Log(arg_string);
+            int arg_number = -1;
+            bool success = Int32.TryParse(arg_string, out arg_number);
+            if (success)
+            {
+                return arg_number;
+            }
+            else
+            {
+                Debug.Log("Parameter "+parameter_name+" conversion failed.");
+            }
+        }
+        return -1;
+    }
+    
 
     void Awake()
     {
+     
+        
+        
+        arg_port_number = getIntParameter("-port");
+        arg_screen_height = getIntParameter("-screen-height");
+        arg_screen_width = getIntParameter("-screen-width");
+
+
+     
+        
         dir_fileName = Path.Combine(Application.streamingAssetsPath,fileName);
 
 
@@ -107,6 +141,12 @@ public class ConfigureSimulation : MonoBehaviour
             auxWidth = xmlConfigure.width;
             auxHeight = xmlConfigure.height;
             auxFullscreen = xmlConfigure.fullscreen;
+        }
+        if(arg_screen_width!=-1){
+            auxWidth = arg_screen_width;
+        }
+        if(arg_screen_height!=-1){
+            auxHeight= arg_screen_height;
         }
         Screen.SetResolution(auxWidth, auxHeight, auxFullscreen, auxFPS);
         //print(xmlConfigure.path_work_dir);
@@ -140,6 +180,9 @@ public class ConfigureSimulation : MonoBehaviour
     }
 
     public int getPort(){
+        if(arg_port_number!=0){
+            return arg_port_number;
+        }
         return xmlConfigure.port;
     }
 

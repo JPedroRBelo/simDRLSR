@@ -78,9 +78,7 @@ public class SocketCommunication : MonoBehaviour
             simManager = GameObject.FindGameObjectsWithTag("SimulatorManager")[0];
             if(simManager != null){
                 timeManager = simManager.GetComponent<TimeManagerKeyboard>();
-            }
-
-            
+            }           
 
         }
 
@@ -112,7 +110,6 @@ public class SocketCommunication : MonoBehaviour
         {
             Debug.Log(text);
         }
-
     }
 
     // Update is called once per frame
