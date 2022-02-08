@@ -1,4 +1,4 @@
-# simDRLSR: Deep Reinforcement Learning Simulator for Social Robotics
+# SimDRLSR: Deep Reinforcement Learning Simulator for Social Robotics
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
