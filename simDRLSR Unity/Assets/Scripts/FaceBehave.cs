@@ -279,6 +279,9 @@ public class FaceBehave : MonoBehaviour
 	public EkmanEmotions getCurrentEmotion(){
 		return facialEmotionsToEkman[blendShapes.getCurrentEmotion()];
 	}
+	public string getNameCurrentEmotion(){
+		return blendShapes.getCurrentEmotion();
+	}
 
 	public EkmanGroupEmotions getCurrentGroupEmotion(){
 		EkmanEmotions emotion = facialEmotionsToEkman[blendShapes.getCurrentEmotion()];

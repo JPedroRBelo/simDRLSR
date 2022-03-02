@@ -81,7 +81,7 @@ public class SocketCommunication : MonoBehaviour
             }           
 
         }
-
+    
 
         if(robot!=null){
             agent = robot.GetComponent<RLAgent>();

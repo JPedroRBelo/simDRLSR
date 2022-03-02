@@ -23,6 +23,10 @@ public class EventDetector : MonoBehaviour
     private Transform robotHead;
 
     public string no_face = "no_face";
+    private string no_face_alternative = "unknown";
+ 
+
+    private string currentEmotion;
 
     private Dictionary<EkmanGroupEmotions,string> ekmanGroupToString = new Dictionary<EkmanGroupEmotions, string>{
                                                                             {EkmanGroupEmotions.Neutral,"neutral"},
@@ -33,6 +37,7 @@ public class EventDetector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentEmotion = no_face_alternative;
         stepAt = -1;
         animator = GetComponent<Animator>();
         robotHRI = GetComponent<RobotInteraction>();
@@ -84,7 +89,9 @@ public class EventDetector : MonoBehaviour
         return false;
     }
 
-
+    public string getCurrentEmotion(){
+        return currentEmotion;
+    }
     
     public string detectEmotion(){
         string emotion = no_face;
@@ -102,6 +109,8 @@ public class EventDetector : MonoBehaviour
                     FaceBehave faceBehave= person.GetComponent<FaceBehave>();
                     emotion = ekmanGroupToString[faceBehave.getCurrentGroupEmotion()];
                     //print("Emotion: "+emotion);
+                    currentEmotion = faceBehave.getNameCurrentEmotion();
+
                     return emotion;
                 }/*else if(!robotHRI.thereIsAFaceInRobotView(person)){
                     print("Emotion: person not in view");   
@@ -111,6 +120,7 @@ public class EventDetector : MonoBehaviour
                 }*/
             }//else print("Emotion: "+robotInHumanVisionDot);            
         }
+        currentEmotion = no_face_alternative;
         return emotion;
     }
 

@@ -180,7 +180,7 @@ public class ConfigureSimulation : MonoBehaviour
     }
 
     public int getPort(){
-        if(arg_port_number!=0){
+        if(arg_port_number>=0){
             return arg_port_number;
         }
         return xmlConfigure.port;
