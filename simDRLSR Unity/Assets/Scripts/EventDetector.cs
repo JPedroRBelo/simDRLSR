@@ -62,7 +62,7 @@ public class EventDetector : MonoBehaviour
                 }
             }
         }
-        detectEmotion();
+        //detectEmotion();
        
 
     }
