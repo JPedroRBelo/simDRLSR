@@ -53,6 +53,7 @@ public class SocketCommunication : MonoBehaviour
     private bool last_waitingImageFile;
 
     private TimeManagerKeyboard timeManager;
+    private HumanAgentsManagement humanAgentsManagement;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +65,7 @@ public class SocketCommunication : MonoBehaviour
         waitingEmotionState = false;
         //facesQueue = new Queue<bool>();
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
+        humanAgentsManagement = GetComponent<HumanAgentsManagement>();
         if(simulatorManager == null){
             Debug.Log("Simulator Manager not found...");
         }else{
@@ -234,6 +236,18 @@ public class SocketCommunication : MonoBehaviour
                                 string workDir = data_string;
                                 agent.setWorkDir(workDir);
                                 print("Workdir folder: "+workDir);
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: episode");   
+                            }                                                       
+                            
+                        }else if(data.ToString().Contains("emotion_type")){
+                            
+                            string data_string = data.Replace("emotion_type","");
+                            try{
+                                string emotion = data_string;
+                                humanAgentsManagement.setEmotionToHumans(emotion);
                                 sendDataClient("0");
                             }catch{
                                 sendDataClient("1");

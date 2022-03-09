@@ -299,4 +299,10 @@ public class FaceBehave : MonoBehaviour
 		blendShapes.setEmotion(EkmanToFacialEmotions[ekmanEmotion],true,Mathf.Infinity);
 		facialEmotions[EkmanToFacialEmotions[ekmanEmotion]] =true;
 	}
+
+	public void setConstantEmotion(string ekmanEmotion){
+		
+		setConstantEmotion(facialEmotionsToEkman[ekmanEmotion]);
+
+	}
 }

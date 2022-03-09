@@ -133,6 +133,7 @@
      <Compile Include="Assets\Scripts\ConfigureObjects.cs" />
      <Compile Include="Assets\Scripts\VisionManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotPerceptionEvent.cs" />
+     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
      <None Include="Assets\CmdBehaviors\enterWorkArea.txt" />
      <None Include="Assets\ImageSynthesis\LICENSE.txt" />
      <None Include="Assets\CmdBehaviors\livro.txt" />
@@ -862,6 +863,12 @@
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
         <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+        <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids">
+        <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

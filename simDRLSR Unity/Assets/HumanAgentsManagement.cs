@@ -11,6 +11,7 @@ public enum EmotionModes
 {
     Random,
 
+
 }
 
 public class HumanAgentsManagement : MonoBehaviour
@@ -68,6 +69,10 @@ public class HumanAgentsManagement : MonoBehaviour
         FaceBehave face = avatar.GetComponent<FaceBehave>();
         face.setConstantEmotion(emotion);
     }
+    private void setHumanEmotion(GameObject avatar,string emotion){
+        FaceBehave face = avatar.GetComponent<FaceBehave>();
+        face.setConstantEmotion(emotion);
+    }
 
     private EkmanEmotions chooseHumanEmotion(GameObject avatar,EmotionModes emotionMode){
         EkmanEmotions randomEmotion = EkmanEmotions.Neutral;
@@ -82,6 +87,12 @@ public class HumanAgentsManagement : MonoBehaviour
                    
         }
         return randomEmotion;
+    }
+
+    public void setEmotionToHumans(string emotion){
+         foreach(GameObject human in avatars){
+            setHumanEmotion(human,emotion);
+        }
     }
       
 }
