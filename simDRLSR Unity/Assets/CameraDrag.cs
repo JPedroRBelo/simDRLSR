@@ -26,6 +26,11 @@ public class CameraDrag:MonoBehaviour {
         private float original_yaxisFactor = 2.0f;
         private float original_xaxisFactor = 0f;
 
+        
+        void Start(){
+            //transform.rotation = transform.rotation-robot.rotation;
+        }
+
         void Update() {
             if (Input.GetKeyDown(KeyCode.C))
             { 

@@ -34,7 +34,13 @@ public class HumanAgentsManagement : MonoBehaviour
      IEnumerator LateStart(float waitTime)
      {
         yield return new WaitForSeconds(waitTime);
-        
+        setRandomEmotion();
+
+         
+     }
+
+
+    private void setRandomEmotion(){
         int index = 0;
         locations = new List<Transform>();
         if(initialLocations!=null){
@@ -52,8 +58,7 @@ public class HumanAgentsManagement : MonoBehaviour
                 }
             }
         }
-         
-     }
+    }
 
     // Update is called once per frame
     void Update()
@@ -90,8 +95,10 @@ public class HumanAgentsManagement : MonoBehaviour
     }
 
     public void setEmotionToHumans(string emotion){
-         foreach(GameObject human in avatars){
-            setHumanEmotion(human,emotion);
+        if(emotion.ToLower()!="random"){
+            foreach(GameObject human in avatars){
+                setHumanEmotion(human,emotion);
+            }
         }
     }
       

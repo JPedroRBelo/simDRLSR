@@ -54,6 +54,7 @@ public class SocketCommunication : MonoBehaviour
 
     private TimeManagerKeyboard timeManager;
     private HumanAgentsManagement humanAgentsManagement;
+    private RobotAgentManagement robotAgentManagement;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +67,7 @@ public class SocketCommunication : MonoBehaviour
         //facesQueue = new Queue<bool>();
         GameObject simulatorManager = GameObject.Find("/SimulatorManager");
         humanAgentsManagement = GetComponent<HumanAgentsManagement>();
+        robotAgentManagement = GetComponent<RobotAgentManagement>();
         if(simulatorManager == null){
             Debug.Log("Simulator Manager not found...");
         }else{
@@ -251,7 +253,22 @@ public class SocketCommunication : MonoBehaviour
                                 sendDataClient("0");
                             }catch{
                                 sendDataClient("1");
-                                print("Data error: episode");   
+                                print("Data error: emotion type");   
+                            }                                                       
+
+                        }else if(data.ToString().Contains("robot_random_position")){
+                            
+                            string data_string = data.Replace("robot_random_position","");
+                            try{
+                                if(data_string.ToLower()=="true"){
+                                    robotAgentManagement.setRandomPosition();
+                                }else{
+                                    robotAgentManagement.setInitPosition();
+                                }
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: emotion type");   
                             }                                                       
                             
                         }else if(data.ToString().Equals("start")){
