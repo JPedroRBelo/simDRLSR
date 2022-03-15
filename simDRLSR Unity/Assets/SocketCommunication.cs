@@ -190,8 +190,9 @@ public class SocketCommunication : MonoBehaviour
                             
                             string data_string = data.Replace("speed","");
                             data_string = data_string.Replace(" ","");
+                            print(data_string);
                             try{
-                                float timeSpeed =  float.Parse(data_string);
+                                float timeSpeed =  float.Parse(data_string,CultureInfo.InvariantCulture);
                                 GameObject[] simManager = GameObject.FindGameObjectsWithTag("SimulatorManager");
                                 if(simManager != null){
                                     simManager[0].GetComponent<TimeManagerKeyboard>().setTime(timeSpeed);

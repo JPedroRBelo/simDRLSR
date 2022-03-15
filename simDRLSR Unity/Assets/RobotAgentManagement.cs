@@ -28,8 +28,7 @@ public class RobotAgentManagement : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         if(randomPosition){
             setRandomPosition();
-        }
-         
+        }         
      }
 
      public void setRandomPosition(){     
