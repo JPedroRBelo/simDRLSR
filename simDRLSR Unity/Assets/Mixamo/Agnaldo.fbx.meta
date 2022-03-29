@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: 5b8b4383cfdd15342822855ded11f7c5
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Beardmat
+    second: {fileID: 2100000, guid: 8cfa26ebbcffeaeb3ae3bf62895f99b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bodymat
+    second: {fileID: 2100000, guid: 03aaaf962d024d719b231f134f4d8b0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottommat
+    second: {fileID: 2100000, guid: 1f88355f13966c982a42853dd5f97fff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Moustachemat
+    second: {fileID: 2100000, guid: b416b11ac21958d769f1301b93a37953, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoesmat
+    second: {fileID: 2100000, guid: 16db9ba40a63160089665420258153b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Topmat
+    second: {fileID: 2100000, guid: 0cf3cc4427ce2774c8039f53379e579e, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Beard_Diffuse
+    second: {fileID: 2800000, guid: e318f1a6e263bb729b27ff81caa06fae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Beard_Gloss
+    second: {fileID: 2800000, guid: db0767c7b5332828883fb016fe632fb3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Beard_Normal
+    second: {fileID: 2800000, guid: 4ba5ec4fd97b5476e8b98e9525b9703f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Beard_Opacity
+    second: {fileID: 2800000, guid: c746a957d0cc92f3d86120224d4c01de, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Beard_Specular
+    second: {fileID: 2800000, guid: e84ef0b4640073a33bdc1b8051e9ce36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Body_Diffuse
+    second: {fileID: 2800000, guid: 27d23f75af22445d4b1be1354f195045, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Body_Gloss
+    second: {fileID: 2800000, guid: bbeb35a99fc04fe628381c8cf512330b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Body_Normal
+    second: {fileID: 2800000, guid: 487f297bb46bfc973a7f6ddbf5006c49, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Body_Opacity
+    second: {fileID: 2800000, guid: 49be8c4b8ae61b0b2baf6dabfc1d6be1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Body_Specular
+    second: {fileID: 2800000, guid: 6cd01ddeafafe26d7ad842bd56704b37, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Bottom_Diffuse
+    second: {fileID: 2800000, guid: 8eb8e6615fa5637b186b6884b9f1adb9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Bottom_Gloss
+    second: {fileID: 2800000, guid: 3c6f989f5fafd6cf78b60218f7a9d4ac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Bottom_Normal
+    second: {fileID: 2800000, guid: b1254cc7425bdefed83871d62327f2bc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Bottom_Opacity
+    second: {fileID: 2800000, guid: 6c5b52593d673e719849936ce50d7367, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Bottom_Specular
+    second: {fileID: 2800000, guid: bd0d40ec6227d52c8bd2cc8cf91a1b00, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Moustache_Diffuse
+    second: {fileID: 2800000, guid: a5b2bd8e528be31c79ee43867d70405e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Moustache_Gloss
+    second: {fileID: 2800000, guid: 6d164b4d5f41f70ebba14ff2d2a9b0ae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Moustache_Normal
+    second: {fileID: 2800000, guid: b6ce6cd9a9b9605838868aa09c144ccb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Moustache_Opacity
+    second: {fileID: 2800000, guid: e874bc61684d0a7a18a530ee14487507, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Moustache_Specular
+    second: {fileID: 2800000, guid: 2fa4cec3d0da94d97bd3c696759c5d5a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Shoes_Diffuse
+    second: {fileID: 2800000, guid: 5ccb03bfb6741cb21a648432e6cacd82, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Shoes_Gloss
+    second: {fileID: 2800000, guid: 42be4765e940fa7748d37b6106c55cbd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Shoes_Normal
+    second: {fileID: 2800000, guid: 7f1a91a2edbdd9524bd9d6a8506fabb7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Shoes_Opacity
+    second: {fileID: 2800000, guid: c96fb4c90ed83c7519c33a1bebef50d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Shoes_Specular
+    second: {fileID: 2800000, guid: 494193ede3e2ed590a9c73d367035ff0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Top_Diffuse
+    second: {fileID: 2800000, guid: 8a81e79176a65bd78b0da4ef7493a985, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Top_Gloss
+    second: {fileID: 2800000, guid: 4a1d8c1b8a378f76fb6a99fca8ee0464, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Top_Normal
+    second: {fileID: 2800000, guid: 71252f1b2b2133515b6e99712be6ce65, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Top_Opacity
+    second: {fileID: 2800000, guid: 29ceda57716c688fcbd34f02e6e58551, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Agnaldo_Top_Specular
+    second: {fileID: 2800000, guid: b29eb8f03b023f1cca8ff60412573179, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

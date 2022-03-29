@@ -60,9 +60,7 @@
      <Compile Include="Assets\Scripts\Classes\Hand.cs" />
      <Compile Include="Assets\Scripts\CaptureSmell.cs" />
      <Compile Include="Assets\Scripts\OntSense\Thing.cs" />
-     <Compile Include="Assets\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Extensions\Tuple.cs" />
-     <Compile Include="Assets\RobotAgentManagement.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotSmell.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\AgentInteraction.cs" />
@@ -70,11 +68,9 @@
      <Compile Include="Assets\Scripts\ObjectsProperties\TouchProperties.cs" />
      <Compile Include="Assets\UIManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\CartesianPos.cs" />
-     <Compile Include="Assets\CheckDirection.cs" />
      <Compile Include="Assets\Scripts\Extensions\ToggleExtension.cs" />
      <Compile Include="Assets\Scripts\SmellManager.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\SmellProperties.cs" />
-     <Compile Include="Assets\HumanAgentsManagement.cs" />
      <Compile Include="Assets\Scripts\TasteManager.cs" />
      <Compile Include="Assets\Scripts\TouchManager.cs" />
      <Compile Include="Assets\Scripts\SocketCommands.cs" />
@@ -96,7 +92,6 @@
      <Compile Include="Assets\Scripts\SimulatorCommandsManager.cs" />
      <Compile Include="Assets\Scripts\HearingManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\SparqlEndPoint.cs" />
-     <Compile Include="Assets\Locomotion Setup\Scripts\LocomotionPlayer.cs" />
      <Compile Include="Assets\RLAgent.cs" />
      <Compile Include="Assets\ConfigBlendShapes.cs" />
      <Compile Include="Assets\Scripts\AvatarCommandsManager.cs" />
@@ -106,9 +101,7 @@
      <Compile Include="Assets\RobotInteraction.cs" />
      <Compile Include="Assets\Scripts\Extensions\RendererExtensions.cs" />
      <Compile Include="Assets\Scripts\EmotionStatus.cs" />
-     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
      <Compile Include="Assets\ImageSynthesis\Scripts\ColorEncoding.cs" />
-     <Compile Include="Assets\Locomotion Setup\Scripts\JoystickToEvents.cs" />
      <Compile Include="Assets\Scripts\Status.cs" />
      <Compile Include="Assets\Scripts\CaptureTaste.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotHear.cs" />
@@ -119,7 +112,6 @@
      <Compile Include="Assets\Scripts\LookHeadController.cs" />
      <Compile Include="Assets\Scripts\DoorManager.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\VisionProperties.cs" />
-     <Compile Include="Assets\Scripts\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\ObjectsProperties\TasteProperties.cs" />
      <Compile Include="Assets\Scripts\EventDetector.cs" />
      <Compile Include="Assets\SimpleMovementOperations.cs" />
@@ -134,7 +126,6 @@
      <Compile Include="Assets\Scripts\AgentHeadMovement.cs" />
      <Compile Include="Assets\Scripts\OntSense\Material.cs" />
      <Compile Include="Assets\SideDoor.cs" />
-     <Compile Include="Assets\Locomotion Setup\Locomotion\Scripts\Locomotion.cs" />
      <Compile Include="Assets\Scripts\Classes\Commands.cs" />
      <Compile Include="Assets\Scripts\IKControl.cs" />
      <Compile Include="Assets\Scripts\Classes\SmellPerception.cs" />
@@ -146,6 +137,15 @@
      <Compile Include="Assets\Scripts\ConfigureObjects.cs" />
      <Compile Include="Assets\Scripts\VisionManager.cs" />
      <Compile Include="Assets\Scripts\OntSense\RobotPerceptionEvent.cs" />
+     <Compile Include="Assets\Locomotion Setup\Scripts\LocomotionPlayer.cs" />
+     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
+     <Compile Include="Assets\Locomotion Setup\Scripts\JoystickToEvents.cs" />
+     <Compile Include="Assets\HumanAgentsManagement.cs" />
+     <Compile Include="Assets\CameraManager.cs" />
+     <Compile Include="Assets\CheckDirection.cs" />
+     <Compile Include="Assets\Scripts\ConfigureAvatarButton.cs" />
+     <Compile Include="Assets\RobotAgentManagement.cs" />
+     <Compile Include="Assets\Locomotion Setup\Locomotion\Scripts\Locomotion.cs" />
      <None Include="Assets\CmdBehaviors\enterWorkArea.txt" />
      <None Include="Assets\ImageSynthesis\LICENSE.txt" />
      <None Include="Assets\CmdBehaviors\livro.txt" />
@@ -807,9 +807,6 @@
  <Reference Include="UnityEngine.Monetization">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ProGrids">
- <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Recorder">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
  </Reference>
@@ -849,9 +846,6 @@
  <Reference Include="com.unity.multiplayer-weaver.Editor">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ProGrids.Editor">
- <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Purchasing.SecurityCore">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
  </Reference>
@@ -881,6 +875,12 @@
  </Reference>
  <Reference Include="Unity.SysrootPackage.Editor">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids">
+ <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids.Editor">
+ <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

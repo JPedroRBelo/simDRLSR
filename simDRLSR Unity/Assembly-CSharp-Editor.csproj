@@ -47,12 +47,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Editor\ReadmeEditor.cs" />
      <Compile Include="Assets\Editor\DebugMenu.cs" />
-     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\PackageChecker.cs" />
      <Compile Include="Assets\Editor\EditorBlendShapes.cs" />
      <Compile Include="Assets\Editor\ConfigureAvatarButton.cs" />
      <Compile Include="Assets\Scripts\Editor\SmellPropertiesEditor.cs" />
+     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Editor\ReadmeEditor.cs" />
+     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\PackageChecker.cs" />
      <None Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\PackageImportList.txt" />
  <Reference Include="UnityEngine">
  <HintPath>/mnt/Arquivos/Unity/2020.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -717,9 +717,6 @@
  <Reference Include="UnityEngine.Monetization">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ProGrids">
- <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Recorder">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
  </Reference>
@@ -759,9 +756,6 @@
  <Reference Include="com.unity.multiplayer-weaver.Editor">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ProGrids.Editor">
- <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Purchasing.SecurityCore">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
  </Reference>
@@ -791,6 +785,12 @@
  </Reference>
  <Reference Include="Unity.SysrootPackage.Editor">
  <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids">
+ <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids.Editor">
+ <HintPath>/mnt/Arquivos/simDRLSR/simDRLSR Unity/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

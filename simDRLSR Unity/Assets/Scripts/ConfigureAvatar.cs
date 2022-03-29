@@ -309,21 +309,23 @@ public class ConfigureAvatar : MonoBehaviour
     }
 
     public bool DestroyGameObject(Transform parent, GameObject child)
-    {
-
-        Transform tfchild = parent.Find(child.name);
-        //Transform tAnklePosition = transform.Find("AnklePosition");
-        if (tfchild != null)
-        {
-            bool flag = true;
-            while (flag)
+    {   
+        if((parent != null)&&(child != null)){
+            Transform tfchild = parent.Find(child.name);
+            //Transform tAnklePosition = transform.Find("AnklePosition");
+            if (tfchild != null)
             {
-                DestroyImmediate(tfchild.gameObject);
-                tfchild = parent.Find(child.name);
-                flag = (tfchild != null);
-            }         
+                bool flag = true;
+                while (flag)
+                {
+                    DestroyImmediate(tfchild.gameObject);
+                    tfchild = parent.Find(child.name);
+                    flag = (tfchild != null);
+                }         
 
-            return (true);
+                return (true);
+            }
+            return (false);
         }
         return (false);
 
