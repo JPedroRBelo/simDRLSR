@@ -10,8 +10,6 @@ using System.Linq;
 public enum EmotionModes
 {
     Random,
-
-
 }
 
 public class HumanAgentsManagement : MonoBehaviour
@@ -27,18 +25,31 @@ public class HumanAgentsManagement : MonoBehaviour
     private List<Transform> locations;
     void Start()
     {
-        
-    	StartCoroutine(LateStart(3));
+        enableOneRandomHuman();
+    	StartCoroutine(LateStart(1));
      }
  
      IEnumerator LateStart(float waitTime)
      {
         yield return new WaitForSeconds(waitTime);
         setRandomEmotion();
-
-         
+   
      }
 
+    private void enableOneRandomHuman(){
+        var rnd = new System.Random();
+        int r = rnd.Next(avatars.Count);
+        
+        for (int i = 0; i < avatars.Count; i++)
+        {
+            if(r!=i){
+                avatars[i].SetActive(false);
+            }else{
+                avatars[i].SetActive(true);
+            }
+        }
+
+    }
 
     private void setRandomEmotion(){
         int index = 0;
@@ -50,11 +61,13 @@ public class HumanAgentsManagement : MonoBehaviour
             var randomized = locations.OrderBy(item => rnd.Next());
             if(randomPosition){
                 foreach(GameObject human in avatars){
-                    EkmanEmotions randomEmotion =  chooseHumanEmotion(human,emotionMode);
-                    setHumanEmotion(human,randomEmotion);
-                    Vector3 new_position = randomized.ToList()[index++%randomized.Count()].position;
-                    float y_pos = human.transform.position.y+human.transform.position.y;
-                    human.transform.position = new Vector3(new_position.x,y_pos,new_position.z);
+                    if(human.active){
+                        EkmanEmotions randomEmotion =  chooseHumanEmotion(human,emotionMode);
+                        setHumanEmotion(human,randomEmotion);
+                        Vector3 new_position = randomized.ToList()[index++%randomized.Count()].position;
+                        float y_pos = human.transform.position.y+human.transform.position.y;
+                        human.transform.position = new Vector3(new_position.x,y_pos,new_position.z);
+                    }
                 }
             }
         }
