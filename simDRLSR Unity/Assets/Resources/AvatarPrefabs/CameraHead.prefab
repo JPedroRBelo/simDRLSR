@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 7124290442422036790}
   - component: {fileID: 4514969245218705433}
   - component: {fileID: 7446873001320743246}
-  - component: {fileID: 7411431903810614550}
   m_Layer: 0
   m_Name: CameraHead
   m_TagString: BodySensor
@@ -124,15 +123,3 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5437988626644994000}
   m_Enabled: 1
---- !u!114 &7411431903810614550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5437988626644994000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fdf49549c89cc343b2bcab02e734a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

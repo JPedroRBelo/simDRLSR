@@ -25,7 +25,7 @@ public class HumanAgentsManagement : MonoBehaviour
     private List<Transform> locations;
     void Start()
     {
-        enableOneRandomHuman();
+        enableDefaultHumanOnly();
     	StartCoroutine(LateStart(1));
      }
  
@@ -36,7 +36,19 @@ public class HumanAgentsManagement : MonoBehaviour
    
      }
 
-    private void enableOneRandomHuman(){
+    public void enableDefaultHumanOnly(){
+        int r = 0;
+        for (int i = 0; i < avatars.Count; i++)
+        {
+            if(r!=i){
+                avatars[i].SetActive(false);
+            }else{
+                avatars[i].SetActive(true);
+            }
+        }
+    }
+
+    public void enableOneRandomHuman(){
         var rnd = new System.Random();
         int r = rnd.Next(avatars.Count);
         

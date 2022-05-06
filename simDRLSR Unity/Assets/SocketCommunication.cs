@@ -269,9 +269,22 @@ public class SocketCommunication : MonoBehaviour
                                 sendDataClient("0");
                             }catch{
                                 sendDataClient("1");
-                                print("Data error: emotion type");   
-                            }                                                       
+                                print("Data error: robot position");   
+                            }
+                        }else if(data.ToString().Contains("human_appearance")){
                             
+                            string data_string = data.Replace("human_appearance","");
+                            try{
+                                if(data_string.ToLower()=="random"){
+                                    humanAgentsManagement.enableOneRandomHuman();                                    
+                                }else{
+                                    humanAgentsManagement.enableDefaultHumanOnly();
+                                }
+                                sendDataClient("0");
+                            }catch{
+                                sendDataClient("1");
+                                print("Data error: human appearance");   
+                            }                           
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");
                             restartSimulation("Library");

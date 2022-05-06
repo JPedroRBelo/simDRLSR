@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5537251954742001220}
   - component: {fileID: 5537251954742001221}
   - component: {fileID: 5537251954742001218}
-  - component: {fileID: 5537251954742001219}
   m_Layer: 0
   m_Name: AgentThirdPersonCamera
   m_TagString: Untagged
@@ -93,15 +92,3 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5537251954742001217}
   m_Enabled: 0
---- !u!114 &5537251954742001219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5537251954742001217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fdf49549c89cc343b2bcab02e734a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
