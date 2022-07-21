@@ -70,18 +70,19 @@ public class HumanAgentsManagement : MonoBehaviour
             foreach (Transform child in initialLocations.transform)
                locations.Add(child);
             var rnd = new System.Random();
-            var randomized = locations.OrderBy(item => rnd.Next());
-            if(randomPosition){
-                foreach(GameObject human in avatars){
-                    if(human.active){
-                        EkmanEmotions randomEmotion =  chooseHumanEmotion(human,emotionMode);
-                        setHumanEmotion(human,randomEmotion);
+            var randomized = locations.OrderBy(item => rnd.Next());            
+            foreach(GameObject human in avatars){
+                if(human.active){
+                    EkmanEmotions randomEmotion =  chooseHumanEmotion(human,emotionMode);
+                    setHumanEmotion(human,randomEmotion);
+                    if(randomPosition){
                         Vector3 new_position = randomized.ToList()[index++%randomized.Count()].position;
                         float y_pos = human.transform.position.y+human.transform.position.y;
                         human.transform.position = new Vector3(new_position.x,y_pos,new_position.z);
                     }
                 }
             }
+            
         }
     }
 
