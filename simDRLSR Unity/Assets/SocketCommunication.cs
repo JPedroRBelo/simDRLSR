@@ -43,6 +43,7 @@ public class SocketCommunication : MonoBehaviour
     private int stepAt;
     private bool waitingImages = false;
     private GameObject simManager;
+    public string scene= "LibraryV2";
 
     private bool waitingImageSize;
     private bool waitingImageFile;
@@ -156,7 +157,7 @@ public class SocketCommunication : MonoBehaviour
                             pauseSimulation();
                         }else if(data.ToString().Equals("restart")){
                             sendDataClient("0");
-                            restartSimulation("Library");
+                            restartSimulation(scene);
                         }else if(data.ToString().Equals("play")){
                             sendDataClient("0");
                             playSimuation();
@@ -287,7 +288,7 @@ public class SocketCommunication : MonoBehaviour
                             }                           
                         }else if(data.ToString().Equals("start")){
                             sendDataClient("0");
-                            restartSimulation("Library");
+                            restartSimulation(scene);
                         }else if(data.ToString().Contains("use_depth")){
                             
                             string data_string = data.Replace("use_depth","");
@@ -321,7 +322,7 @@ public class SocketCommunication : MonoBehaviour
                         }else if(data.ToString().Equals("reset")){
                             sendDataClient("0");
 
-                            restartSimulation("Library");
+                            restartSimulation(scene);
                         }else if(data.ToString().Equals("next_size")){
 
                             waitingImageSize = true;

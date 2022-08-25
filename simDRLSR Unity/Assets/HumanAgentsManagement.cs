@@ -70,8 +70,10 @@ public class HumanAgentsManagement : MonoBehaviour
             foreach (Transform child in initialLocations.transform)
                locations.Add(child);
             var rnd = new System.Random();
-            var randomized = locations.OrderBy(item => rnd.Next());            
+            var randomized = locations.OrderBy(item => rnd.Next());   
+                     
             foreach(GameObject human in avatars){
+                
                 if(human.active){
                     EkmanEmotions randomEmotion =  chooseHumanEmotion(human,emotionMode);
                     setHumanEmotion(human,randomEmotion);
