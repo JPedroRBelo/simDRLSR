@@ -147,6 +147,7 @@
      <None Include="Assets/CmdBehaviors/moveToCounter1.txt" />
      <None Include="Assets/CmdBehaviors/move.txt" />
      <None Include="Assets/ImageSynthesis/Shaders/OpticalFlow.shader" />
+     <None Include="Assets/CmdBehaviors/bernadetteLib3.txt" />
      <None Include="Assets/CmdBehaviors/onelocation.txt" />
      <None Include="Assets/ImageSynthesis/Shaders/UberReplacement.shader" />
      <None Include="Assets/CmdBehaviors/exitWorkArea.txt" />
